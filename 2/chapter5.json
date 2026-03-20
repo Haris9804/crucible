@@ -1,0 +1,95 @@
+{
+  "chapter_title": "Hacking Hygiene & Ethical Awareness",
+  "cards": [
+    {
+      "title": "Legal Boundaries",
+      "description_short": "Always hack with permission.",
+      "description_long": "Ethical hackers must always stay within legal boundaries. Performing any hacking activity without consent is illegal and can have serious consequences. Beginners should understand the importance of always obtaining written permission before scanning, testing, or exploiting systems. Legal awareness ensures ethical practice and protects both the hacker and the organization. Ethical hacking involves learning techniques in controlled environments like labs or capture-the-flag challenges, never on unauthorized systems.",
+      "main_points": [
+        "Always get permission",
+        "Controlled environments only",
+        "No illegal hacking",
+        "Follow laws",
+        "Written consent",
+        "Protect others",
+        "Ethical practice",
+        "Legal consequences",
+        "Lab exercises",
+        "CTF platforms"
+      ],
+      "example": "Scenario: Student wants to test a website.\nStep 1: Requests instructor's permission.\nStep 2: Only tests the lab server.\nStep 3: Reports findings.\nAnswer: Ethical practice, legal boundaries respected."
+    },
+    {
+      "title": "Do No Harm",
+      "description_short": "Avoid causing damage while testing.",
+      "description_long": "Ethical hackers must ensure their actions do not damage systems, data, or users. This means testing vulnerabilities safely without deleting files, crashing systems, or leaking sensitive information. Beginners learn to use simulations, virtual machines, or sandbox environments to practice safely. The principle of 'do no harm' distinguishes ethical hackers from malicious hackers and is central to all hacking exercises.",
+      "main_points": [
+        "Avoid system damage",
+        "No data loss",
+        "No service disruption",
+        "Use virtual labs",
+        "Use sandboxes",
+        "Safe testing",
+        "Controlled experiments",
+        "Responsible actions",
+        "No exploitation",
+        "Follow ethical rules"
+      ],
+      "example": "Scenario: Student tests a vulnerable VM.\nStep 1: Runs exploit in VM.\nStep 2: Monitors results safely.\nStep 3: VM restored if needed.\nAnswer: No real system harmed."
+    },
+    {
+      "title": "Confidentiality",
+      "description_short": "Keep findings private.",
+      "description_long": "When discovering vulnerabilities or sensitive information, ethical hackers must maintain confidentiality. Sharing sensitive data publicly or with unauthorized parties is unethical and illegal. Beginners learn to document findings securely and report only to the authorized owner. Confidentiality builds trust and ensures that vulnerabilities are fixed before being exposed to malicious hackers.",
+      "main_points": [
+        "Keep info private",
+        "Report to authorized owner",
+        "No public disclosure",
+        "Trust building",
+        "Secure documentation",
+        "Responsible reporting",
+        "Avoid leaks",
+        "Protect users",
+        "Confidential testing",
+        "Ethical behavior"
+      ],
+      "example": "Scenario: Student finds a password vulnerability.\nStep 1: Documents it privately.\nStep 2: Reports to instructor.\nStep 3: Does not share online.\nAnswer: Confidentiality maintained."
+    },
+    {
+      "title": "Responsible Disclosure",
+      "description_short": "Report vulnerabilities properly.",
+      "description_long": "Responsible disclosure is the practice of reporting security issues to system owners in a safe and controlled manner. Ethical hackers should never exploit the vulnerability for personal gain or public attention. Beginners learn how to write detailed reports, include steps to reproduce, and suggest mitigation. This approach protects organizations and ensures hackers maintain professional integrity.",
+      "main_points": [
+        "Report to owner",
+        "Do not exploit",
+        "Provide details",
+        "Include reproduction steps",
+        "Suggest fixes",
+        "Protect organization",
+        "Maintain integrity",
+        "No public leaks",
+        "Professional conduct",
+        "Ethical responsibility"
+      ],
+      "example": "Scenario: Student finds SQL injection on test site.\nStep 1: Writes report with steps.\nStep 2: Sends report to lab admin.\nStep 3: Admin fixes issue.\nAnswer: Vulnerability fixed responsibly."
+    },
+    {
+      "title": "Mindset of an Ethical Hacker",
+      "description_short": "Think like a hacker, act ethically.",
+      "description_long": "Ethical hackers must develop the mindset of a hacker to anticipate attacks, identify weaknesses, and test systems effectively. However, they must always act ethically, balancing curiosity with responsibility. Beginners should practice safe experimentation in labs, understand attack strategies, and consider the impact of their actions. Developing this mindset helps in defending systems while adhering to legal and moral standards.",
+      "main_points": [
+        "Think like attacker",
+        "Identify weaknesses",
+        "Test responsibly",
+        "Curiosity + ethics",
+        "Use labs",
+        "Analyze impact",
+        "Predict attacks",
+        "Learn from simulations",
+        "Balance exploration",
+        "Maintain integrity"
+      ],
+      "example": "Scenario: Student analyzes lab network.\nStep 1: Identifies open ports.\nStep 2: Thinks how an attacker could misuse them.\nStep 3: Suggests mitigation to instructor.\nAnswer: Hacker mindset applied ethically."
+    }
+  ]
+}

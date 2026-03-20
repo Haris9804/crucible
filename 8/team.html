@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTF Team Portal</title>
+    <link rel="stylesheet" href="team.css">
+</head>
+<body>
+<header>
+    <div class="company-name">CTF Team Portal</div>
+    <button id="logout-btn" onclick="logout()">Logout</button>
+</header>
+
+<main>
+    <!-- Team Info Section -->
+    <section id="team-info-section">
+        <h2>Team Info</h2>
+        <div id="team-info"></div>
+    </section>
+
+    <!-- Playground Section -->
+    <section id="playground-section">
+        <h2>Playground</h2>
+        <div id="ctf-container" class="ctf-grid"></div>
+    </section>
+
+    <!-- Submit Button -->
+    <button id="submit-btn" onclick="openSubmitModal()">Submit All Responses</button>
+</main>
+
+<!-- Submit Confirmation Modal -->
+<div id="submit-modal" class="modal">
+    <div class="modal-content">
+        <p>This action cannot be undone!</p>
+        <div class="modal-buttons">
+            <button id="confirm-submit-btn" onclick="confirmSubmit()">Confirm</button>
+            <button id="close-submit-btn" onclick="closeSubmitModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Notification -->
+<div id="notification"></div>
+
+<footer>
+    &copy; 2026 CTF Portal. All rights reserved.
+</footer>
+
+<script src="team.js"></script>
+</body>
+</html>

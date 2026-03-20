@@ -1,0 +1,62 @@
+[
+  {
+    "question": "1. What is the main goal of cybersecurity?",
+    "options": [
+      "To create more websites",
+      "To protect systems, networks, and data from attacks",
+      "To increase internet speed",
+      "To design graphics"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "2. What does the “C” in the CIA Triad stand for?",
+    "options": [
+      "Control",
+      "Confidentiality",
+      "Communication",
+      "Cybersecurity"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "3. Which of these is an example of strong authentication practice?",
+    "options": [
+      "Using “12345” as a password",
+      "Sharing passwords with friends",
+      "Using complex passwords and 2FA",
+      "Using the same password on every site"
+    ],
+    "correct_option": 2
+  },
+  {
+    "question": "4. What is the purpose of a firewall?",
+    "options": [
+      "To make your computer run faster",
+      "To block unauthorized network access",
+      "To scan for viruses",
+      "To encrypt emails"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "5. Which of the following is an example of social engineering?",
+    "options": [
+      "Updating your software",
+      "Phishing emails pretending to be your bank",
+      "Using antivirus software",
+      "Backing up data to the cloud"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "6. What does encryption do?",
+    "options": [
+      "Deletes old files automatically",
+      "Converts information into unreadable code to protect it",
+      "Scans networks for viruses",
+      "Makes your computer faster"
+    ],
+    "correct_option": 1
+  }
+]

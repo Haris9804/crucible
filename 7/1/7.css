@@ -1,0 +1,291 @@
+body {
+    background: #0f0f1f;
+    color: #00ffff;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+}
+
+header {
+    background: linear-gradient(90deg, #0f0f1f, #1a1a2e);
+    padding: 1rem;
+    text-align: center;
+}
+
+.company-name {
+    color: #ff00ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+/* CARD */
+.vuln-card {
+    background: #1a1a2e;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ffff33;
+    transition: 0.3s ease;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.card-header h3 {
+    color: #ff00ff;
+    margin: 0;
+}
+
+.status-badge {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: red; /* default Incomplete */
+}
+
+.expand-btn {
+    background: #00ffff;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    width: fit-content;
+}
+
+.card-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+    margin-top: 1rem;
+}
+
+.vuln-card.active .card-content {
+    max-height: 2000px; 
+}
+
+/* INNER */
+.warning {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.test-link {
+    background: black;
+    padding: 0.6rem;
+    color: #00ff00;
+    font-weight: bold;
+    border-radius: 4px;
+    word-break: break-all;
+}
+
+.step {
+    margin: 0.6rem 0;
+    padding: 0.6rem;
+    background: #111;
+    border-left: 3px solid #00ffff;
+    border-radius: 4px;
+}
+
+.inline-code {
+    background: #000;
+    padding: 2px 6px;
+    color: #00ff00;
+}
+
+.terminal {
+    background: #000;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.payload {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    background: #111;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.payload code {
+    color: #00ff00;
+    word-break: break-word;
+}
+
+.payload button {
+    background: #00ffff;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* CARD BUTTONS */
+.card-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* ===== Close Button ===== */
+.close-btn {
+    background-color: #ff4444; /* normal red */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #cc0000; /* darker red on hover */
+    transform: scale(1.05);
+}
+
+.close-btn:active {
+    background-color: #990000; /* darkest red on click */
+    transform: scale(0.98);
+}
+
+/* ===== Learnt / Reset Button ===== */
+.learnt-btn {
+    background-color: #00ff00; /* normal green */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.learnt-btn:hover {
+    background-color: #00cc44; /* darker green on hover */
+    transform: scale(1.05);
+}
+
+.learnt-btn:active {
+    background-color: #009933; /* darkest green on click */
+    transform: scale(0.98);
+}
+
+/* ===== Contact Button ===== */
+.contact-btn {
+    background-color: #000000; /* normal black */
+    color: #00ff00; /* bright text */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #222222; /* slightly lighter black on hover */
+    transform: scale(1.05);
+}
+
+.contact-btn:active {
+    background-color: #444444; /* even lighter black on click */
+    transform: scale(0.98);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #00ffff;
+    margin-top: 2rem;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .payload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .payload button {
+        margin-top: 0.5rem;
+    }
+
+    .card-buttons {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+/* BACK BUTTON */
+.back-button-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.back-button {
+    background-color: #ff00ff;
+    color: #0f0f1f;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.back-button:hover {
+    background-color: #ff66ff;
+    transform: scale(1.05);
+}
+
+/* Hypervisor option buttons */
+.hypervisor-btn{
+    padding:8px 16px;
+    margin:6px;
+    border:none;
+    border-radius:5px;
+    background:#2b2b2b;
+    color:#fff;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.2s;
+}
+
+.hypervisor-btn:hover{
+    background:#4caf50;
+}
+
+/* Phase Warning Popup */
+.phase-warning{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #1a1a2e;
+    color: #ff4444;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 1px solid #ff4444;
+    font-weight: bold;
+    text-align: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.phase-warning.show{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}

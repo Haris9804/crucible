@@ -1,0 +1,102 @@
+[
+  {
+    "question": "1. What is the primary purpose of Nmap?",
+    "options": [
+      "Password cracking",
+      "Network scanning and service discovery",
+      "Browser exploitation",
+      "Privilege escalation"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "2. Netdiscover is mainly used to:",
+    "options": [
+      "Find hidden directories on a web server",
+      "Discover live hosts on a local network",
+      "Execute remote code",
+      "Enumerate system privileges"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "3. Directory Buster tools like Gobuster are used for:",
+    "options": [
+      "Brute-forcing directories and files on web servers",
+      "Cracking hashed passwords",
+      "Scanning network ports",
+      "Manipulating XML parsers"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "4. Hydra is a tool for:",
+    "options": [
+      "Exploiting misconfigurations",
+      "Password/credential attacks across multiple protocols",
+      "Running AI-assisted analysis",
+      "Enumerating privilege escalation paths"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "5. John the Ripper primarily works on:",
+    "options": [
+      "Live network scanning",
+      "Password hashes offline",
+      "Exploiting browser vulnerabilities",
+      "Modifying file permissions"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "6. Metasploit is a framework for:",
+    "options": [
+      "Network reconnaissance only",
+      "Developing and executing exploit code against targets",
+      "Automating password cracking",
+      "Session hijacking attacks"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "7. BEeF focuses on:",
+    "options": [
+      "Server-side privilege escalation",
+      "Browser-based client-side attacks",
+      "Cracking password hashes",
+      "Network port scanning"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "8. Misconfiguration abuse in post-exploitation can lead to:",
+    "options": [
+      "Brute-force attacks",
+      "Privilege escalation and sensitive file access",
+      "Cross-site scripting",
+      "CSRF attacks"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "9. LinPeas / WinPeas scripts are used to:",
+    "options": [
+      "Scan network ports",
+      "Enumerate systems for privilege escalation paths",
+      "Exploit SQL injections",
+      "Perform password spraying"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "10. AI in cybersecurity (like ChatGPT) is mainly used for:",
+    "options": [
+      "Cracking passwords directly",
+      "Threat analysis, attack simulation, and security learning",
+      "Executing remote code",
+      "Scanning network ports"
+    ],
+    "correct_option": 1
+  }
+]

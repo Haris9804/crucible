@@ -1,0 +1,81 @@
+{
+  "chapter_title": "Enumeration Tools",
+  "cards": [
+    {
+      "title": "SNMPwalk",
+      "description_short": "Query SNMP devices for system information",
+      "description_long": "SNMPwalk is used to query devices running the Simple Network Management Protocol (SNMP). It retrieves information such as system details, running services, network interfaces, and device configurations.",
+      "main_commands": [
+        {"command":"snmpwalk -v2c -c public target.com", "explanation":"Query SNMP device using community string 'public'"},
+        {"command":"snmpwalk -v1 -c public target.com", "explanation":"Use SNMP version 1 to retrieve information"},
+        {"command":"snmpwalk -v2c -c public target.com system", "explanation":"Retrieve system information"},
+        {"command":"snmpwalk -v2c -c public target.com interfaces", "explanation":"Enumerate network interfaces"},
+        {"command":"snmpwalk -v2c -c public target.com hrSystem", "explanation":"Retrieve host resource information"}
+      ],
+      "activity": [
+        "Query a device using SNMPwalk",
+        "Identify system information via SNMP",
+        "Enumerate network interfaces",
+        "Observe exposed device configuration data",
+        "Understand risks of default SNMP community strings"
+      ]
+    },
+    {
+      "title": "Gobuster",
+      "description_short": "Directory, DNS, and virtual host brute forcing tool",
+      "description_long": "Gobuster is used to discover hidden directories, files, DNS subdomains, and virtual hosts by brute forcing using wordlists. It is commonly used during web application enumeration.",
+      "main_commands": [
+        {"command":"gobuster dir -u http://target.com -w wordlist.txt", "explanation":"Brute force directories on a website"},
+        {"command":"gobuster dns -d target.com -w subdomains.txt", "explanation":"Discover subdomains using a wordlist"},
+        {"command":"gobuster vhost -u http://target.com -w vhosts.txt", "explanation":"Discover virtual hosts"},
+        {"command":"gobuster dir -u http://target.com -w wordlist.txt -x php,html,txt", "explanation":"Search for specific file extensions"},
+        {"command":"gobuster dir -u http://target.com -w wordlist.txt -t 50", "explanation":"Run scan with multiple threads"}
+      ],
+      "activity": [
+        "Discover hidden directories on a web server",
+        "Enumerate subdomains using DNS mode",
+        "Find files with specific extensions",
+        "Test different wordlists for enumeration",
+        "Analyze discovered paths for potential vulnerabilities"
+      ]
+    },
+    {
+      "title": "Dirb",
+      "description_short": "Web content scanner for hidden directories",
+      "description_long": "Dirb is a web content scanner that uses wordlists to find hidden directories and files on web servers. It helps identify unlinked pages and resources that may expose sensitive data.",
+      "main_commands": [
+        {"command":"dirb http://target.com", "explanation":"Scan website using default wordlist"},
+        {"command":"dirb http://target.com wordlist.txt", "explanation":"Use a custom wordlist"},
+        {"command":"dirb http://target.com -o results.txt", "explanation":"Save scan results to a file"},
+        {"command":"dirb http://target.com -X .php,.html,.txt", "explanation":"Search for specific file extensions"},
+        {"command":"dirb http://target.com -r", "explanation":"Disable recursive scanning"}
+      ],
+      "activity": [
+        "Scan a website for hidden directories",
+        "Use custom wordlists for enumeration",
+        "Identify accessible files and folders",
+        "Export results for analysis",
+        "Investigate discovered endpoints"
+      ]
+    },
+    {
+      "title": "Nikto",
+      "description_short": "Web server vulnerability scanner",
+      "description_long": "Nikto scans web servers for vulnerabilities such as outdated software, insecure files, misconfigurations, and dangerous scripts. It helps identify weaknesses in web server setups.",
+      "main_commands": [
+        {"command":"nikto -h http://target.com", "explanation":"Scan a web server for vulnerabilities"},
+        {"command":"nikto -h http://target.com -p 8080", "explanation":"Scan a specific port"},
+        {"command":"nikto -h http://target.com -o results.txt", "explanation":"Save scan results to a file"},
+        {"command":"nikto -h http://target.com -Tuning 2", "explanation":"Run specific vulnerability tests"},
+        {"command":"nikto -h http://target.com -ssl", "explanation":"Scan HTTPS web server"}
+      ],
+      "activity": [
+        "Scan a web server for vulnerabilities",
+        "Identify outdated or insecure server components",
+        "Analyze dangerous scripts or files found",
+        "Export scan results for reporting",
+        "Compare findings with manual enumeration results"
+      ]
+    }
+  ]
+}

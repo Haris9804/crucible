@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo 1 - 3Q Cybersecurity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="7.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1 class="company-name">3Q Cybersecurity</h1>
+        <p class="dynamic-quote">Hack the planet, ethically.</p>
+    </div>
+</header>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<section class="hero">
+    <h2>
+        Installation setup for windows user
+        <span id="progress-tracker" style="font-size:0.8rem; color:#00ff00; margin-left:1rem;">
+            Sections completed: 0 / 0
+        </span>
+    </h2>
+
+    <div id="phase-warning" class="phase-warning"></div>
+</section>
+
+<main>
+
+    <!-- ================= PHASE 1 CARD ================= -->
+    <section class="vuln-card" data-id="sqli">
+
+        <div class="card-header">
+            <h3>Phase 1- Checking for system virtualization</h3>
+            <div class="status-badge">Incomplete</div>
+            <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+        </div>
+
+        <div class="card-content">
+
+            <p class="warning">⚠ Checking for system Virtulization is Important</p>
+
+            <p><strong>System Pre-requsts</strong></p>
+            <p class="test-link">Windows 10/11</p>
+            <p class="test-link">4 Gb RAM</p>
+
+            <h4><u>Step 1: Open Task Manager</u></h4>
+            <div class="step">Press Ctrl+Shift+Esc (Task Manager)</div>
+            <div class="step">Click on Performance</div>
+            <div class="step">Click on CPU section</div>
+
+            <h4><u>Step 2: Check system Virtulization</u></h4>
+            <div class="step">Scroll to the bottom of the Task Manager</div>
+            <div class="step">Check for: "Virtualization: Enabled"</div>
+            <div class="step">If enabled, the Phase is completed</div>
+            <div class="step">Skip Step 3 and goto next Phase</div>
+
+            <h4><u>Step 3: If not enabled</u></h4>
+            <div class="step">Boot laptop in BIOS settings</div>
+            <div class="step">Go to Configuration</div>
+            <div class="step">Turn on Virtualization by "Enabling" it</div>
+            <div class="step">Reboot the system</div>
+
+            <h4>Youtube Reference</h4>
+            <div class="terminal">
+                <div class="payload">
+                    <code>https://www.youtube.com/shorts/56rVqkO4uuE</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+                <div class="payload">
+                    <code>https://www.youtube.com/watch?v=LQIyowZMiY8</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+            </div>
+            <div class="card-buttons">
+                <button class="close-btn" onclick="toggleCard(this)">Close</button>
+                <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+                <button class="contact-btn" onclick="contactAdmin(this)">Contact Admin</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= PHASE 2 CARD ================= -->
+<section class="vuln-card" data-id="hypervisor">
+
+    <div class="card-header">
+        <h3>Phase 2- Installing VMware or VirtualBox (Hypervisor Software)</h3>
+        <div class="status-badge">Incomplete</div>
+        <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+    </div>
+
+    <div class="card-content">
+
+        <p class="warning">⚠ Installing a Hypervisor is required to run virtual machines</p>
+
+        <p><strong>Select Hypervisor Software</strong></p>
+
+        <div class="card-buttons">
+            <button class="hypervisor-btn" onclick="showHypervisor('vmware')">VMware</button>
+            <button class="hypervisor-btn" onclick="showHypervisor('vbox')">VirtualBox</button>
+        </div>
+
+        <!-- ================= VMware ================= -->
+        <div id="vmware" class="hypervisor-steps" style="display:none;">
+
+            <h4><u>VMware Workstation Pro Installation Guide (Recommended)</u></h4>
+
+            <h4>Step 1: Create Broadcom Account</h4>
+            <div class="step">Go to Broadcom registration page</div>
+            <div class="step">Create a new account</div>
+            <div class="step">Login to Broadcom portal</div>
+
+            <h4>Step 2: Download VMware Workstation Pro</h4>
+            <div class="step">Search for "VMware Workstation Pro"</div>
+            <div class="step">Click on the search result</div>
+            <div class="step">Select Windows version 17.0</div>
+            <div class="step">Select version 17.5.x or 17.6</div>
+            <div class="step">Click on "Terms of Use"</div>
+            <div class="step">Check the agreement box</div>
+            <div class="step">Click Download</div>
+            <div class="step">Provide additional details if requested</div>
+
+            <h4>Step 3: Install VMware</h4>
+            <div class="step">Double click the downloaded installer</div>
+            <div class="step">Click Next</div>
+            <div class="step">Check "I Agree to the license agreement"</div>
+            <div class="step">Click Next on all steps</div>
+            <div class="step">Click Install</div>
+            <div class="step">Wait for installation to complete</div>
+            <div class="step">VMware will now be ready to use</div>
+
+        </div>
+
+        <!-- ================= VirtualBox ================= -->
+        <div id="vbox" class="hypervisor-steps" style="display:none;">
+
+            <h4><u>VirtualBox Installation Guide</u></h4>
+
+            <h4>Step 1: Download VirtualBox</h4>
+            <div class="step">Go to the VirtualBox download page</div>
+            <div class="step">Click on "Windows Host"</div>
+            <div class="step">Download the installer</div>
+
+            <h4>Step 2: Download Extension Pack</h4>
+            <div class="step">On the same page locate VirtualBox Extension Pack</div>
+            <div class="step">Click "Accept and Download"</div>
+
+            <h4>Step 3: Install VirtualBox</h4>
+            <div class="step">Open the downloaded .exe file</div>
+            <div class="step">Click Install</div>
+            <div class="step">Wait until installation completes</div>
+            <div class="step">Click Finish</div>
+            <div class="step">Open VirtualBox</div>
+            <div class="step">If prompted select "Basic Mode"</div>
+
+            <h4>Step 4: Install Extension Pack</h4>
+            <div class="step">Open Downloads folder</div>
+            <div class="step">Double click the Extension Pack file</div>
+            <div class="step">Click Install</div>
+            <div class="step">Scroll to bottom of license</div>
+            <div class="step">Click "I Agree"</div>
+            <div class="step">Wait until installation finishes</div>
+
+        </div>
+
+        <h4>Download Links</h4>
+        <div class="terminal">
+            <div class="payload">
+                <code>https://profile.broadcom.com/web/registration</code>
+                <button onclick="copySingle(this)">Copy</button>
+            </div>
+            <div class="payload">
+                <code>https://access.broadcom.com/default/ui/v1/signin/</code>
+                <button onclick="copySingle(this)">Copy</button>
+            </div>
+            <div class="payload">
+                <code>https://www.virtualbox.org/wiki/Downloads</code>
+                <button onclick="copySingle(this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="card-buttons">
+            <button class="close-btn" onclick="toggleCard(this)">Close</button>
+            <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            <button class="contact-btn" onclick="contactAdmin(this)">Contact Admin</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= PHASE 3 CARD ================= -->
+<section class="vuln-card" data-id="kali-download">
+
+    <div class="card-header">
+        <h3>Phase 3 - Downloading Kali Linux</h3>
+        <div class="status-badge">Incomplete</div>
+        <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+    </div>
+
+    <div class="card-content">
+
+        <p class="warning">⚠ Downloading the Kali Linux ISO is required before setting it up in your hypervisor</p>
+
+        <h4>Step 1: Visit Official Kali Linux Downloads Page</h4>
+        <div class="step">Go to: https://www.kali.org/get-kali/</div>
+
+        <h4>Step 2: Download Installer</h4>
+        <div class="step">Choose the installer for your system</div>
+        <div class="step">The ISO file is around 4.4 GB — download time may vary depending on your internet speed</div>
+
+        <h4>Step 3: Locate the ISO</h4>
+        <div class="step">After download completes, you will find a .ISO file in your Downloads folder</div>
+        <div class="step">This ISO will be required in the next phase to set up Kali Linux in your hypervisor</div>
+
+        <div class="card-buttons">
+            <button class="close-btn" onclick="toggleCard(this)">Close</button>
+            <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            <button class="contact-btn" onclick="contactAdmin(this)">Contact Admin</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= PHASE 4 CARD ================= -->
+<section class="vuln-card" data-id="kali-vm-setup">
+
+    <div class="card-header">
+        <h3>Phase 4 - Setting Up Kali Linux on Hypervisor</h3>
+        <div class="status-badge">Incomplete</div>
+        <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+    </div>
+
+    <div class="card-content">
+
+        <p class="warning">⚠ This phase covers adding Kali Linux to VMware Workstation Pro or VirtualBox</p>
+
+        <p><strong>Select Hypervisor</strong></p>
+        <div class="card-buttons">
+            <button class="hypervisor-btn" onclick="showPhase4Hypervisor('vmware-kali')">VMware</button>
+            <button class="hypervisor-btn" onclick="showPhase4Hypervisor('vbox-kali')">VirtualBox</button>
+        </div>
+
+        <!-- ================= VMware Kali ================= -->
+        <div id="vmware-kali" class="hypervisor-steps" style="display:none;">
+
+            <h4><u>Add Kali on VMware Workstation Pro</u></h4>
+
+            <h4>Step 1: Open VMware</h4>
+            <div class="step">Launch VMware Workstation Pro</div>
+
+            <h4>Step 2: Create a New Virtual Machine</h4>
+            <div class="step">Click on "Create a new virtual machine"</div>
+            <div class="step">Select "Typical" and click Next</div>
+            <div class="step">Select "Installer disc image file (iso)" option</div>
+            <div class="step">Browse to the folder containing the downloaded Kali Linux .iso file</div>
+            <div class="step">Click Next after selecting the ISO</div>
+
+            <h4>Step 3: Configure Guest OS</h4>
+            <div class="step">Select Linux as Guest operating system</div>
+            <div class="step">In Version, select "Debian 12.x 64-bit"</div>
+            <div class="step">Click Next</div>
+
+            <h4>Step 4: Name and Location</h4>
+            <div class="step">Provide Virtual Machine name: KALI</div>
+            <div class="step">Leave location as default and click Next</div>
+
+            <h4>Step 5: Configure Disk</h4>
+            <div class="step">Provide disc size (20-25GB minimum recommended)</div>
+            <div class="step">Select only "Split virtual disc into multiple files" and click Next</div>
+
+            <h4>Step 6: Customize Hardware</h4>
+            <div class="step">Click on "Customize Hardware" button</div>
+            <div class="step">Memory: 2-4GB (Minimum 2GB)</div>
+            <div class="step">Processors: 1 Processor + 3 cores</div>
+            <div class="step">Network: Select "Bridged adapter" and check "Replicate physical network connection state"</div>
+            <div class="step">Leave rest as default and click Finish</div>
+
+            <div class="step">Kali Linux is now added in VMware</div>
+
+        </div>
+
+        <!-- ================= VirtualBox Kali ================= -->
+        <div id="vbox-kali" class="hypervisor-steps" style="display:none;">
+
+            <h4><u>Add Kali on VirtualBox</u></h4>
+
+            <h4>Step 1: Create New Virtual Machine</h4>
+            <div class="step">Click on "New" button/icon</div>
+            <div class="step">Enter Name: Kali Linux (or any name)</div>
+            <div class="step">Folder: default location</div>
+            <div class="step">ISO image: select downloaded Kali .iso</div>
+            <div class="step">Type: Linux, Subtype: Debian, Version: Debian (64-bit)</div>
+
+            <h4>Step 2: Configure Hardware</h4>
+            <div class="step">Base Memory: recommended half of total RAM (minimum 2048-4096MB)</div>
+            <div class="step">Processors: 2 or 4</div>
+
+            <h4>Step 3: Configure Hard Disk</h4>
+            <div class="step">Select "Create a Virtual Hard Disk Now"</div>
+            <div class="step">Hard Disk Location: default</div>
+            <div class="step">Allocate size: 20-40GB</div>
+            <div class="step">Click Finish</div>
+
+            <h4>Step 4: Extra Settings</h4>
+            <div class="step">Click on Kali Linux machine → Settings</div>
+            <div class="step">General → Advanced: Set "Shared Clipboard" and "Drag n Drop" to Bidirectional</div>
+            <div class="step">System → Acceleration: Ensure Hardware Virtualization is enabled</div>
+            <div class="step">Display → Screen: Max Video memory, Graphics Controller set to VMSVGA</div>
+            <div class="step">Storage → Controller IDE → Select Empty → Click disc icon → Choose a disc file → Select Kali .iso</div>
+            <div class="step">Network → Enable Network Adapter → Attached to: Bridged Adapter</div>
+
+            <div class="step">Kali Linux is now added in VirtualBox</div>
+
+        </div>
+
+        <div class="card-buttons">
+            <button class="close-btn" onclick="toggleCard(this)">Close</button>
+            <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            <button class="contact-btn" onclick="contactAdmin(this)">Contact Admin</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= PHASE 5 CARD ================= -->
+<section class="vuln-card" data-id="kali-final-setup">
+
+    <div class="card-header">
+        <h3>Phase 5 - Final Kali Linux Setup</h3>
+        <div class="status-badge">Incomplete</div>
+        <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+    </div>
+
+    <div class="card-content">
+
+        <p class="warning">⚠ This phase completes the Kali Linux installation inside the virtual machine</p>
+
+        <!-- ================= Basic Setup ================= -->
+        <h4><u>Basic Setup</u></h4>
+        <div class="step">Click on "Power on this virtual machine"</div>
+        <div class="step">Use keyboard in the Kali setup</div>
+        <div class="step">Select "Graphical Install" → Press Enter</div>
+        <div class="step">Select your location: "United States" (default) or "India" → Click Continue</div>
+        <div class="step">Configure the keyboard: American English (default) → Click Continue</div>
+        <div class="step">Hostname: kali (default)</div>
+        <div class="step">Domain name: Leave blank → Click Continue</div>
+        <div class="step">Full name for your user: cybergeek → Click Continue</div>
+        <div class="step">Username for account: cybergeek (all lowercase) → Click Continue</div>
+        <div class="step">Password: Enter your password → Click Continue</div>
+        <div class="step">Configure the clock: "Eastern" option → Click Continue</div>
+
+        <!-- ================= Disk Partition ================= -->
+        <h4><u>Disk Partition</u></h4>
+        <div class="step">Partition disk: Select "Guided – Use entire disk" → Click Continue</div>
+        <div class="step">Select disk: Default "SCSI133 (0,0,0) (sda) – …" → Click Continue</div>
+        <div class="step">Select partition: "All files in one partition (recommended for new users)" → Click Continue</div>
+        <div class="step">Select "Finish partitioning and write changes to disk" → Click Continue</div>
+        <div class="step">Write changes to disk: Select "Yes" → Click Continue</div>
+        <div class="step">Wait for installation process to complete (may take a while)</div>
+
+        <!-- ================= Display and GRUB ================= -->
+        <h4><u>Display and GRUB</u></h4>
+        <div class="step">Default display manager: Select "gdm3" → Click Continue</div>
+        <div class="step">Install GRUB boot loader: Select "Yes" → Click Continue</div>
+        <div class="step">Device for boot loader: Select "/dev/sda" → Click Continue</div>
+        <div class="step">Choose <Continue> to reboot → Click Continue</div>
+        <div class="step">Kali Linux will start</div>
+        <div class="step">Provide username and password → Welcome to Kali Linux!</div>
+
+        <div class="card-buttons">
+            <button class="close-btn" onclick="toggleCard(this)">Close</button>
+            <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            <button class="contact-btn" onclick="contactAdmin(this)">Contact Admin</button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function showPhase4Hypervisor(type){
+    // Hide only Phase 4 hypervisor steps
+    const allPhase4 = document.querySelectorAll('#vmware-kali, #vbox-kali');
+    allPhase4.forEach(div => div.style.display = 'none');
+
+    // Show the selected one
+    document.getElementById(type).style.display = 'block';
+}
+</script>
+
+
+<script>
+function showHypervisor(type){
+    document.getElementById("vmware").style.display="none";
+    document.getElementById("vbox").style.display="none";
+
+    document.getElementById(type).style.display="block";
+}
+</script>
+
+
+</main>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<footer>
+    <p>"Stay safe, stay cyber-aware."</p>
+</footer>
+
+<script src="7.js"></script>
+</body>
+</html>

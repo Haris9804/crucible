@@ -1,0 +1,81 @@
+{
+  "chapter_title": "Network Scanning Tools",
+  "cards": [
+    {
+      "title": "Nmap",
+      "description_short": "Powerful network discovery and port scanning tool",
+      "description_long": "Nmap (Network Mapper) is one of the most widely used tools for network discovery and security auditing. It can detect live hosts, scan ports, identify services and operating systems, and run vulnerability detection scripts.",
+      "main_commands": [
+        {"command":"nmap target.com", "explanation":"Basic scan of common ports on a target"},
+        {"command":"nmap -p 1-65535 target.com", "explanation":"Scan all ports on a target"},
+        {"command":"nmap -sV target.com", "explanation":"Detect service versions running on open ports"},
+        {"command":"nmap -O target.com", "explanation":"Attempt operating system detection"},
+        {"command":"nmap -A target.com", "explanation":"Aggressive scan including OS detection, version detection, scripts, and traceroute"}
+      ],
+      "activity": [
+        "Perform a basic port scan on a host",
+        "Scan all ports of a target machine",
+        "Identify services running on open ports",
+        "Attempt operating system detection",
+        "Analyze scan results to identify potential vulnerabilities"
+      ]
+    },
+    {
+      "title": "ZMap",
+      "description_short": "High‑speed internet-wide network scanner",
+      "description_long": "ZMap is designed for extremely fast scanning of large networks and even the entire IPv4 address space. It is commonly used for large-scale research and security analysis.",
+      "main_commands": [
+        {"command":"zmap -p 80 192.168.1.0/24", "explanation":"Scan port 80 across a subnet"},
+        {"command":"zmap -p 443 -o results.txt", "explanation":"Scan HTTPS port and save results"},
+        {"command":"zmap -p 22 10.0.0.0/16", "explanation":"Scan SSH port across a large network range"},
+        {"command":"zmap -p 80 --bandwidth=10M", "explanation":"Limit scanning bandwidth"},
+        {"command":"zmap -p 21 -o ftp_hosts.txt", "explanation":"Find hosts with FTP service open"}
+      ],
+      "activity": [
+        "Scan a subnet for open web servers",
+        "Save scan results to a file",
+        "Analyze large-scale scan output",
+        "Experiment with bandwidth limits",
+        "Identify systems exposing common services"
+      ]
+    },
+    {
+      "title": "Netdiscover",
+      "description_short": "Discover devices on a local network",
+      "description_long": "Netdiscover is a network reconnaissance tool used to discover live hosts in a local network. It uses ARP requests to identify devices and their IP/MAC addresses.",
+      "main_commands": [
+        {"command":"netdiscover", "explanation":"Automatically discover hosts on the local network"},
+        {"command":"netdiscover -r 192.168.1.0/24", "explanation":"Scan a specific subnet"},
+        {"command":"netdiscover -i eth0", "explanation":"Use a specific network interface"},
+        {"command":"netdiscover -p", "explanation":"Passive mode (listen without sending packets)"},
+        {"command":"netdiscover -f", "explanation":"Fast scan mode"}
+      ],
+      "activity": [
+        "Identify devices connected to your network",
+        "Scan a specific subnet range",
+        "Observe IP and MAC address mapping",
+        "Run passive discovery mode",
+        "Analyze detected hosts for further scanning"
+      ]
+    },
+    {
+      "title": "Angry IP Scanner",
+      "description_short": "Fast graphical IP and port scanner",
+      "description_long": "Angry IP Scanner is a lightweight, cross-platform network scanner with a graphical interface. It scans IP ranges to detect live hosts, open ports, and basic network information.",
+      "main_commands": [
+        {"command":"Set IP range and click Start", "explanation":"Scan a range of IP addresses"},
+        {"command":"Enable port scanning", "explanation":"Detect open ports on discovered hosts"},
+        {"command":"Hostname resolution", "explanation":"Resolve hostnames for discovered IPs"},
+        {"command":"Export results to CSV", "explanation":"Save scan results for later analysis"},
+        {"command":"Add fetchers", "explanation":"Collect additional information such as MAC or ping response"}
+      ],
+      "activity": [
+        "Scan a range of IP addresses",
+        "Identify active hosts on the network",
+        "Detect open ports on discovered systems",
+        "Export scan results to a file",
+        "Analyze network structure using scan results"
+      ]
+    }
+  ]
+}

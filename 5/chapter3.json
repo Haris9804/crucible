@@ -1,0 +1,81 @@
+{
+  "chapter_title": "Brute Force / Password Attacking Tools",
+  "cards": [
+    {
+      "title": "Hydra",
+      "description_short": "Fast network login brute force tool",
+      "description_long": "Hydra is a powerful password-cracking tool used to perform brute force attacks against many network services such as SSH, FTP, HTTP, SMB, and more. It supports username lists, password lists, and multiple protocols.",
+      "main_commands": [
+        {"command":"hydra -l admin -P passwords.txt ssh://target.com", "explanation":"Brute force SSH login using a password list"},
+        {"command":"hydra -L users.txt -P passwords.txt ftp://target.com", "explanation":"Try multiple usernames and passwords against FTP"},
+        {"command":"hydra -l admin -P pass.txt http-post-form target.com", "explanation":"Brute force web login form"},
+        {"command":"hydra -t 4 -V -l user -P pass.txt ssh://target.com", "explanation":"Run with multiple threads and verbose output"},
+        {"command":"hydra -L users.txt -P passwords.txt smb://target.com", "explanation":"Brute force SMB authentication"}
+      ],
+      "activity": [
+        "Attempt login brute force on a lab SSH server",
+        "Use username and password lists",
+        "Observe login success responses",
+        "Experiment with thread settings",
+        "Analyze logs for brute force attempts"
+      ]
+    },
+    {
+      "title": "John the Ripper",
+      "description_short": "Offline password hash cracking tool",
+      "description_long": "John the Ripper is a popular password cracking tool used to crack hashed passwords. It supports many hashing algorithms and uses dictionary attacks, brute force, and rule-based attacks.",
+      "main_commands": [
+        {"command":"john hash.txt", "explanation":"Start cracking password hashes"},
+        {"command":"john --wordlist=passwords.txt hash.txt", "explanation":"Use a wordlist for dictionary attack"},
+        {"command":"john --show hash.txt", "explanation":"Display cracked passwords"},
+        {"command":"john --format=md5 hash.txt", "explanation":"Specify hash type"},
+        {"command":"unshadow passwd shadow > hash.txt", "explanation":"Prepare Linux password hashes for cracking"}
+      ],
+      "activity": [
+        "Crack password hashes using dictionary attack",
+        "Identify supported hash formats",
+        "Prepare Linux password files for cracking",
+        "Analyze cracked password results",
+        "Test password strength using wordlists"
+      ]
+    },
+    {
+      "title": "Hashcat",
+      "description_short": "High-performance GPU password cracking tool",
+      "description_long": "Hashcat is one of the fastest password recovery tools. It uses GPU acceleration to perform advanced attacks such as dictionary attacks, brute force attacks, mask attacks, and rule-based cracking.",
+      "main_commands": [
+        {"command":"hashcat -m 0 -a 0 hash.txt wordlist.txt", "explanation":"Dictionary attack on MD5 hashes"},
+        {"command":"hashcat -m 1000 -a 0 hash.txt wordlist.txt", "explanation":"Dictionary attack on NTLM hashes"},
+        {"command":"hashcat -m 0 -a 3 hash.txt ?a?a?a?a?a", "explanation":"Brute force attack using mask pattern"},
+        {"command":"hashcat -m 0 hash.txt rockyou.txt --force", "explanation":"Force cracking using wordlist"},
+        {"command":"hashcat --show hash.txt", "explanation":"Display cracked hashes"}
+      ],
+      "activity": [
+        "Run a dictionary attack on password hashes",
+        "Experiment with mask attacks",
+        "Compare GPU vs CPU cracking speed",
+        "Analyze password complexity",
+        "Review cracked password results"
+      ]
+    },
+    {
+      "title": "Medusa",
+      "description_short": "Parallel network login brute force tool",
+      "description_long": "Medusa is a fast and modular login brute-forcing tool. It supports many services such as SSH, FTP, HTTP, MySQL, and SMB. It allows parallel login attempts to increase cracking speed.",
+      "main_commands": [
+        {"command":"medusa -h target.com -u admin -P passwords.txt -M ssh", "explanation":"Brute force SSH login"},
+        {"command":"medusa -h target.com -U users.txt -P pass.txt -M ftp", "explanation":"Test multiple usernames and passwords on FTP"},
+        {"command":"medusa -h target.com -u admin -P pass.txt -M http", "explanation":"Attempt brute force on HTTP login"},
+        {"command":"medusa -h target.com -U users.txt -P pass.txt -M smbnt", "explanation":"Brute force SMB authentication"},
+        {"command":"medusa -h target.com -u root -P passwords.txt -t 10 -M ssh", "explanation":"Run multiple parallel login attempts"}
+      ],
+      "activity": [
+        "Attempt brute force login in a test lab",
+        "Use multiple usernames and password lists",
+        "Observe how parallel attacks increase speed",
+        "Compare results with Hydra",
+        "Analyze authentication responses"
+      ]
+    }
+  ]
+}

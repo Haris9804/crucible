@@ -1,0 +1,80 @@
+{
+    "CTF_NAME": "METAsploit 0.2v",
+    "CTF_ID": "10001",
+    "CTF_STATUS": "Active",
+    "CTF_INSTRUCTIONS": [
+        "Updated systems.",
+        "Updated tools.",
+        "Follow legal guide lines."
+    ],
+    "CTF_FLAGS": {
+        "1": {
+            "FLAG_NAME": "Machine IP",
+            "FLAG_ANSWERS": [
+                "192.168.1.11"
+            ],
+            "FLAG_POINTS": 25,
+            "FLAG_HINT": [
+                "Flag Format: 192.168.*.*",
+                "Use nmap tool",
+                "More than 20 ports are in open state"
+            ],
+            "FLAG_STATUS": "Active"
+        },
+        "2": {
+            "FLAG_NAME": "Which service is running on 1524",
+            "FLAG_ANSWERS": [
+                "bindshell"
+            ],
+            "FLAG_POINTS": 25,
+            "FLAG_HINT": [
+                "Flag Format: bi*****ll"
+            ],
+            "FLAG_STATUS": "Active"
+        },
+        "3": {
+            "FLAG_NAME": "Simple 234",
+            "FLAG_ANSWERS": [
+                "vsFTP234"
+            ],
+            "FLAG_POINTS": 25,
+            "FLAG_HINT": [
+                "Flag Format: v*****34",
+                "Answer in Flag1.txt",
+                "Check Port 21",
+                "Check for \"anonymous\" login",
+                "Passive mode to get Flag"
+            ],
+            "FLAG_STATUS": "Active"
+        },
+        "4": {
+            "FLAG_NAME": "Direct Root Shell",
+            "FLAG_ANSWERS": [
+                "root@meta-shell"
+            ],
+            "FLAG_POINTS": 25,
+            "FLAG_HINT": [
+                "Flag Format: r***@****-****l",
+                "Search for interesting folder in /home",
+                "A root shell vulnerability",
+                "I heard \"Network Cat\" is a good weapon"
+            ],
+            "FLAG_STATUS": "Active"
+        },
+        "5": {
+            "FLAG_NAME": "Specify only the exploit used",
+            "FLAG_ANSWERS": [
+                "multi/samba/usermap_script"
+            ],
+            "FLAG_POINTS": 50,
+            "FLAG_HINT": [
+                "Flag Format: mu***/*****/*******_****pt",
+                "Use msfconsole",
+                "Find the script that works",
+                "Enter the same exploit",
+                "Ask AI"
+            ],
+            "FLAG_STATUS": "Active"
+        }
+    }
+}

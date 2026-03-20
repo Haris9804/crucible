@@ -1,0 +1,185 @@
+{
+  "chapter_title": "Ethical Hacking Basics",
+  "cards": [
+    {
+      "title": "What is Ethical Hacking",
+      "description_short": "Learn about ethical hacking and its purpose.",
+      "description_long": "Ethical hacking involves testing computer systems, networks, and applications for vulnerabilities in a legal and authorized way. Ethical hackers, also called white-hat hackers, identify weaknesses before malicious hackers can exploit them. They follow a structured methodology and get permission from system owners. Ethical hacking helps organizations strengthen security, protect sensitive data, and prevent cyberattacks. Students learning this concept should understand that ethical hacking is about protection and improvement, not damage or theft. It forms the foundation for careers in cybersecurity and penetration testing.",
+      "main_points": [
+        "Legal testing",
+        "Identify vulnerabilities",
+        "Prevent attacks",
+        "White-hat hackers",
+        "Permission required",
+        "Protect data",
+        "Improve security",
+        "Methodology",
+        "Cybersecurity career",
+        "Responsible"
+      ],
+      "example": "Scenario: Company hires a student to test its website security.\nStep 1: Student scans for vulnerabilities.\nStep 2: Reports issues found.\nStep 3: Company fixes issues before real hackers exploit them.\nAnswer: Ethical hacking prevented potential breaches."
+    },
+    {
+      "title": "Why Cybersecurity is Important",
+      "description_short": "Understand the need for cybersecurity.",
+      "description_long": "Cybersecurity is essential because almost all personal and business activities are online. Data breaches, ransomware, and hacking can result in financial loss, identity theft, or reputational damage. Organizations implement cybersecurity measures to protect networks, systems, and sensitive information. Students must understand that even small mistakes like weak passwords or clicking suspicious links can compromise security. Awareness and proactive protection help maintain privacy, trust, and safety online. Cybersecurity is not only technical but also involves educating users about risks and responsible behavior in digital environments.",
+      "main_points": [
+        "Protect data",
+        "Prevent breaches",
+        "Avoid financial loss",
+        "Identity safety",
+        "Reputation protection",
+        "Network security",
+        "System security",
+        "User awareness",
+        "Responsible behavior",
+        "Proactive protection"
+      ],
+      "example": "Scenario: Student receives suspicious email requesting login info.\nStep 1: Recognizes potential phishing.\nStep 2: Does not click link.\nStep 3: Reports email to IT.\nAnswer: Awareness prevented a possible breach."
+    },
+    {
+      "title": "Types of Hackers",
+      "description_short": "Different types of hackers in cybersecurity.",
+      "description_long": "Hackers are categorized based on intent and methods. White-hat hackers are ethical hackers who protect systems. Black-hat hackers exploit systems illegally for personal gain or malicious intent. Gray-hat hackers may exploit vulnerabilities without permission but do not intend harm. Understanding hacker types helps students recognize threats and the role of ethical hacking. Additionally, there are script kiddies, hacktivists, and state-sponsored hackers. Knowing the differences emphasizes the importance of defensive skills, legal boundaries, and responsible conduct in cybersecurity.",
+      "main_points": [
+        "White-hat",
+        "Black-hat",
+        "Gray-hat",
+        "Script kiddies",
+        "Hacktivists",
+        "State-sponsored",
+        "Intent matters",
+        "Legal vs illegal",
+        "Protective role",
+        "Threat awareness"
+      ],
+      "example": "Scenario: Student learns about hacker types.\nStep 1: Understands white-hat vs black-hat.\nStep 2: Uses knowledge to practice legal hacking.\nStep 3: Avoids illegal activities.\nAnswer: Student safely learns hacking concepts."
+    },
+    {
+      "title": "How Hackers Think",
+      "description_short": "Learn the mindset of attackers.",
+      "description_long": "Understanding how hackers think is crucial for defending systems. Hackers identify weaknesses, exploit vulnerabilities, and anticipate user behavior. Ethical hackers adopt the same mindset to predict attacks and patch vulnerabilities before they are exploited. This involves creativity, logical thinking, and knowledge of networks, software, and human behavior. Students should realize that knowing the attacker’s perspective helps in designing secure systems and practicing ethical hacking. Recognizing patterns, common mistakes, and system loopholes strengthens cybersecurity skills.",
+      "main_points": [
+        "Attacker mindset",
+        "Identify weaknesses",
+        "Exploit vulnerabilities",
+        "Predict user behavior",
+        "Logical thinking",
+        "Creativity",
+        "Network knowledge",
+        "Software knowledge",
+        "Human factor",
+        "Secure systems"
+      ],
+      "example": "Scenario: Student tests login page security.\nStep 1: Thinks like a hacker to find weak passwords.\nStep 2: Reports weaknesses.\nStep 3: System updated to enforce stronger passwords.\nAnswer: Understanding hacker mindset improved security."
+    },
+    {
+      "title": "Basic Internet Concepts",
+      "description_short": "Understand the internet and its components.",
+      "description_long": "Students must understand basic internet concepts like IP addresses, DNS, servers, clients, and protocols (HTTP, HTTPS, FTP). Knowing how devices communicate online, how websites work, and how data travels helps in understanding vulnerabilities and cybersecurity measures. It lays the groundwork for learning network security, hacking techniques, and safe online behavior. Concepts like packets, ports, and protocols form the foundation for practical cybersecurity exercises, such as scanning networks or understanding attacks.",
+      "main_points": [
+        "IP address",
+        "DNS",
+        "Servers",
+        "Clients",
+        "HTTP/HTTPS",
+        "FTP",
+        "Data packets",
+        "Ports",
+        "Protocols",
+        "Internet basics"
+      ],
+      "example": "Scenario: Student wants to access a website.\nStep 1: Device uses DNS to translate domain.\nStep 2: Connects to server via HTTP.\nStep 3: Receives requested webpage.\nAnswer: Student understands basic internet communication."
+    },
+    {
+      "title": "Basic Computer Networks",
+      "description_short": "Learn about networks and how computers connect.",
+      "description_long": "Basic computer networks involve connecting multiple devices to share resources like files, internet, and printers. Key components include routers, switches, and servers. Understanding LAN (Local Area Network), WAN (Wide Area Network), and IP addressing is important. Network protocols like TCP/IP, HTTP, and HTTPS enable communication. Students should also know about ports, firewalls, and basic network security practices. This knowledge helps in understanding how attackers exploit network vulnerabilities and how ethical hackers test networks safely. Network concepts are fundamental for both cybersecurity and ethical hacking exercises.",
+      "main_points": [
+        "LAN",
+        "WAN",
+        "Routers",
+        "Switches",
+        "Servers",
+        "IP addressing",
+        "TCP/IP",
+        "HTTP/HTTPS",
+        "Ports",
+        "Firewall"
+      ],
+      "example": "Scenario: Student sets up a small LAN at home.\nStep 1: Connects two computers via a switch.\nStep 2: Assigns IP addresses.\nStep 3: Tests file sharing between devices.\nAnswer: Basic networking concepts understood and practiced safely."
+    },
+    {
+      "title": "Password Security Basics",
+      "description_short": "Learn how to create and manage secure passwords.",
+      "description_long": "Passwords are the first line of defense for any account. Students should understand creating strong passwords using a mix of letters, numbers, and symbols. Avoid common words or repeated passwords. Use unique passwords for each account. Multi-Factor Authentication (MFA) adds extra security. Password managers can store and generate strong passwords safely. Weak or reused passwords are the most common reason for breaches. Ethical hackers learn to test password strength safely to identify vulnerabilities, reinforcing the importance of password security.",
+      "main_points": [
+        "Strong passwords",
+        "Letters, numbers, symbols",
+        "Avoid common words",
+        "Unique per account",
+        "Multi-Factor Authentication",
+        "Password managers",
+        "Do not share",
+        "Change regularly",
+        "Test strength safely",
+        "Protect accounts"
+      ],
+      "example": "Scenario: Student creates accounts for email and social media.\nStep 1: Generates unique strong passwords.\nStep 2: Enables MFA for email.\nStep 3: Stores passwords in a manager.\nAnswer: Accounts are secured against common attacks."
+    },
+    {
+      "title": "Safe Browsing Practices",
+      "description_short": "Learn how to browse the internet safely.",
+      "description_long": "Safe browsing is essential to prevent malware, phishing, and unauthorized access. Students should use updated browsers, avoid clicking suspicious links, and recognize phishing emails. HTTPS websites encrypt data, making them safer. Avoid public Wi-Fi for sensitive transactions or use a VPN. Clearing cookies and cache, using ad blockers, and limiting personal information shared online further improve safety. Safe browsing habits protect not just personal devices but also organizational systems from cyber threats.",
+      "main_points": [
+        "Updated browsers",
+        "Avoid suspicious links",
+        "Recognize phishing",
+        "Use HTTPS",
+        "Avoid public Wi-Fi",
+        "Use VPN",
+        "Clear cookies/cache",
+        "Ad blockers",
+        "Limit personal info",
+        "Safe online habits"
+      ],
+      "example": "Scenario: Student wants to check bank account online.\nStep 1: Uses HTTPS website.\nStep 2: Avoids public Wi-Fi, uses VPN.\nStep 3: Does not click any unknown links in emails.\nAnswer: Student safely accesses sensitive information."
+    },
+    {
+      "title": "Cyber Laws and Ethics",
+      "description_short": "Understand legal and ethical responsibilities online.",
+      "description_long": "Ethical hackers must know cyber laws and ethics. Laws regulate hacking, data privacy, and online behavior. Violating laws can lead to fines, criminal charges, or imprisonment. Ethical hackers operate within legal boundaries, obtaining proper permissions before testing systems. Students must also follow ethical principles: respect privacy, avoid malicious activity, and report discovered vulnerabilities responsibly. Learning about cyber laws and ethics helps students become responsible cybersecurity professionals and understand the difference between legal testing and illegal hacking.",
+      "main_points": [
+        "Cyber laws",
+        "Data privacy",
+        "Legal boundaries",
+        "Avoid illegal hacking",
+        "Permissions required",
+        "Ethical principles",
+        "Respect privacy",
+        "Responsible reporting",
+        "Professional conduct",
+        "Avoid malicious activity"
+      ],
+      "example": "Scenario: Student discovers a vulnerability in a school website.\nStep 1: Does not exploit it.\nStep 2: Reports it to the IT department.\nStep 3: System patched.\nAnswer: Student followed cyber ethics and laws."
+    },
+    {
+      "title": "Introduction to Cyber Attacks",
+      "description_short": "Learn the common types of cyber attacks.",
+      "description_long": "Cyber attacks are attempts to compromise systems, steal data, or disrupt services. Common attacks include phishing, malware, ransomware, DDoS attacks, and password attacks. Understanding attack methods helps ethical hackers prevent and mitigate threats. Students should learn attack vectors, consequences, and preventive measures. Awareness of attacks helps individuals and organizations safeguard data, implement security policies, and practice ethical hacking responsibly. Recognizing attacks early reduces the risk of data breaches and financial or reputational loss.",
+      "main_points": [
+        "Phishing",
+        "Malware",
+        "Ransomware",
+        "DDoS",
+        "Password attacks",
+        "Attack vectors",
+        "Consequences",
+        "Preventive measures",
+        "Data protection",
+        "Early detection"
+      ],
+      "example": "Scenario: Student receives a suspicious email with an attachment.\nStep 1: Recognizes potential malware.\nStep 2: Does not open attachment.\nStep 3: Reports to IT.\nAnswer: Attack avoided; data remains safe."
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "chapter_title": "Basic Directory Commands",
+  "cards": [
+    {
+      "title": "LS",
+      "description_short": "List directory contents",
+      "description_long": "The 'ls' command lists files and directories in the current folder. It has multiple options to show hidden files, detailed info, sort output, etc.",
+      "main_commands": [
+        {"command":"ls", "explanation":"List all visible files and directories"},
+        {"command":"ls -a", "explanation":"Include hidden files starting with '.'"},
+        {"command":"ls -l", "explanation":"Show detailed info: permissions, owner, size, date"},
+        {"command":"ls -lh", "explanation":"Detailed info with human-readable file sizes"},
+        {"command":"ls -t", "explanation":"Sort files by modification time, newest first"}
+      ],
+      "activity": [
+        "List all files including hidden ones",
+        "Show detailed info of files",
+        "List files sorted by modification time",
+        "Combine flags to list hidden files in long format",
+        "Check human-readable sizes of all files"
+      ]
+    },
+    {
+      "title": "CD",
+      "description_short": "Change directory",
+      "description_long": "The 'cd' command changes your current working directory. You can navigate using absolute paths or relative paths.",
+      "main_commands": [
+        {"command":"cd /home/user", "explanation":"Move to /home/user directory (absolute path)"},
+        {"command":"cd ..", "explanation":"Go one directory up (parent directory)"},
+        {"command":"cd ../..", "explanation":"Go two levels up from current directory"},
+        {"command":"cd -", "explanation":"Switch back to the previous directory"},
+        {"command":"cd ~", "explanation":"Move to your home directory"}
+      ],
+      "activity": [
+        "Move to parent directory",
+        "Navigate to Downloads folder using absolute path",
+        "Go back to previous directory",
+        "Go to home directory",
+        "Practice moving up multiple directories"
+      ]
+    },
+    {
+      "title": "PWD",
+      "description_short": "Print working directory",
+      "description_long": "The 'pwd' command prints the full path of the current working directory. It's useful to confirm your location in the filesystem.",
+      "main_commands": [
+        {"command":"pwd", "explanation":"Print the absolute path of current directory"},
+        {"command":"pwd -L", "explanation":"Print logical path (follow symlinks)"},
+        {"command":"pwd -P", "explanation":"Print physical path (resolve symlinks)"},
+        {"command":"echo $PWD", "explanation":"Show current directory using environment variable"},
+        {"command":"cd /tmp && pwd", "explanation":"Change directory to /tmp and print current path"}
+      ],
+      "activity": [
+        "Check your current directory",
+        "Switch to /tmp and verify your location",
+        "Compare logical and physical paths",
+        "Use environment variable to print working directory",
+        "Combine cd and pwd in a single command"
+      ]
+    },
+    {
+      "title": "MKDIR",
+      "description_short": "Create new directories",
+      "description_long": "The 'mkdir' command is used to create one or more new directories in the filesystem. You can specify a path or create multiple directories at once. It is a basic and essential command for organizing files and directories. Options like '-p' allow creating nested directories in one command. Beginners should practice creating directories safely in lab environments.",
+      "main_commands": [
+        {"command":"mkdir new_folder", "explanation":"Create a directory named 'new_folder'"},
+        {"command":"mkdir folder1 folder2", "explanation":"Create multiple directories at once"},
+        {"command":"mkdir -p parent/child", "explanation":"Create nested directories if parent doesn't exist"},
+        {"command":"mkdir ~/Documents/test", "explanation":"Create directory in home Documents folder"},
+        {"command":"mkdir -v folder", "explanation":"Verbose output showing directory creation"}
+      ],
+      "activity": [
+        "Create a single directory",
+        "Create multiple directories in one command",
+        "Make nested directories",
+        "Create directory in home path",
+        "Check directory creation with verbose output"
+      ]
+    },
+    {
+      "title": "RMDIR",
+      "description_short": "Remove empty directories",
+      "description_long": "The 'rmdir' command is used to remove empty directories from the filesystem. It only works if the directory contains no files or subdirectories. For non-empty directories, 'rm -r' is used instead. Beginners should be cautious to avoid accidental deletion of important directories. Practicing in lab or sandbox environments is recommended.",
+      "main_commands": [
+        {"command":"rmdir old_folder", "explanation":"Remove an empty directory named 'old_folder'"},
+        {"command":"rmdir dir1 dir2", "explanation":"Remove multiple empty directories at once"},
+        {"command":"rm -r folder", "explanation":"Remove non-empty directory recursively"},
+        {"command":"rmdir -v folder", "explanation":"Verbose output showing removed directories"},
+        {"command":"rmdir --ignore-fail-on-non-empty folder", "explanation":"Ignore errors if directory is not empty"}
+      ],
+      "activity": [
+        "Remove a single empty directory",
+        "Remove multiple empty directories",
+        "Try removing non-empty directory safely",
+        "Use verbose output to confirm deletion",
+        "Practice ignoring non-empty errors"
+      ]
+    }
+  ]
+}

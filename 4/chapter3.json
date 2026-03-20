@@ -1,0 +1,81 @@
+{
+  "chapter_title": "Remote Access Services",
+  "cards": [
+    {
+      "title": "FTP",
+      "description_short": "File Transfer Protocol for remote file access",
+      "description_long": "FTP (File Transfer Protocol) allows users to upload and download files from a remote server. It is widely used but considered insecure if not protected because credentials are transmitted in plain text.",
+      "main_commands": [
+        {"command":"ftp target.com", "explanation":"Connect to an FTP server"},
+        {"command":"anonymous", "explanation":"Attempt anonymous login if allowed"},
+        {"command":"ls", "explanation":"List files on the remote FTP server"},
+        {"command":"get file.txt", "explanation":"Download a file from the server"},
+        {"command":"put file.txt", "explanation":"Upload a file to the server"}
+      ],
+      "activity": [
+        "Connect to an FTP server",
+        "Test anonymous login access",
+        "List files available on the server",
+        "Download a file from the server",
+        "Upload a file to the server"
+      ]
+    },
+    {
+      "title": "SSH",
+      "description_short": "Secure remote system access",
+      "description_long": "SSH (Secure Shell) provides encrypted remote access to systems. It allows administrators to securely log in, execute commands, and manage servers over a network.",
+      "main_commands": [
+        {"command":"ssh user@target.com", "explanation":"Connect to a remote server via SSH"},
+        {"command":"ssh -p 2222 user@target.com", "explanation":"Connect using a custom SSH port"},
+        {"command":"ssh-keygen", "explanation":"Generate SSH key pair for authentication"},
+        {"command":"ssh-copy-id user@target.com", "explanation":"Copy public key to server for passwordless login"},
+        {"command":"scp file.txt user@target.com:/home/user/", "explanation":"Securely copy file to remote server"}
+      ],
+      "activity": [
+        "Connect to a remote server using SSH",
+        "Generate an SSH key pair",
+        "Configure passwordless authentication",
+        "Copy files using SCP",
+        "Explore remote command execution"
+      ]
+    },
+    {
+      "title": "Telnet",
+      "description_short": "Remote login protocol (insecure)",
+      "description_long": "Telnet is an older protocol used for remote command-line access. It transmits data in plain text and is mostly replaced by SSH due to security concerns.",
+      "main_commands": [
+        {"command":"telnet target.com", "explanation":"Connect to a remote Telnet server"},
+        {"command":"telnet target.com 23", "explanation":"Connect to Telnet service on port 23"},
+        {"command":"open target.com", "explanation":"Open connection to host"},
+        {"command":"quit", "explanation":"Exit Telnet session"},
+        {"command":"Ctrl + ]", "explanation":"Enter Telnet command mode"}
+      ],
+      "activity": [
+        "Connect to a Telnet server",
+        "Observe plaintext login process",
+        "Execute commands remotely",
+        "Exit the Telnet session",
+        "Compare Telnet with SSH security"
+      ]
+    },
+    {
+      "title": "RDP",
+      "description_short": "Remote Desktop Protocol for GUI access",
+      "description_long": "RDP allows users to remotely access the graphical interface of a Windows system. It is commonly used for remote administration of Windows servers and desktops.",
+      "main_commands": [
+        {"command":"rdesktop target.com", "explanation":"Connect to Windows machine using RDP"},
+        {"command":"xfreerdp /u:user /p:password /v:target.com", "explanation":"Login to RDP session with credentials"},
+        {"command":"xfreerdp /v:target.com", "explanation":"Start RDP session and enter credentials later"},
+        {"command":"nmap -p 3389 target.com", "explanation":"Check if RDP port is open"},
+        {"command":"mstsc", "explanation":"Open Remote Desktop client in Windows"}
+      ],
+      "activity": [
+        "Check if RDP service is available",
+        "Connect to a remote Windows system",
+        "Login using provided credentials",
+        "Explore the remote desktop interface",
+        "Practice secure RDP configuration"
+      ]
+    }
+  ]
+}

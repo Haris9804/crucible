@@ -1,0 +1,193 @@
+{
+  "chapter_title": "Cybersecurity Fundamentals",
+  "cards": [
+    {
+      "title": "What is Cybersecurity",
+      "description_short": "Learn the meaning and purpose of cybersecurity.",
+      "description_long": "Cybersecurity is the practice of protecting computers, networks, servers, mobile devices, and digital data from unauthorized access, cyberattacks, or damage. In today's digital world almost every activity such as communication, banking, education, and business depends on computers and the internet. Because of this, attackers try to exploit vulnerabilities in systems to steal sensitive information, disrupt services, or gain control of devices. Cybersecurity includes a combination of technologies, processes, and user practices designed to protect digital systems. It focuses on three important principles called the CIA triad: confidentiality, integrity, and availability. Confidentiality ensures only authorized users can access information. Integrity ensures data cannot be modified without permission. Availability ensures systems remain accessible when needed. Cybersecurity is used by individuals, companies, governments, and organizations worldwide to protect personal information, financial data, and critical infrastructure. Good cybersecurity habits include using strong passwords, updating software regularly, avoiding suspicious links, and protecting personal information online.",
+      "main_points": [
+        "Digital protection",
+        "Data security",
+        "Networks",
+        "Devices",
+        "Cyber attacks",
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Security practices",
+        "User awareness"
+      ],
+      "example": "Scenario: A college student receives an email saying his university account will be suspended unless he logs in through a link.\nStep 1: The student checks the sender's email address.\nStep 2: He notices the email domain is not the official university domain.\nStep 3: He avoids clicking the link.\nStep 4: He reports the email to the university IT department.\n\nAnswer: By verifying the email source and avoiding the suspicious link, the student prevented attackers from stealing his login credentials."
+    },
+
+    {
+      "title": "CIA Triad",
+      "description_short": "Understand the three core principles of cybersecurity.",
+      "description_long": "The CIA Triad is a fundamental concept in cybersecurity that describes the three main goals of protecting information: Confidentiality, Integrity, and Availability. Confidentiality means ensuring that sensitive information is accessible only to authorized individuals. Techniques such as encryption, authentication, and access control help maintain confidentiality. Integrity ensures that data remains accurate, complete, and unaltered unless authorized changes are made. This is maintained using hashing, checksums, and digital signatures. Availability ensures that systems, networks, and data are accessible to authorized users whenever they need them. Backup systems, redundancy, and proper network management help maintain availability. The CIA triad is widely used as a guideline when designing secure systems and security policies. If any of these three components fail, security is compromised. For example, if confidential data becomes public, confidentiality is lost. If data is modified illegally, integrity is compromised. If systems go offline due to attacks or failures, availability is affected.",
+      "main_points": [
+        "Confidentiality",
+        "Integrity",
+        "Availability",
+        "Security model",
+        "Data protection",
+        "Access control",
+        "Encryption",
+        "Hashing",
+        "System uptime",
+        "Security policies"
+      ],
+      "example": "Scenario: A hospital stores patient medical records digitally.\nStep 1: Only authorized doctors can view patient data (Confidentiality).\nStep 2: The system records changes so data cannot be altered without tracking (Integrity).\nStep 3: Backup servers ensure doctors can access data even if the main server fails (Availability).\n\nAnswer: The hospital protects patient information by implementing all three CIA principles."
+    },
+
+    {
+      "title": "Types of Hackers",
+      "description_short": "Learn the main categories of hackers in cybersecurity.",
+      "description_long": "Hackers are individuals who use their technical skills to find vulnerabilities in computer systems or networks. Not all hackers are criminals; some work to improve security. Hackers are commonly categorized into three main types: White Hat, Black Hat, and Grey Hat. White Hat hackers are ethical hackers who use their skills to identify vulnerabilities and help organizations fix them before attackers exploit them. They often work as penetration testers or security researchers. Black Hat hackers are malicious attackers who exploit vulnerabilities for personal gain, financial profit, or damage. They may steal data, spread malware, or perform cybercrime. Grey Hat hackers fall between the two categories. They may explore systems without permission but do not always have malicious intentions. Sometimes they reveal vulnerabilities publicly or inform companies about them. Understanding these categories helps students understand the ethical side of cybersecurity and why responsible hacking is important.",
+      "main_points": [
+        "Hackers",
+        "White hat",
+        "Black hat",
+        "Grey hat",
+        "Ethical hacking",
+        "Security testing",
+        "Cybercrime",
+        "Vulnerabilities",
+        "Responsible disclosure",
+        "Security research"
+      ],
+      "example": "Scenario: A company hires a cybersecurity expert to test its website security.\nStep 1: The expert scans the website for vulnerabilities.\nStep 2: He finds a login flaw that could allow attackers to bypass authentication.\nStep 3: Instead of exploiting it, he reports the issue to the company.\nStep 4: The company fixes the vulnerability.\n\nAnswer: The expert acted as a White Hat hacker by identifying and responsibly reporting the security flaw."
+    },
+
+    {
+      "title": "Cyber Threats",
+      "description_short": "Understand common threats that target digital systems.",
+      "description_long": "Cyber threats are potential malicious activities that aim to damage, disrupt, or gain unauthorized access to computer systems and networks. These threats can come from hackers, cybercriminal groups, or even insiders within an organization. Common cyber threats include malware, phishing attacks, ransomware, denial-of-service attacks, and data breaches. Malware refers to malicious software designed to damage systems or steal information. Phishing attacks trick users into revealing sensitive data such as passwords or credit card numbers. Ransomware locks or encrypts files until a ransom payment is made. Cyber threats can target individuals, businesses, and governments. Attackers often exploit weak passwords, outdated software, or human mistakes to gain entry into systems. Understanding cyber threats is an essential step in learning cybersecurity because it helps users recognize risks and take preventive measures to protect themselves and their data.",
+      "main_points": [
+        "Cyber threats",
+        "Malware",
+        "Phishing",
+        "Ransomware",
+        "Data breaches",
+        "System vulnerabilities",
+        "Unauthorized access",
+        "Social engineering",
+        "Cybercrime",
+        "Security awareness"
+      ],
+      "example": "Scenario: An employee receives an email saying an urgent invoice must be downloaded.\nStep 1: The employee downloads the attachment without verifying it.\nStep 2: The file installs ransomware on the computer.\nStep 3: The ransomware encrypts company files.\nStep 4: A message appears demanding payment to unlock the files.\n\nAnswer: This was a ransomware attack triggered by a malicious email attachment."
+    },
+
+    {
+      "title": "Malware Basics",
+      "description_short": "Learn what malware is and how it harms systems.",
+      "description_long": "Malware stands for malicious software and refers to any software intentionally designed to damage, disrupt, or gain unauthorized access to computer systems. Malware can infect computers through email attachments, malicious downloads, infected USB devices, or compromised websites. There are many types of malware including viruses, worms, trojans, spyware, ransomware, and adware. Viruses attach themselves to files and spread when those files are shared. Worms spread automatically across networks without user interaction. Trojans disguise themselves as legitimate software to trick users into installing them. Spyware secretly monitors user activities and collects sensitive information such as passwords or browsing habits. Ransomware locks files and demands payment for decryption. Malware infections can cause data loss, system damage, financial loss, and privacy violations. Antivirus software, system updates, and cautious browsing habits help protect against malware infections.",
+      "main_points": [
+        "Malware",
+        "Malicious software",
+        "Viruses",
+        "Worms",
+        "Trojans",
+        "Spyware",
+        "Ransomware",
+        "System infection",
+        "Data theft",
+        "Antivirus protection"
+      ],
+      "example": "Scenario: A student downloads a free cracked software from an unknown website.\nStep 1: The software installs normally.\nStep 2: Hidden malware runs in the background.\nStep 3: The malware collects saved browser passwords.\nStep 4: The attacker uses the stolen credentials to access the student's accounts.\n\nAnswer: The cracked software contained malware that stole sensitive information."
+    },
+    {
+  "title": "Social Engineering",
+  "description_short": "Understand how attackers manipulate people to gain access to information.",
+  "description_long": "Social engineering is a type of cyberattack that focuses on manipulating people rather than exploiting technical vulnerabilities in systems. Instead of hacking computers directly, attackers trick individuals into revealing confidential information such as passwords, financial details, or access credentials. Social engineering attacks rely heavily on human psychology, trust, fear, urgency, or curiosity. Common techniques include impersonation, pretexting, baiting, and phishing. For example, attackers may pretend to be IT support, a bank employee, or a trusted colleague. They may also create fake scenarios that pressure victims into acting quickly without thinking carefully. Social engineering can occur through emails, phone calls, text messages, or even in-person interactions. These attacks are dangerous because even highly secure systems can be compromised if a user unknowingly gives access to an attacker. Preventing social engineering requires awareness, verification of identities, and cautious handling of sensitive information.",
+  "main_points": [
+    "Human manipulation",
+    "Psychological attacks",
+    "Trust exploitation",
+    "Impersonation",
+    "Pretexting",
+    "Baiting",
+    "Information theft",
+    "Credential harvesting",
+    "User awareness",
+    "Identity verification"
+  ],
+  "example": "Scenario: An attacker calls an employee pretending to be from the company's IT support team.\nStep 1: The attacker claims there is a technical issue with the employee's account.\nStep 2: He asks the employee to confirm their username and password.\nStep 3: The employee believes the caller and shares the credentials.\nStep 4: The attacker logs into the company system using those credentials.\n\nAnswer: The attacker successfully used social engineering by impersonating IT support to steal login information."
+},
+
+{
+  "title": "Phishing Attacks",
+  "description_short": "Learn how attackers use fake messages to steal sensitive information.",
+  "description_long": "Phishing is one of the most common cyberattacks used by cybercriminals to steal sensitive information such as usernames, passwords, credit card numbers, or banking details. In phishing attacks, attackers send fraudulent emails, messages, or websites that appear to come from legitimate organizations like banks, universities, or popular online services. These messages usually create a sense of urgency or fear, encouraging victims to click a malicious link or download an infected attachment. The link often leads to a fake website that looks identical to the real one, tricking the victim into entering login credentials. Phishing can occur through email, SMS messages (smishing), phone calls (vishing), or social media platforms. Attackers often use logos, official language, and realistic formatting to make the messages appear authentic. Awareness and careful verification of links and senders are the best defenses against phishing attacks.",
+  "main_points": [
+    "Phishing",
+    "Fake emails",
+    "Fake websites",
+    "Credential theft",
+    "Urgent messages",
+    "Malicious links",
+    "Email scams",
+    "Smishing",
+    "Vishing",
+    "Security awareness"
+  ],
+  "example": "Scenario: A user receives an email claiming to be from their bank asking them to verify their account.\nStep 1: The email contains a link that appears to lead to the bank's login page.\nStep 2: The user clicks the link and enters their username and password.\nStep 3: The website is actually a fake phishing site controlled by attackers.\nStep 4: The attacker captures the login credentials.\n\nAnswer: The attacker successfully performed a phishing attack by creating a fake banking website."
+},
+
+{
+  "title": "Password Security",
+  "description_short": "Understand how strong passwords protect accounts from unauthorized access.",
+  "description_long": "Passwords are one of the most basic and widely used methods of authentication in digital systems. They act as a security barrier that prevents unauthorized users from accessing accounts and sensitive information. Weak or easily guessed passwords are one of the main reasons cyberattacks succeed. Attackers use techniques such as brute force attacks, dictionary attacks, and credential stuffing to guess or obtain passwords. Strong passwords should be long, complex, and unique for each account. A good password typically contains a combination of uppercase letters, lowercase letters, numbers, and special characters. Using the same password for multiple accounts increases risk because if one account is compromised, others may also become vulnerable. Password managers can help securely store and generate strong passwords. Multi-factor authentication adds an extra layer of protection by requiring an additional verification step beyond the password.",
+  "main_points": [
+    "Authentication",
+    "Strong passwords",
+    "Password length",
+    "Complex characters",
+    "Unique passwords",
+    "Brute force attacks",
+    "Dictionary attacks",
+    "Credential stuffing",
+    "Password managers",
+    "Multi-factor authentication"
+  ],
+  "example": "Scenario: A student uses the password '123456' for multiple online accounts.\nStep 1: An attacker runs a password guessing attack on the student's email account.\nStep 2: The attacker easily guesses the weak password.\nStep 3: The attacker logs into the email account.\nStep 4: Using the same password, the attacker accesses other linked accounts.\n\nAnswer: The weak and reused password allowed the attacker to compromise multiple accounts."
+},
+
+{
+  "title": "Network Security Basics",
+  "description_short": "Learn how networks are protected from unauthorized access and attacks.",
+  "description_long": "Network security refers to the practices, technologies, and policies used to protect computer networks from unauthorized access, misuse, and cyberattacks. A network connects multiple devices such as computers, servers, and smartphones to share data and resources. Without proper protection, attackers can intercept data, access systems, or spread malware through the network. Network security includes tools such as firewalls, intrusion detection systems, secure Wi-Fi configurations, and virtual private networks. Firewalls act as barriers that monitor and control incoming and outgoing network traffic based on predefined rules. Intrusion detection systems monitor network activity for suspicious behavior. Secure Wi-Fi networks use strong passwords and encryption to prevent unauthorized access. Network security also involves monitoring connected devices, disabling unused services, and regularly updating network equipment such as routers. Proper network security helps ensure safe communication and protects sensitive data from cyber threats.",
+  "main_points": [
+    "Network protection",
+    "Connected devices",
+    "Firewalls",
+    "Traffic monitoring",
+    "Intrusion detection",
+    "Secure WiFi",
+    "Router security",
+    "Unauthorized access",
+    "Data interception",
+    "Network policies"
+  ],
+  "example": "Scenario: A home user keeps the default password on their Wi-Fi router.\nStep 1: A nearby attacker connects to the Wi-Fi network using the default credentials.\nStep 2: The attacker monitors network traffic.\nStep 3: Sensitive data such as browsing activity is exposed.\nStep 4: The user later changes the router password and enables encryption.\n\nAnswer: Weak router security allowed unauthorized access to the network."
+},
+
+{
+  "title": "Encryption Basics",
+  "description_short": "Understand how encryption protects data by converting it into secure code.",
+  "description_long": "Encryption is a fundamental cybersecurity technique used to protect sensitive information by converting it into an unreadable format called ciphertext. Only authorized parties with the correct decryption key can convert the encrypted data back into its original readable form. Encryption is widely used to protect data stored on devices and data transmitted across networks. For example, secure websites use HTTPS encryption to protect communication between users and servers. There are two main types of encryption: symmetric encryption and asymmetric encryption. Symmetric encryption uses a single shared key for both encryption and decryption. Asymmetric encryption uses a pair of keys known as a public key and a private key. Encryption helps protect sensitive information such as passwords, personal messages, financial transactions, and confidential documents. Without encryption, attackers could intercept and read data transmitted over networks.",
+  "main_points": [
+    "Data protection",
+    "Encryption",
+    "Ciphertext",
+    "Decryption",
+    "Encryption keys",
+    "Symmetric encryption",
+    "Asymmetric encryption",
+    "HTTPS security",
+    "Secure communication",
+    "Data privacy"
+  ],
+  "example": "Scenario: A user logs into an online banking website.\nStep 1: The browser establishes a secure HTTPS connection with the bank server.\nStep 2: Data such as login credentials is encrypted before transmission.\nStep 3: Even if an attacker intercepts the network traffic, the data appears unreadable.\nStep 4: The bank server decrypts the data using the correct key.\n\nAnswer: Encryption protected the user's sensitive banking information during transmission."
+}
+  ]
+}

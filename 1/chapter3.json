@@ -1,0 +1,95 @@
+{
+  "chapter_title": "Information Security Basics",
+  "cards": [
+    {
+      "title": "Confidentiality",
+      "description_short": "Protect data from unauthorized access.",
+      "description_long": "Confidentiality ensures that sensitive information is accessible only to those authorized to see it. It prevents unauthorized users from accessing private data such as personal details, passwords, or company secrets. Techniques like encryption, access controls, and strong authentication help maintain confidentiality. In cybersecurity, breaches of confidentiality can lead to identity theft, financial loss, or intellectual property theft. Students should understand that safeguarding confidentiality is a core principle of information security and affects everything from emails to cloud storage to social media accounts.",
+      "main_points": [
+        "Authorized access",
+        "Data privacy",
+        "Encryption",
+        "Passwords",
+        "Access control",
+        "User permissions",
+        "Email security",
+        "Cloud security",
+        "Protect files",
+        "Prevent leaks"
+      ],
+      "example": "Scenario: A student stores grades on a shared computer.\nStep 1: Uses a password-protected account.\nStep 2: Encrypts important files.\nStep 3: Only authorized faculty can access grades.\nAnswer: Confidentiality maintained; unauthorized users cannot see the grades."
+    },
+    {
+      "title": "Integrity",
+      "description_short": "Ensure data is accurate and unaltered.",
+      "description_long": "Integrity ensures that data remains accurate, complete, and unmodified except by authorized users. Cybersecurity threats like malware or unauthorized access can corrupt or manipulate data. Integrity mechanisms include checksums, hashes, digital signatures, and version control. Maintaining integrity guarantees that information can be trusted for decision-making. For students, this means ensuring files, project submissions, or personal data are not altered unintentionally or maliciously. Violations of integrity can lead to wrong decisions, financial loss, or reputational damage.",
+      "main_points": [
+        "Accuracy",
+        "Completeness",
+        "Unaltered data",
+        "Checksums",
+        "Hashes",
+        "Digital signatures",
+        "Version control",
+        "Authorized edits",
+        "Data trust",
+        "Prevent tampering"
+      ],
+      "example": "Scenario: Student submits assignment online.\nStep 1: Hash of file generated before submission.\nStep 2: Instructor verifies hash after download.\nStep 3: File integrity confirmed; no modifications.\nAnswer: Integrity maintained; file not tampered."
+    },
+    {
+      "title": "Availability",
+      "description_short": "Ensure data and services are accessible when needed.",
+      "description_long": "Availability ensures that information and services are accessible to authorized users when required. System outages, network failures, or cyberattacks like DDoS can disrupt availability. Measures include redundant systems, backups, load balancing, and proper maintenance. In daily life, availability means you can access your emails, files, or websites without interruption. Students should understand the importance of uptime, backups, and timely recovery to ensure continuous access to digital resources.",
+      "main_points": [
+        "Accessible data",
+        "System uptime",
+        "Authorized users",
+        "Redundancy",
+        "Backups",
+        "Load balancing",
+        "Network reliability",
+        "Recovery plans",
+        "Prevent outages",
+        "Timely access"
+      ],
+      "example": "Scenario: University portal goes down.\nStep 1: Backup servers activate automatically.\nStep 2: Students can still access course materials.\nStep 3: System restored without data loss.\nAnswer: Availability ensured via redundant systems."
+    },
+    {
+      "title": "Authentication",
+      "description_short": "Verify the identity of users or systems.",
+      "description_long": "Authentication is the process of verifying that a user or system is who they claim to be. Common methods include passwords, PINs, biometrics, and multi-factor authentication. Authentication prevents unauthorized access and ensures accountability. It is a core aspect of cybersecurity because access control depends on knowing the identity of the entity requesting access. Students should practice using strong passwords, secure login methods, and MFA to protect accounts and sensitive data from unauthorized access.",
+      "main_points": [
+        "Verify identity",
+        "Passwords",
+        "PINs",
+        "Biometrics",
+        "MFA",
+        "Prevent unauthorized access",
+        "Access control",
+        "Secure login",
+        "User verification",
+        "Account protection"
+      ],
+      "example": "Scenario: Student logs into university portal.\nStep 1: Enters username and password.\nStep 2: Receives MFA code on phone.\nStep 3: Access granted only after verification.\nAnswer: Authentication ensures only legitimate user accesses portal."
+    },
+    {
+      "title": "Non-Repudiation",
+      "description_short": "Prevent denial of actions or transactions.",
+      "description_long": "Non-repudiation ensures that the sender of a message or performer of an action cannot deny their involvement. Digital signatures, audit logs, and cryptographic methods are used to provide proof of origin and integrity. This principle is critical in legal, financial, and academic contexts where accountability is necessary. Students should understand that non-repudiation provides a way to trace actions, verify authorship, and prevent disputes about digital transactions or communications.",
+      "main_points": [
+        "Proof of origin",
+        "Digital signatures",
+        "Audit logs",
+        "Accountability",
+        "Trace actions",
+        "Prevent denial",
+        "Verify authorship",
+        "Transaction security",
+        "Legal compliance",
+        "Non-deniable"
+      ],
+      "example": "Scenario: Student submits assignment online.\nStep 1: Submission includes digital signature.\nStep 2: Timestamp logged automatically.\nStep 3: Student cannot deny submission later.\nAnswer: Non-repudiation ensures accountability for submitted work."
+    }
+  ]
+}

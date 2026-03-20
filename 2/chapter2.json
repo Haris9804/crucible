@@ -1,0 +1,189 @@
+{
+  "chapter_title": "Common Cyber Attacks",
+  "cards": [
+    {
+      "title": "Malware",
+      "description_short": "Malicious software that damages or steals data.",
+      "description_long": "Malware, short for malicious software, is any program or code designed to harm computers, networks, or users. It includes viruses, worms, trojans, spyware, adware, and ransomware. Malware can steal sensitive information, delete files, spy on users, or give attackers control over systems. It spreads through email attachments, downloads, infected websites, or USB drives. Malware detection often requires antivirus software, firewalls, and regular software updates. Ethical hackers study malware to understand attack methods and develop defenses. Understanding malware types and behaviors is crucial to preventing infections and protecting personal and organizational data. With the rise of ransomware and targeted attacks, malware awareness is essential for anyone using digital devices.",
+      "main_points": [
+        "Virus",
+        "Worm",
+        "Trojan",
+        "Ransomware",
+        "Spyware",
+        "Adware",
+        "Data theft",
+        "File corruption",
+        "Malware spread",
+        "Detection & defense"
+      ],
+      "example": "Scenario: A user downloads a free game from an unofficial site.\n\nStep 1: The downloaded file contains a trojan.\nStep 2: When installed, it records keystrokes and sends passwords to the attacker.\nStep 3: The attacker accesses the user's email and banking accounts.\n\nAnswer: Malware infected the system, stole sensitive data, and caused a security breach."
+    },
+
+    {
+      "title": "Phishing",
+      "description_short": "Tricking users into revealing personal information.",
+      "description_long": "Phishing is a social engineering attack where attackers impersonate trusted entities to steal sensitive information such as passwords, credit card numbers, or personal data. Common phishing methods include emails, instant messages, fake websites, or phone calls. Phishing attacks often appear convincing, using logos, language, and branding that mimic legitimate organizations. Attackers create a sense of urgency, such as threatening account suspension, to trick users into clicking links or downloading attachments. Recognizing phishing attempts involves checking sender details, avoiding suspicious links, verifying requests, and enabling security measures like email filters and two-factor authentication. Phishing is one of the most common attack methods because it exploits human trust rather than technical vulnerabilities.",
+      "main_points": [
+        "Fake emails",
+        "Malicious links",
+        "Impersonation",
+        "Credential theft",
+        "Urgency tactics",
+        "Attachments",
+        "Fake websites",
+        "Human manipulation",
+        "Email filtering",
+        "2FA protection"
+      ],
+      "example": "Scenario: A user receives an email claiming to be from their bank.\n\nStep 1: The email asks the user to verify their password urgently.\nStep 2: The user clicks the link and enters their login credentials.\nStep 3: The attacker captures the credentials and logs into the real bank account.\n\nAnswer: The user fell victim to a phishing attack, giving the attacker access to sensitive financial information."
+    },
+
+    {
+      "title": "Ransomware",
+      "description_short": "Malware that locks data and demands payment.",
+      "description_long": "Ransomware is a type of malware that encrypts a user's files or entire system, making them inaccessible, and demands a ransom payment to restore access. It spreads through malicious email attachments, infected downloads, or unpatched software vulnerabilities. Once executed, ransomware can encrypt critical files and display a message demanding payment in cryptocurrency. Paying the ransom is risky, as attackers may not restore access, and it encourages further attacks. Organizations and individuals must maintain regular backups, keep software updated, and use strong security solutions to defend against ransomware. Ethical hackers analyze ransomware behavior to develop detection methods and educate users about preventing attacks.",
+      "main_points": [
+        "File encryption",
+        "Malware",
+        "Ransom demand",
+        "Email attachments",
+        "Infected downloads",
+        "Software vulnerabilities",
+        "Cryptocurrency payment",
+        "Backup defense",
+        "Detection",
+        "Education"
+      ],
+      "example": "Scenario: An employee opens an email attachment labeled 'Invoice'.\n\nStep 1: The attachment installs ransomware.\nStep 2: All files on the computer are encrypted.\nStep 3: A message demands payment of Bitcoin to decrypt files.\nStep 4: The company restores files from backups instead of paying.\n\nAnswer: Ransomware blocked access to files, but backups allowed recovery without paying the attacker."
+    },
+
+    {
+      "title": "Social Engineering",
+      "description_short": "Manipulating humans to bypass security.",
+      "description_long": "Social engineering attacks exploit human psychology rather than technical weaknesses to gain unauthorized access to sensitive information or systems. Attackers manipulate trust, fear, or curiosity to trick users into divulging passwords, sharing confidential data, or performing actions that compromise security. Common techniques include pretexting (posing as someone legitimate), baiting (offering something enticing), tailgating (physically following authorized personnel), and phishing. Social engineering can target employees, customers, or anyone with access to sensitive information. Awareness training, verification procedures, and skepticism are essential defenses. Ethical hackers use controlled social engineering tests to teach organizations how to recognize and respond to such attacks, thereby strengthening human security barriers.",
+      "main_points": [
+        "Human manipulation",
+        "Pretexting",
+        "Baiting",
+        "Tailgating",
+        "Phishing overlap",
+        "Confidential info",
+        "Trust exploitation",
+        "Psychology-based attack",
+        "Awareness training",
+        "Verification procedures"
+      ],
+      "example": "Scenario: An attacker calls an employee pretending to be IT support.\n\nStep 1: The attacker asks the employee for their login credentials to 'fix a problem'.\nStep 2: The employee provides the password without verifying the caller.\nStep 3: The attacker accesses the company system using these credentials.\n\nAnswer: Social engineering tricked the employee into revealing sensitive information, compromising security."
+    },
+
+    {
+      "title": "Denial of Service (DoS / DDoS)",
+      "description_short": "Overloading systems to make them unavailable.",
+      "description_long": "Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks aim to make systems, websites, or networks unavailable by overwhelming them with traffic or requests. A DoS attack comes from a single source, while a DDoS attack uses multiple compromised systems, often forming a botnet, to flood the target. The excessive traffic consumes resources, causing legitimate users to experience slow performance or complete service disruption. DoS/DDoS attacks can target businesses, government websites, or online services to cause financial loss, reputational damage, or distraction for other attacks. Defenses include traffic monitoring, rate limiting, firewalls, and cloud-based mitigation services. Ethical hackers simulate DoS/DDoS attacks in controlled environments to test system resilience and prepare defenses.",
+      "main_points": [
+        "Service disruption",
+        "High traffic",
+        "DoS single source",
+        "DDoS multiple sources",
+        "Botnets",
+        "Resource exhaustion",
+        "Website downtime",
+        "Financial loss",
+        "Traffic mitigation",
+        "Resilience testing"
+      ],
+      "example": "Scenario: An online store is targeted by a DDoS attack.\n\nStep 1: Multiple compromised computers send excessive requests to the store's website.\nStep 2: The website slows down and becomes inaccessible to legitimate customers.\nStep 3: The IT team activates mitigation tools to filter malicious traffic.\nStep 4: Normal service is gradually restored.\n\nAnswer: The DDoS attack temporarily blocked users, but traffic filtering minimized the impact and restored access."
+    },
+    {
+      "title": "Man-in-the-Middle (MITM)",
+      "description_short": "Intercepting communication between two parties.",
+      "description_long": "A Man-in-the-Middle (MITM) attack occurs when an attacker secretly intercepts or alters communication between two parties without their knowledge. The attacker can eavesdrop, steal data, inject malicious content, or manipulate information in transit. Common MITM scenarios include public Wi-Fi networks, unsecured HTTP connections, and compromised routers. Attackers can use techniques like packet sniffing, session hijacking, or SSL stripping to capture sensitive information such as login credentials, personal messages, or financial data. Ethical hackers simulate MITM attacks in controlled environments to help organizations identify vulnerabilities, enforce encryption, and implement network security measures to prevent unauthorized interception.",
+      "main_points": [
+        "Intercept communication",
+        "Eavesdropping",
+        "Data theft",
+        "Message manipulation",
+        "Session hijacking",
+        "Packet sniffing",
+        "SSL stripping",
+        "Public Wi-Fi risk",
+        "Encryption importance",
+        "Network security"
+      ],
+      "example": "Scenario: A user connects to public Wi-Fi at a café.\n\nStep 1: An attacker sets up a fake Wi-Fi hotspot with a similar name.\nStep 2: The user unknowingly connects to it.\nStep 3: The attacker intercepts login credentials entered on websites.\nStep 4: The attacker uses stolen credentials to access the user's accounts.\n\nAnswer: MITM allowed the attacker to capture sensitive data from an unsuspecting user."
+    },
+    {
+      "title": "SQL Injection",
+      "description_short": "Injecting malicious SQL to access databases.",
+      "description_long": "SQL Injection (SQLi) is a web application attack where an attacker inserts malicious SQL statements into input fields to manipulate the backend database. If user inputs are not properly sanitized, attackers can view, modify, or delete sensitive data, bypass authentication, or gain administrative privileges. SQLi is a serious threat because many websites rely on databases for storing user data, financial information, and business records. Ethical hackers use SQL injection tests to identify vulnerabilities in applications and recommend parameterized queries, input validation, and proper database permissions. Understanding SQLi helps developers prevent unauthorized database access and secure web applications.",
+      "main_points": [
+        "Malicious SQL",
+        "Database access",
+        "Data theft",
+        "Authentication bypass",
+        "Privilege escalation",
+        "Input validation",
+        "Sanitization",
+        "Parameterized queries",
+        "Web application security",
+        "Vulnerability testing"
+      ],
+      "example": "Scenario: A login form does not validate user input.\n\nStep 1: An attacker enters ' OR 1=1 -- as the username.\nStep 2: The SQL query always returns true, granting access.\nStep 3: The attacker logs in as an admin without credentials.\nStep 4: A report is submitted to fix input validation.\n\nAnswer: SQL injection exploited the login form, allowing unauthorized access to the database."
+    },
+    {
+      "title": "Cross-Site Scripting (XSS)",
+      "description_short": "Injecting scripts into websites to attack users.",
+      "description_long": "Cross-Site Scripting (XSS) is an attack where malicious scripts are injected into trusted websites and executed in users’ browsers. XSS can steal cookies, session tokens, or personal data, manipulate webpage content, or redirect users to malicious sites. It usually happens when web applications fail to properly sanitize user input. There are three main types: Stored XSS (malicious code saved on the server), Reflected XSS (code reflected in response), and DOM-based XSS (code executed via browser DOM). Ethical hackers test applications for XSS vulnerabilities and recommend proper input encoding, content security policies, and safe scripting practices. XSS teaches the importance of validating input and output for secure web development.",
+      "main_points": [
+        "Script injection",
+        "Browser execution",
+        "Cookie theft",
+        "Session hijacking",
+        "Content manipulation",
+        "Reflected XSS",
+        "Stored XSS",
+        "DOM-based XSS",
+        "Input sanitization",
+        "Web security"
+      ],
+      "example": "Scenario: A website comment section allows raw HTML input.\n\nStep 1: An attacker posts a comment containing <script> stealing cookies.</nStep 2: Other users view the comment.\nStep 3: The script executes in their browsers, sending cookies to the attacker.\nStep 4: Security team fixes input sanitization to prevent further XSS.\n\nAnswer: XSS allowed the attacker to execute scripts in users’ browsers and steal session data."
+    },
+    {
+      "title": "Password Attacks",
+      "description_short": "Cracking or guessing passwords to gain access.",
+      "description_long": "Password attacks involve techniques used to obtain or crack passwords to access systems, applications, or accounts. Common methods include brute force attacks (trying all possible combinations), dictionary attacks (using precompiled lists of common passwords), and credential stuffing (using leaked credentials from other breaches). Weak, reused, or default passwords make these attacks easier. Ethical hackers test password strength and recommend using strong, unique passwords, multi-factor authentication, and password managers. Understanding password attacks helps organizations and users strengthen authentication, prevent unauthorized access, and secure sensitive data.",
+      "main_points": [
+        "Brute force",
+        "Dictionary attack",
+        "Credential stuffing",
+        "Weak passwords",
+        "Default passwords",
+        "Password reuse",
+        "Authentication bypass",
+        "MFA",
+        "Password managers",
+        "Account security"
+      ],
+      "example": "Scenario: An attacker tries to log in to an account using '123456', 'password', and other common passwords.\n\nStep 1: Brute force attempts fail after multiple tries due to rate limiting.\nStep 2: Attacker tries leaked credentials from another breach.\nStep 3: MFA blocks unauthorized access.\nStep 4: The user is advised to update passwords regularly.\n\nAnswer: Password attacks were attempted but blocked, highlighting the importance of strong passwords and MFA."
+    },
+    {
+      "title": "Zero-Day Exploits",
+      "description_short": "Attacks targeting unknown or unpatched vulnerabilities.",
+      "description_long": "Zero-Day Exploits target vulnerabilities in software, hardware, or applications that are unknown to developers or have no available patches. Because the vulnerability is not publicly known, attackers can exploit it before security fixes are released. Zero-day attacks are highly valuable and dangerous, often used in targeted attacks or cyber espionage. Ethical hackers study zero-day exploits in controlled environments to discover vulnerabilities early and work with vendors to patch them before malicious use. Defenses include rapid patch management, intrusion detection systems, and proactive vulnerability research. Understanding zero-day risks helps organizations prioritize security monitoring and response strategies.",
+      "main_points": [
+        "Unknown vulnerability",
+        "No patch available",
+        "Targeted attack",
+        "High risk",
+        "Exploitation",
+        "Cyber espionage",
+        "Rapid response",
+        "Intrusion detection",
+        "Proactive research",
+        "Vendor collaboration"
+      ],
+      "example": "Scenario: A hacker discovers a bug in a web server software that is not yet patched.\n\nStep 1: They use the exploit to gain admin access.\nStep 2: Sensitive user data is at risk.\nStep 3: Security researchers identify the vulnerability and report it to the vendor.\nStep 4: A patch is released to fix the bug.\n\nAnswer: The zero-day exploit was mitigated through responsible discovery and patching, preventing potential widespread harm."
+    }
+  ]
+}

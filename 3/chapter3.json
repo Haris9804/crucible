@@ -1,0 +1,100 @@
+{
+  "chapter_title": "Networking Commands",
+  "cards": [
+    {
+      "title": "PING",
+      "description_short": "Test network connectivity",
+      "description_long": "The 'ping' command checks if a host is reachable over the network and measures response time. It’s essential for basic network diagnostics.",
+      "main_commands": [
+        {"command":"ping google.com", "explanation":"Send ICMP packets to google.com to check connectivity"},
+        {"command":"ping -c 4 google.com", "explanation":"Send only 4 ping packets and stop"},
+        {"command":"ping -i 2 google.com", "explanation":"Send ping packets every 2 seconds"},
+        {"command":"ping -s 1000 google.com", "explanation":"Send ping packets with 1000 bytes payload"},
+        {"command":"ping -t 64 google.com", "explanation":"Set the TTL (time to live) value for ping packets"}
+      ],
+      "activity": [
+        "Ping a website and observe response time",
+        "Send a limited number of ping packets",
+        "Adjust interval between pings",
+        "Send larger packet sizes",
+        "Experiment with TTL values"
+      ]
+    },
+    {
+      "title": "IP",
+      "description_short": "View and manage IP addresses",
+      "description_long": "The 'ip' command is used to display and manage network interfaces, IP addresses, routes, and more. It’s a modern replacement for many older networking commands.",
+      "main_commands": [
+        {"command":"ip addr show", "explanation":"Display all network interfaces and their IP addresses"},
+        {"command":"ip link show", "explanation":"Show link layer information for interfaces"},
+        {"command":"ip route show", "explanation":"Display routing table"},
+        {"command":"ip addr add 192.168.1.100/24 dev eth0", "explanation":"Add an IP address to an interface"},
+        {"command":"ip link set eth0 up", "explanation":"Bring the interface eth0 up"}
+      ],
+      "activity": [
+        "Check IP addresses assigned to interfaces",
+        "View network interface status",
+        "Display routing table",
+        "Assign a temporary IP to an interface",
+        "Bring an interface up or down"
+      ]
+    },
+    {
+      "title": "IFCONFIG",
+      "description_short": "View network interfaces",
+      "description_long": "The 'ifconfig' command shows network interface configuration. It can also be used to enable/disable interfaces and assign IP addresses.",
+      "main_commands": [
+        {"command":"ifconfig", "explanation":"Display all active network interfaces"},
+        {"command":"ifconfig eth0", "explanation":"Show details of eth0 interface"},
+        {"command":"ifconfig eth0 192.168.1.50", "explanation":"Assign a new IP to eth0"},
+        {"command":"ifconfig eth0 up", "explanation":"Activate the interface"},
+        {"command":"ifconfig eth0 down", "explanation":"Deactivate the interface"}
+      ],
+      "activity": [
+        "Display all interfaces on the system",
+        "Check a specific interface details",
+        "Assign IP address temporarily",
+        "Bring an interface up",
+        "Bring an interface down"
+      ]
+    },
+    {
+      "title": "TRACEROUTE",
+      "description_short": "Trace the path to a host",
+      "description_long": "The 'traceroute' command shows the path packets take to reach a destination host. It’s useful to identify where network delays occur.",
+      "main_commands": [
+        {"command":"traceroute google.com", "explanation":"Trace path to google.com"},
+        {"command":"traceroute -m 10 google.com", "explanation":"Limit max hops to 10"},
+        {"command":"traceroute -n google.com", "explanation":"Do not resolve IP addresses to hostnames"},
+        {"command":"traceroute -q 2 google.com", "explanation":"Send 2 probe packets per hop"},
+        {"command":"traceroute -I google.com", "explanation":"Use ICMP ECHO instead of UDP packets"}
+      ],
+      "activity": [
+        "Trace route to a website",
+        "Limit maximum hops during trace",
+        "Disable hostname resolution",
+        "Adjust number of probes per hop",
+        "Use ICMP instead of default UDP packets"
+      ]
+    },
+    {
+      "title": "SS",
+      "description_short": "View socket statistics",
+      "description_long": "The 'ss' command shows socket statistics, including TCP, UDP connections, and listening ports. It’s a modern alternative to netstat for monitoring connections.",
+      "main_commands": [
+        {"command":"ss -t", "explanation":"Show all TCP connections"},
+        {"command":"ss -u", "explanation":"Show all UDP connections"},
+        {"command":"ss -l", "explanation":"Display listening sockets"},
+        {"command":"ss -s", "explanation":"Summary statistics of sockets"},
+        {"command":"ss -p", "explanation":"Show process using the socket"}
+      ],
+      "activity": [
+        "List all TCP connections",
+        "List all UDP connections",
+        "Check listening ports",
+        "View summary of all sockets",
+        "Find processes associated with sockets"
+      ]
+    }
+  ]
+}

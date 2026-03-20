@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo 1 - 3Q Cybersecurity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="7.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1 class="company-name">3Q Cybersecurity</h1>
+        <p class="dynamic-quote">Hack the planet, ethically.</p>
+    </div>
+</header>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<section class="hero">
+    <h2>
+        Web Based Vulnerabilities
+        <span id="progress-tracker" style="font-size:0.8rem; color:#00ff00; margin-left:1rem;">
+            Sections completed: 0 / 0
+        </span>
+    </h2>
+</section>
+
+<main>
+
+    <!-- ================= SQLi CARD ================= -->
+    <section class="vuln-card" data-id="sqli">
+
+        <div class="card-header">
+            <h3>SQL Injection (SQLi)</h3>
+            <div class="status-badge">Incomplete</div>
+            <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+        </div>
+
+        <div class="card-content">
+
+            <p class="warning">⚠ Practice only on legal vulnerable labs.</p>
+
+            <p><strong>Test Link:</strong></p>
+            <p class="test-link">http://testphp.vulnweb.com/login.php</p>
+
+            <h4>Guided Demonstration</h4>
+            <div class="step">Open the given link.</div>
+            <div class="step">Check if login input fields exist.</div>
+            <div class="step">Insert basic test characters like (').</div>
+            <div class="step">Search: <span class="inline-code">Simple SQLi payload</span></div>
+            <div class="step">Observe if application behaves differently.</div>
+
+            <h4>Example Payloads</h4>
+            <div class="terminal">
+                <div class="payload">
+                    <code>' OR '1'='1</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+                <div class="payload">
+                    <code>admin' --</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+                <div class="payload">
+                    <code>' OR 1=1 --</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="card-buttons">
+                <button class="close-btn" onclick="toggleCard(this)">Close</button>
+                <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= XSS CARD ================= -->
+    <section class="vuln-card" data-id="xss">
+
+        <div class="card-header">
+            <h3>Cross-Site Scripting (XSS)</h3>
+            <div class="status-badge">Incomplete</div>
+            <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+        </div>
+
+        <div class="card-content">
+
+            <p class="warning">⚠ Practice only on legal vulnerable labs.</p>
+
+            <p><strong>Test Link:</strong></p>
+            <p class="test-link">http://testphp.vulnweb.com/search.php?test=query</p>
+
+            <h4>Guided Demonstration</h4>
+            <div class="step">Open the search page.</div>
+            <div class="step">Check if search term appears on page.</div>
+            <div class="step">Insert basic script test payload.</div>
+            <div class="step">Search: <span class="inline-code">Simple XSS payload</span></div>
+            <div class="step">Observe if script executes.</div>
+
+            <h4>Example Payloads</h4>
+            <div class="terminal">
+                <div class="payload">
+                    <code>&lt;script&gt;alert(1)&lt;/script&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+                <div class="payload">
+                    <code>&lt;img src=x onerror=alert(1)&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="card-buttons">
+                <button class="close-btn" onclick="toggleCard(this)">Close</button>
+                <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<footer>
+    <p>"Stay safe, stay cyber-aware."</p>
+</footer>
+
+<script src="7.js"></script>
+</body>
+</html>

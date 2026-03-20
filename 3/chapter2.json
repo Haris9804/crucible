@@ -1,0 +1,100 @@
+{
+  "chapter_title": "File Operations",
+  "cards": [
+    {
+      "title": "CAT",
+      "description_short": "View and concatenate files",
+      "description_long": "The 'cat' command displays the contents of files, combines multiple files, or creates new files. It's a fundamental tool for quick file inspection and simple file operations.",
+      "main_commands": [
+        {"command":"cat file.txt", "explanation":"Display the contents of file.txt"},
+        {"command":"cat file1.txt file2.txt", "explanation":"Concatenate and display multiple files"},
+        {"command":"cat > newfile.txt", "explanation":"Create a new file and type content directly (Ctrl+D to save)"},
+        {"command":"cat file.txt | less", "explanation":"Pipe the output to less for scrollable view"},
+        {"command":"cat -n file.txt", "explanation":"Display file with line numbers"}
+      ],
+      "activity": [
+        "Display contents of a file",
+        "Concatenate two files and view output",
+        "Create a new file using cat",
+        "Display a long file page by page",
+        "Show file contents with line numbers"
+      ]
+    },
+    {
+      "title": "NANO",
+      "description_short": "Edit files in terminal",
+      "description_long": "Nano is a simple terminal text editor. It allows you to create, open, edit, and save files directly in the terminal environment.",
+      "main_commands": [
+        {"command":"nano file.txt", "explanation":"Open file.txt in Nano editor"},
+        {"command":"nano -w file.txt", "explanation":"Open file without wrapping long lines"},
+        {"command":"Ctrl+O", "explanation":"Save the current file in Nano"},
+        {"command":"Ctrl+X", "explanation":"Exit Nano editor"},
+        {"command":"Ctrl+K / Ctrl+U", "explanation":"Cut and paste lines inside Nano"}
+      ],
+      "activity": [
+        "Open a file and edit content",
+        "Save changes using Nano commands",
+        "Cut and paste a line in Nano",
+        "Create a new file and type text",
+        "Exit Nano without losing changes"
+      ]
+    },
+    {
+      "title": "TOUCH",
+      "description_short": "Create empty files or update timestamps",
+      "description_long": "The 'touch' command is used to create empty files or update timestamps of existing files. It’s quick and essential for scripting or test files.",
+      "main_commands": [
+        {"command":"touch file.txt", "explanation":"Create a new empty file named file.txt"},
+        {"command":"touch file1.txt file2.txt", "explanation":"Create multiple empty files at once"},
+        {"command":"touch -c file.txt", "explanation":"Do not create file if it doesn't exist"},
+        {"command":"touch -a file.txt", "explanation":"Update only the access timestamp of file.txt"},
+        {"command":"touch -m file.txt", "explanation":"Update only the modification timestamp of file.txt"}
+      ],
+      "activity": [
+        "Create a single empty file",
+        "Create multiple files in one command",
+        "Update timestamp of a file",
+        "Practice access vs modification timestamp",
+        "Verify files exist after touch command"
+      ]
+    },
+    {
+      "title": "CP",
+      "description_short": "Copy files and directories",
+      "description_long": "The 'cp' command copies files or directories. You can preserve attributes, copy recursively, and rename files during the copy process.",
+      "main_commands": [
+        {"command":"cp file1.txt file2.txt", "explanation":"Copy file1.txt to file2.txt"},
+        {"command":"cp -r folder1 folder2", "explanation":"Copy a directory recursively"},
+        {"command":"cp -i file1.txt file2.txt", "explanation":"Prompt before overwriting existing files"},
+        {"command":"cp -v file1.txt file2.txt", "explanation":"Show verbose output of copying"},
+        {"command":"cp file1.txt ~/Documents/", "explanation":"Copy file to another location"}
+      ],
+      "activity": [
+        "Copy a file to a new file name",
+        "Copy a folder recursively",
+        "Use interactive mode to avoid overwriting",
+        "Copy a file to another directory",
+        "Observe verbose output during copy"
+      ]
+    },
+    {
+      "title": "MV",
+      "description_short": "Move or rename files",
+      "description_long": "The 'mv' command moves files and directories or renames them. It's also useful for organizing files within directories.",
+      "main_commands": [
+        {"command":"mv file1.txt file2.txt", "explanation":"Rename file1.txt to file2.txt"},
+        {"command":"mv file.txt ~/Documents/", "explanation":"Move file.txt to another directory"},
+        {"command":"mv -i file1.txt file2.txt", "explanation":"Prompt before overwriting existing files"},
+        {"command":"mv -v file1.txt file2.txt", "explanation":"Show verbose output of moving files"},
+        {"command":"mv *.txt backup/", "explanation":"Move all txt files to backup folder"}
+      ],
+      "activity": [
+        "Rename a file using mv",
+        "Move a file to another folder",
+        "Move multiple files using wildcards",
+        "Use interactive mode to prevent overwriting",
+        "Observe verbose output when moving files"
+      ]
+    }
+  ]
+}

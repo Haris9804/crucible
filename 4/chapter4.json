@@ -1,0 +1,81 @@
+{
+  "chapter_title": "Network & Protocol Attacks",
+  "cards": [
+    {
+      "title": "Man-in-the-Middle (MITM)",
+      "description_short": "Intercept communication between two systems",
+      "description_long": "A Man-in-the-Middle attack occurs when an attacker secretly intercepts and possibly alters communication between two parties without their knowledge. This allows attackers to capture credentials, session tokens, or sensitive data.",
+      "main_commands": [
+        {"command":"ettercap -T -q -i eth0 -M arp:remote /victim_ip/ /gateway_ip/", "explanation":"Perform MITM using ARP poisoning"},
+        {"command":"mitmproxy -p 8080", "explanation":"Intercept and inspect HTTP/HTTPS traffic"},
+        {"command":"tcpdump -i eth0", "explanation":"Capture network packets"},
+        {"command":"wireshark", "explanation":"Analyze captured network traffic"},
+        {"command":"sslstrip -l 8080", "explanation":"Attempt to downgrade HTTPS to HTTP"}
+      ],
+      "activity": [
+        "Capture network traffic between hosts",
+        "Analyze packets for credentials or session tokens",
+        "Understand HTTPS vs HTTP security",
+        "Observe how encryption prevents interception",
+        "Learn detection and mitigation techniques"
+      ]
+    },
+    {
+      "title": "ARP Spoofing",
+      "description_short": "Poison ARP tables to redirect traffic",
+      "description_long": "ARP spoofing (or ARP poisoning) involves sending fake ARP messages on a local network. This tricks devices into sending traffic to the attacker instead of the legitimate destination.",
+      "main_commands": [
+        {"command":"arpspoof -i eth0 -t victim_ip gateway_ip", "explanation":"Send fake ARP replies to victim"},
+        {"command":"arpspoof -i eth0 -t gateway_ip victim_ip", "explanation":"Poison gateway ARP table"},
+        {"command":"arp -a", "explanation":"Display ARP table entries"},
+        {"command":"ettercap -M arp /victim_ip/ /gateway_ip/", "explanation":"Launch ARP spoofing attack"},
+        {"command":"ip neigh", "explanation":"View ARP neighbor table in Linux"}
+      ],
+      "activity": [
+        "View ARP table entries",
+        "Perform ARP spoofing in a lab environment",
+        "Observe traffic redirection effects",
+        "Capture packets after ARP poisoning",
+        "Understand defenses like static ARP entries"
+      ]
+    },
+    {
+      "title": "DNS Spoofing",
+      "description_short": "Redirect users to malicious websites",
+      "description_long": "DNS spoofing (or DNS cache poisoning) manipulates DNS responses to redirect users to malicious servers instead of legitimate websites. This can be used for phishing or malware delivery.",
+      "main_commands": [
+        {"command":"dnsspoof -i eth0", "explanation":"Send fake DNS responses"},
+        {"command":"dig example.com", "explanation":"Query DNS server for domain information"},
+        {"command":"nslookup example.com", "explanation":"Look up DNS records"},
+        {"command":"resolvectl status", "explanation":"Check DNS resolver configuration"},
+        {"command":"ettercap -P dns_spoof", "explanation":"Perform DNS spoofing using Ettercap plugin"}
+      ],
+      "activity": [
+        "Query DNS records using dig or nslookup",
+        "Observe DNS resolution process",
+        "Test DNS spoofing in a lab environment",
+        "Analyze DNS packets in Wireshark",
+        "Understand how DNSSEC helps prevent spoofing"
+      ]
+    },
+    {
+      "title": "Ping Flood",
+      "description_short": "Overwhelm a system with ICMP requests",
+      "description_long": "A ping flood is a type of Denial-of-Service (DoS) attack where a large number of ICMP echo requests are sent to a target system to overwhelm its network resources and make it unavailable.",
+      "main_commands": [
+        {"command":"ping target.com", "explanation":"Send ICMP echo request to target"},
+        {"command":"ping -f target.com", "explanation":"Flood ping requests rapidly"},
+        {"command":"hping3 --icmp --flood target_ip", "explanation":"Generate high-volume ICMP traffic"},
+        {"command":"tcpdump icmp", "explanation":"Capture ICMP packets"},
+        {"command":"wireshark icmp", "explanation":"Analyze ICMP traffic in Wireshark"}
+      ],
+      "activity": [
+        "Send ICMP requests to a host",
+        "Observe ICMP packets in Wireshark",
+        "Understand how flood attacks overwhelm systems",
+        "Analyze network traffic during a flood test",
+        "Learn mitigation techniques like rate limiting"
+      ]
+    }
+  ]
+}

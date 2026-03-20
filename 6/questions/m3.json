@@ -1,0 +1,202 @@
+[
+  {
+    "question": "1. What does the ls command do?",
+    "options": [
+      "Changes directories",
+      "Lists files and directories in the current location",
+      "Removes files",
+      "Copies files"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "2. Which ls option shows hidden files?",
+    "options": [
+      "ls -l",
+      "ls -a",
+      "ls -h",
+      "ls -r"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "3. What does cd .. do?",
+    "options": [
+      "Opens a file",
+      "Moves one directory up",
+      "Creates a new directory",
+      "Lists all files"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "4. How do you create a new directory named folder1?",
+    "options": [
+      "mkdir folder1",
+      "cd folder1",
+      "rm folder1",
+      "ls folder1"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "5. What does rm -rf folder_name do?",
+    "options": [
+      "Creates a folder",
+      "Forcefully deletes a folder and its contents",
+      "Copies a folder",
+      "Moves a folder"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "6. Which command is used to copy a file?",
+    "options": [
+      "mv file1 file2",
+      "cp file1 file2",
+      "rm file1",
+      "ls file1"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "7. Which command shows your current directory path?",
+    "options": [
+      "pwd",
+      "ls",
+      "cd",
+      "mv"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "8. How do you move a file to another folder?",
+    "options": [
+      "cp file folder/",
+      "mv file folder/",
+      "rm file folder/",
+      "ls file folder/"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "9. Which command displays file contents?",
+    "options": [
+      "cat file_name",
+      "cd file_name",
+      "mv file_name",
+      "rm file_name"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "10. Which command opens a simple CLI text editor?",
+    "options": [
+      "vim filename.txt",
+      "nano filename.txt",
+      "gedit filename.txt",
+      "cat filename.txt"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "11. How do you save and exit in nano?",
+    "options": [
+      "CTRL + O then CTRL + X",
+      ":wq",
+      "Esc",
+      "CTRL + S"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "12. Which editor is considered advanced for CLI use?",
+    "options": [
+      "nano",
+      "vim",
+      "mousepad",
+      "gedit"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "13. How do you quit vim without saving changes?",
+    "options": [
+      ":wq",
+      ":q!",
+      "CTRL + X",
+      ":save"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "14. Which GUI text editor is default on GNOME?",
+    "options": [
+      "mousepad",
+      "gedit",
+      "nano",
+      "vim"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "15. Which command shows all network interfaces and IPs?",
+    "options": [
+      "ping 8.8.8.8",
+      "ip addr",
+      "ls -l",
+      "pwd"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "16. Which command is used to check connectivity to a host?",
+    "options": [
+      "netstat",
+      "ping",
+      "ss",
+      "arp"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "17. Which command is faster and modern replacement for netstat?",
+    "options": [
+      "ss",
+      "ping",
+      "traceroute",
+      "ifconfig"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "18. What does traceroute google.com do?",
+    "options": [
+      "Shows IP addresses only",
+      "Traces the path packets take to reach the destination",
+      "Opens Google in browser",
+      "Displays network interfaces"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "19. Which command shows the ARP table?",
+    "options": [
+      "arp -a",
+      "ip route",
+      "ping",
+      "ss -tuln"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "20. How do you run a Python 3 script named script.py?",
+    "options": [
+      "python script.py",
+      "python3 script.py",
+      "perl script.pl",
+      "bash script.py"
+    ],
+    "correct_option": 1
+  }
+]

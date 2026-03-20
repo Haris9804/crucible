@@ -1,0 +1,62 @@
+{
+  "chapter_title": "Social Engineering Attacks",
+  "cards": [
+    {
+      "title": "Phishing / Spear Phishing / Vishing / Smishing",
+      "description_short": "Deceptive attempts to steal credentials or information",
+      "description_long": "Social engineering attacks exploit human trust rather than technical vulnerabilities. Phishing uses emails, spear phishing targets specific individuals, vishing uses phone calls, and smishing uses SMS messages to trick users into revealing sensitive information.",
+      "main_commands": [
+        {"command":"Email with malicious link", "explanation":"Typical phishing attempt to steal credentials"},
+        {"command":"Spear phishing email", "explanation":"Targeted email to a specific individual or role"},
+        {"command":"Vishing call script", "explanation":"Phone call to convince victim to provide credentials"},
+        {"command":"SMS with malicious link", "explanation":"Smishing attempt via text message"},
+        {"command":"Clone login page", "explanation":"Fake website used to capture user credentials"}
+      ],
+      "activity": [
+        "Identify phishing emails in a controlled lab",
+        "Analyze spear phishing tactics for targeted attacks",
+        "Understand risks of vishing phone calls",
+        "Examine smishing examples in messaging",
+        "Learn how to report phishing attempts safely"
+      ]
+    },
+    {
+      "title": "Pretexting / Impersonation",
+      "description_short": "Create a believable scenario to extract information",
+      "description_long": "Pretexting involves fabricating a scenario to gain the victim's trust and extract sensitive information. Impersonation is physically or digitally posing as someone else to manipulate the target.",
+      "main_commands": [
+        {"command":"Fake IT support call", "explanation":"Impersonate support to request credentials"},
+        {"command":"Email from executive", "explanation":"Pretend to be a CEO/CFO to request sensitive info"},
+        {"command":"Social media impersonation", "explanation":"Create a fake profile to trick contacts"},
+        {"command":"Pretext scenario document", "explanation":"Outline a believable story to engage victim"},
+        {"command":"Walk-in impersonation", "explanation":"Gain physical access by posing as delivery or employee"}
+      ],
+      "activity": [
+        "Understand how pretexting manipulates trust",
+        "Analyze real-life impersonation cases",
+        "Create a safe pretext scenario in a lab",
+        "Evaluate risks of social media impersonation",
+        "Recognize signs of impersonation attempts"
+      ]
+    },
+    {
+      "title": "Malicious Email Attachments",
+      "description_short": "Attachments used to deliver malware",
+      "description_long": "Attackers embed malware or malicious scripts in email attachments to compromise systems. Opening or executing these attachments can lead to infection, credential theft, or network compromise.",
+      "main_commands": [
+        {"command":"malicious.doc or .xls file", "explanation":"Office documents with macros or exploits"},
+        {"command":".zip or .rar attachment", "explanation":"Compressed malware delivery"},
+        {"command":".exe or .bat attachment", "explanation":"Executable malware files"},
+        {"command":"Double extension trick e.g., invoice.pdf.exe", "explanation":"Trick users into executing malware"},
+        {"command":"Sandbox analysis", "explanation":"Analyze attachment behavior safely without executing on main system"}
+      ],
+      "activity": [
+        "Identify malicious attachments in controlled environment",
+        "Examine macro-enabled documents for malware",
+        "Practice safe handling of unknown attachments",
+        "Understand how double extensions trick users",
+        "Use sandbox tools to analyze attachment behavior"
+      ]
+    }
+  ]
+}

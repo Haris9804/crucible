@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tools - 3Q Cybersecurity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="7.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1 class="company-name">3Q Cybersecurity</h1>
+        <p class="dynamic-quote">Hack the planet, ethically.</p>
+    </div>
+</header>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<section class="hero">
+    <h2>
+        Security Tools
+        <span id="progress-tracker" style="font-size:0.8rem; color:#00ff00; margin-left:1rem;">
+            Sections completed: 0 / 0
+        </span>
+    </h2>
+</section>
+
+<main>
+
+    <!-- ================= NMAP CARD ================= -->
+    <section class="vuln-card" data-id="nmap">
+
+        <div class="card-header">
+            <h3>Nmap (Network Mapper)</h3>
+            <div class="status-badge">Incomplete</div>
+            <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+        </div>
+
+        <div class="card-content">
+
+            <p class="warning">⚠ Use only in authorized environments.</p>
+
+            <h4>Steps to Use Nmap</h4>
+            <div class="step">Identify the target IP address.</div>
+            <div class="step">Run basic scan to check open ports.</div>
+            <div class="step">Use service detection to identify versions.</div>
+            <div class="step">Use OS detection if required.</div>
+            <div class="step">Analyze results for vulnerabilities.</div>
+
+            <h4>Example Commands</h4>
+            <div class="terminal">
+
+                <div class="payload">
+                    <code>nmap &lt;target-ip&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+                <div class="payload">
+                    <code>nmap -sV &lt;target-ip&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+                <div class="payload">
+                    <code>nmap -A &lt;target-ip&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+                <div class="payload">
+                    <code>nmap -p 21,22,80 &lt;target-ip&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+            </div>
+
+            <div class="card-buttons">
+                <button class="close-btn" onclick="toggleCard(this)">Close</button>
+                <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= METASPLOIT CARD ================= -->
+    <section class="vuln-card" data-id="metasploit">
+
+        <div class="card-header">
+            <h3>Metasploit Framework</h3>
+            <div class="status-badge">Incomplete</div>
+            <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+        </div>
+
+        <div class="card-content">
+
+            <p class="warning">⚠ Use only in authorized environments.</p>
+
+            <h4>Steps to Use Metasploit</h4>
+            <div class="step">Start Metasploit Framework.</div>
+            <div class="step">Search for an exploit module.</div>
+            <div class="step">Select the desired exploit.</div>
+            <div class="step">Set required options (RHOSTS, LHOST, etc).</div>
+            <div class="step">Choose payload if needed.</div>
+            <div class="step">Run the exploit.</div>
+            <div class="step">Interact with session if successful.</div>
+
+            <h4>Example Commands</h4>
+            <div class="terminal">
+
+                <div class="payload">
+                    <code>msfconsole</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+                <div class="payload">
+                    <code>search exploit</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+                <div class="payload">
+                    <code>use exploit/&lt;module_name&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+                <div class="payload">
+                    <code>set RHOSTS &lt;target-ip&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+                <div class="payload">
+                    <code>run</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+
+            </div>
+
+            <div class="card-buttons">
+                <button class="close-btn" onclick="toggleCard(this)">Close</button>
+                <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<footer>
+    <p>"Stay safe, stay cyber-aware."</p>
+</footer>
+
+<script src="7.js"></script>
+</body>
+</html>

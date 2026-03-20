@@ -1,0 +1,102 @@
+[
+  {
+    "question": "1. What is the main purpose of SQL Injection (SQLi)?",
+    "options": [
+      "Steal or manipulate database data",
+      "Deface websites",
+      "Crash the server hardware",
+      "Encrypt user files"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "2. Which type of attack involves injecting system-level commands into an application?",
+    "options": [
+      "SQL Injection",
+      "OS Command Injection",
+      "XSS",
+      "CSRF"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "3. NoSQL Injection typically targets which kind of databases?",
+    "options": [
+      "MySQL",
+      "Oracle",
+      "MongoDB or other NoSQL databases",
+      "SQLite"
+    ],
+    "correct_option": 2
+  },
+  {
+    "question": "4. What does Remote Code Execution (RCE) allow an attacker to do?",
+    "options": [
+      "Execute arbitrary code on a remote server",
+      "Only read files on a server",
+      "Redirect network traffic",
+      "Lock user accounts"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "5. Cross-Site Scripting (XSS) primarily exploits which technology?",
+    "options": [
+      "SQL queries",
+      "JavaScript in web pages",
+      "Operating system commands",
+      "Network sockets"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "6. What is the main goal of Cross-Site Request Forgery (CSRF)?",
+    "options": [
+      "Steal database credentials",
+      "Trick a user into performing actions without their consent",
+      "Inject system commands",
+      "Modify JavaScript code"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "7. In authentication attacks, what does Password Spraying involve?",
+    "options": [
+      "Trying one common password across many accounts",
+      "Brute-forcing one account with multiple passwords",
+      "Using social engineering to guess passwords",
+      "Stealing password files"
+    ],
+    "correct_option": 0
+  },
+  {
+    "question": "8. Session Hijacking can occur due to vulnerabilities in what?",
+    "options": [
+      "Weak network firewalls",
+      "Insecure cookies or HTTP connections",
+      "Database injections",
+      "Broken encryption algorithms"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "9. What is the risk associated with a File Upload Vulnerability?",
+    "options": [
+      "Unauthorized database queries",
+      "Remote Code Execution",
+      "DNS cache poisoning",
+      "Cross-site scripting only"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "10. Vertical Privilege Escalation allows an attacker to do what?",
+    "options": [
+      "Access another user’s files at the same privilege level",
+      "Gain higher privileges than intended (e.g., user → admin)",
+      "Bypass firewalls",
+      "Exploit XSS vulnerabilities"
+    ],
+    "correct_option": 1
+  }
+]

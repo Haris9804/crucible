@@ -1,0 +1,100 @@
+{
+  "chapter_title": "Post‑Exploitation / Privilege Escalation Tools",
+  "cards": [
+    {
+      "title": "Mimikatz",
+      "description_short": "Tool for extracting credentials from Windows memory",
+      "description_long": "Mimikatz is a well-known post‑exploitation tool used to extract plaintext passwords, hashes, PINs, and Kerberos tickets from Windows memory. It is commonly used during penetration testing to analyze credential security.",
+      "main_commands": [
+        {"command":"mimikatz", "explanation":"Start the Mimikatz interactive console"},
+        {"command":"privilege::debug", "explanation":"Enable debug privileges required for credential extraction"},
+        {"command":"sekurlsa::logonpasswords", "explanation":"Extract login credentials from memory"},
+        {"command":"lsadump::sam", "explanation":"Dump password hashes from SAM database"},
+        {"command":"kerberos::list", "explanation":"List Kerberos tickets on the system"}
+      ],
+      "activity": [
+        "Launch the Mimikatz console in a lab environment",
+        "Enable debug privileges",
+        "Extract stored credentials from memory",
+        "Analyze password hashes and Kerberos tickets",
+        "Understand how credential theft occurs"
+      ]
+    },
+    {
+      "title": "LinPEAS",
+      "description_short": "Linux privilege escalation auditing script",
+      "description_long": "LinPEAS is part of the PEASS-ng suite and is used to search for possible privilege escalation paths on Linux systems. It scans system configurations, permissions, services, and credentials to identify weaknesses.",
+      "main_commands": [
+        {"command":"chmod +x linpeas.sh", "explanation":"Make the LinPEAS script executable"},
+        {"command":"./linpeas.sh", "explanation":"Run LinPEAS to scan for privilege escalation opportunities"},
+        {"command":"./linpeas.sh -a", "explanation":"Run full enumeration scan"},
+        {"command":"./linpeas.sh | tee results.txt", "explanation":"Save scan output to a file"},
+        {"command":"curl -L linpeas.sh | sh", "explanation":"Download and execute LinPEAS in one command"}
+      ],
+      "activity": [
+        "Run LinPEAS on a Linux machine",
+        "Identify misconfigured permissions",
+        "Analyze SUID files and cron jobs",
+        "Review environment variables for vulnerabilities",
+        "Investigate possible escalation paths"
+      ]
+    },
+    {
+      "title": "WinPEAS",
+      "description_short": "Windows privilege escalation enumeration tool",
+      "description_long": "WinPEAS is another tool in the PEASS-ng suite designed for Windows systems. It automates the discovery of potential privilege escalation vulnerabilities in Windows environments.",
+      "main_commands": [
+        {"command":"winpeas.exe", "explanation":"Run WinPEAS to enumerate system information"},
+        {"command":"winpeas.exe quiet", "explanation":"Run scan with reduced output"},
+        {"command":"winpeas.exe systeminfo", "explanation":"Display system configuration details"},
+        {"command":"winpeas.exe servicesinfo", "explanation":"Enumerate services and permissions"},
+        {"command":"winpeas.exe > results.txt", "explanation":"Save enumeration output to a file"}
+      ],
+      "activity": [
+        "Execute WinPEAS on a Windows system",
+        "Analyze services and scheduled tasks",
+        "Identify weak permissions",
+        "Review environment variables",
+        "Investigate possible privilege escalation vectors"
+      ]
+    },
+    {
+      "title": "Empire",
+      "description_short": "Post‑exploitation framework for Windows environments",
+      "description_long": "Empire is a post‑exploitation framework that uses PowerShell and Python agents. It allows penetration testers to maintain persistence, execute commands, and manage compromised systems during a security assessment.",
+      "main_commands": [
+        {"command":"./empire", "explanation":"Start the Empire framework"},
+        {"command":"listeners", "explanation":"Manage listeners for incoming agents"},
+        {"command":"usestager", "explanation":"Generate a stager for deploying an agent"},
+        {"command":"agents", "explanation":"View connected agents"},
+        {"command":"interact agent_id", "explanation":"Interact with a compromised system"}
+      ],
+      "activity": [
+        "Launch the Empire framework",
+        "Create a listener for agents",
+        "Generate a payload/stager",
+        "Connect an agent in a lab environment",
+        "Execute commands through the agent"
+      ]
+    },
+    {
+      "title": "PowerSploit",
+      "description_short": "Collection of PowerShell scripts for post‑exploitation",
+      "description_long": "PowerSploit is a set of PowerShell modules designed for post‑exploitation tasks such as privilege escalation, credential harvesting, persistence, and reconnaissance in Windows environments.",
+      "main_commands": [
+        {"command":"Import-Module PowerSploit", "explanation":"Load PowerSploit modules into PowerShell"},
+        {"command":"Get-Command -Module PowerSploit", "explanation":"List available PowerSploit commands"},
+        {"command":"Invoke-Mimikatz", "explanation":"Run credential extraction module"},
+        {"command":"Invoke-PrivescAudit", "explanation":"Check for privilege escalation opportunities"},
+        {"command":"Invoke-PortScan", "explanation":"Perform network port scanning from compromised host"}
+      ],
+      "activity": [
+        "Import PowerSploit modules in PowerShell",
+        "Explore available post‑exploitation commands",
+        "Run privilege escalation audits",
+        "Analyze system vulnerabilities",
+        "Understand how attackers maintain persistence"
+      ]
+    }
+  ]
+}

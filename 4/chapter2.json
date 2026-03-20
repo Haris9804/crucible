@@ -1,0 +1,81 @@
+{
+  "chapter_title": "Password / Authentication Attacks",
+  "cards": [
+    {
+      "title": "Brute Force",
+      "description_short": "Try every possible password",
+      "description_long": "Brute force attacks attempt to guess passwords by systematically trying all possible combinations until the correct one is found. Attackers often automate this process using scripts or specialized tools.",
+      "main_commands": [
+        {"command":"hydra -l admin -P passwords.txt target.com http-post-form", "explanation":"Attempt login using a password list"},
+        {"command":"hydra -L users.txt -P passwords.txt ssh://target", "explanation":"Try multiple usernames and passwords against SSH"},
+        {"command":"ncrack -p ssh target.com", "explanation":"Perform brute force attack on SSH service"},
+        {"command":"medusa -h target.com -u admin -P pass.txt -M ssh", "explanation":"Brute force SSH login"},
+        {"command":"john --wordlist=passwords.txt hash.txt", "explanation":"Crack password hashes using a wordlist"}
+      ],
+      "activity": [
+        "Attempt password guessing using a wordlist",
+        "Test brute force against a login form",
+        "Understand difference between online and offline brute force",
+        "Observe how account lockout policies stop brute force",
+        "Analyze password strength against brute force attempts"
+      ]
+    },
+    {
+      "title": "Password Spraying",
+      "description_short": "Try common passwords on many accounts",
+      "description_long": "Password spraying attacks try a small number of common passwords across many user accounts. This avoids account lockouts that occur when too many attempts are made on a single account.",
+      "main_commands": [
+        {"command":"hydra -L users.txt -p Password123 target.com ssh", "explanation":"Try a single common password across many accounts"},
+        {"command":"crackmapexec smb target -u users.txt -p 'Winter2024!'", "explanation":"Password spray against SMB accounts"},
+        {"command":"spray.sh users.txt passwords.txt target.com", "explanation":"Automated password spraying script"},
+        {"command":"kerbrute passwordspray -d domain.local users.txt Password123", "explanation":"Password spray against Kerberos"},
+        {"command":"msfconsole auxiliary/scanner/smb/smb_login", "explanation":"Metasploit module for authentication attempts"}
+      ],
+      "activity": [
+        "Test common passwords across multiple accounts",
+        "Observe how spraying avoids account lockouts",
+        "Analyze common weak passwords",
+        "Practice detection of spraying attempts in logs",
+        "Understand mitigation using MFA and password policies"
+      ]
+    },
+    {
+      "title": "Session Hijacking",
+      "description_short": "Take over a valid user session",
+      "description_long": "Session hijacking occurs when an attacker steals or predicts a valid session ID to impersonate a user. This allows the attacker to access the system without needing the actual password.",
+      "main_commands": [
+        {"command":"document.cookie", "explanation":"View cookies in browser console"},
+        {"command":"burpsuite intercept", "explanation":"Intercept and analyze session cookies"},
+        {"command":"set-cookie: sessionid=xyz", "explanation":"Example HTTP session cookie"},
+        {"command":"mitmproxy -p 8080", "explanation":"Intercept traffic for session tokens"},
+        {"command":"wireshark http.cookie", "explanation":"Capture cookies from network traffic"}
+      ],
+      "activity": [
+        "Inspect session cookies in a browser",
+        "Use proxy tools to capture HTTP requests",
+        "Analyze session tokens in intercepted traffic",
+        "Understand risks of unencrypted HTTP sessions",
+        "Learn how secure cookies and HTTPS mitigate hijacking"
+      ]
+    },
+    {
+      "title": "Credential Stuffing",
+      "description_short": "Use leaked credentials to access accounts",
+      "description_long": "Credential stuffing uses previously leaked username-password combinations from data breaches to attempt logins on other websites. Since many users reuse passwords, attackers often gain unauthorized access.",
+      "main_commands": [
+        {"command":"hydra -C combo.txt target.com http-post-form", "explanation":"Use username:password combo list"},
+        {"command":"snipr -f combos.txt -t target.com", "explanation":"Automated credential stuffing tool"},
+        {"command":"sentryMBA config", "explanation":"Credential stuffing framework configuration"},
+        {"command":"OpenBullet combos.txt", "explanation":"Load credential combos into testing tool"},
+        {"command":"curl -X POST login endpoint", "explanation":"Send automated login requests"}
+      ],
+      "activity": [
+        "Test login attempts using leaked credential lists",
+        "Analyze how password reuse increases risk",
+        "Observe automated login request patterns",
+        "Practice detection using login monitoring",
+        "Understand protections like MFA and rate limiting"
+      ]
+    }
+  ]
+}

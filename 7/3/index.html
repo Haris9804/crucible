@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo 1 - 3Q Cybersecurity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="7.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <h1 class="company-name">3Q Cybersecurity</h1>
+        <p class="dynamic-quote">Hack the planet, ethically.</p>
+    </div>
+</header>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<section class="hero">
+    <h2>
+        Network Service Vulnerabilities
+        <span id="progress-tracker" style="font-size:0.8rem; color:#00ff00; margin-left:1rem;">
+            Sections completed: 0 / 0
+        </span>
+    </h2>
+</section>
+
+<main>
+
+    <!-- ================= FTP CARD ================= -->
+    <section class="vuln-card" data-id="ftp">
+
+        <div class="card-header">
+            <h3>FTP Service Exploitation</h3>
+            <div class="status-badge">Incomplete</div>
+            <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+        </div>
+
+        <div class="card-content">
+
+            <p class="warning">⚠ Practice only in authorized lab environments.</p>
+
+            <h4>Reconnaissance Steps</h4>
+            <div class="step">Run Nmap scan on target IP address.</div>
+            <div class="step">Identify if FTP service (Port 21) is open.</div>
+            <div class="step">Use service detection (-sV) to view FTP version.</div>
+            <div class="step">Search online if that FTP version has known vulnerabilities.</div>
+
+            <!-- OPTION 1 -->
+            <h4>Option 1: Using Metasploit</h4>
+            <div class="step">Start Metasploit Framework.</div>
+            <div class="step">Search for FTP related exploit modules.</div>
+            <div class="step">Select appropriate exploit.</div>
+            <div class="step">Configure required options (RHOSTS, etc).</div>
+            <div class="step">Run the exploit.</div>
+
+            <h4>Metasploit Commands</h4>
+            <div class="terminal">
+                <div class="payload">
+                    <code>msfconsole</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+                <div class="payload">
+                    <code>search ftp</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+            </div>
+
+            <!-- OPTION 2 -->
+            <h4>Option 2: Direct FTP Connection</h4>
+            <div class="step">If username/password is known, attempt login.</div>
+            <div class="step">Connect to FTP service manually.</div>
+            <div class="step">Check accessible directories and files.</div>
+
+            <h4>FTP Connection Command</h4>
+            <div class="terminal">
+                <div class="payload">
+                    <code>ftp &lt;target-ip&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="card-buttons">
+                <button class="close-btn" onclick="toggleCard(this)">Close</button>
+                <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SSH CARD ================= -->
+    <section class="vuln-card" data-id="ssh">
+
+        <div class="card-header">
+            <h3>SSH Service Exploitation</h3>
+            <div class="status-badge">Incomplete</div>
+            <button class="expand-btn" onclick="toggleCard(this)">Expand</button>
+        </div>
+
+        <div class="card-content">
+
+            <p class="warning">⚠ Practice only in authorized lab environments.</p>
+
+            <h4>Reconnaissance Steps</h4>
+            <div class="step">Run Nmap scan on target IP address.</div>
+            <div class="step">Identify if SSH service (Port 22) is open.</div>
+            <div class="step">Use service detection (-sV) to view SSH version.</div>
+            <div class="step">Search online if that SSH version has known vulnerabilities.</div>
+
+            <!-- OPTION 1 -->
+            <h4>Option 1: Using Metasploit</h4>
+            <div class="step">Start Metasploit Framework.</div>
+            <div class="step">Search for SSH related exploit modules.</div>
+            <div class="step">Select appropriate exploit.</div>
+            <div class="step">Configure required options (RHOSTS, etc).</div>
+            <div class="step">Run the exploit.</div>
+
+            <h4>Metasploit Commands</h4>
+            <div class="terminal">
+                <div class="payload">
+                    <code>msfconsole</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+                <div class="payload">
+                    <code>search ssh</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+            </div>
+
+            <!-- OPTION 2 -->
+            <h4>Option 2: Direct SSH Connection</h4>
+            <div class="step">If username/password or key is known, attempt login.</div>
+            <div class="step">Connect to SSH service manually.</div>
+            <div class="step">Check user privileges after login.</div>
+
+            <h4>SSH Connection Command</h4>
+            <div class="terminal">
+                <div class="payload">
+                    <code>ssh user@&lt;target-ip&gt;</code>
+                    <button onclick="copySingle(this)">Copy</button>
+                </div>
+            </div>
+
+            <div class="card-buttons">
+                <button class="close-btn" onclick="toggleCard(this)">Close</button>
+                <button class="learnt-btn" onclick="toggleLearnt(this)">Mark Complete</button>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<footer>
+    <p>"Stay safe, stay cyber-aware."</p>
+</footer>
+
+<script src="7.js"></script>
+</body>
+</html>

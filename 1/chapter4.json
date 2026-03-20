@@ -1,0 +1,185 @@
+{
+  "chapter_title": "Staying Safe Online",
+  "cards": [
+    {
+      "title": "Strong Passwords",
+      "description_short": "Use unique, complex passwords for each account.",
+      "description_long": "Strong passwords are the first line of defense in protecting your online accounts. They should be long, unique, and include letters, numbers, and special characters. Avoid common words, simple sequences, or personal information that can be guessed. Using a password manager helps generate and securely store strong passwords, so you don’t have to remember them all. Strong passwords make it harder for attackers to gain unauthorized access via brute force, dictionary, or credential-stuffing attacks. Combining strong passwords with multi-factor authentication (MFA) significantly increases account security, protecting sensitive information like emails, banking, and personal files.",
+      "main_points": [
+        "Unique",
+        "Long",
+        "Complex",
+        "Letters & numbers",
+        "Special characters",
+        "No personal info",
+        "Avoid common words",
+        "Password manager",
+        "Regular updates",
+        "MFA"
+      ],
+      "example": "Scenario: Creating a new email account.\nStep 1: User sets password 'Summer2023!$'.\nStep 2: Adds MFA via phone code.\nStep 3: Even if attacker guesses part of password, MFA blocks access.\nAnswer: Account remains secure due to strong password and MFA."
+    },
+    {
+      "title": "Multi-Factor Authentication (MFA)",
+      "description_short": "Add extra verification beyond passwords.",
+      "description_long": "Multi-Factor Authentication (MFA) requires users to provide additional verification when logging in. This could be a code sent to your phone, an authentication app, or a hardware token. Even if a password is compromised, MFA prevents unauthorized access. Many online services, including email, social media, and banking, support MFA. Enabling MFA significantly reduces the risk of account breaches caused by password theft or phishing attacks. Students should always enable MFA wherever possible to add a crucial layer of protection. It’s a simple yet effective step to keep personal and sensitive information safe online.",
+      "main_points": [
+        "Extra verification",
+        "Phone codes",
+        "Auth apps",
+        "Hardware tokens",
+        "Prevents unauthorized access",
+        "Protects passwords",
+        "Email security",
+        "Social media safety",
+        "Banking protection",
+        "Easy to enable"
+      ],
+      "example": "Scenario: Logging into a social media account.\nStep 1: Enter username and password.\nStep 2: Receive code on phone.\nStep 3: Enter code to complete login.\nAnswer: Even if password was stolen, account access blocked without code."
+    },
+    {
+      "title": "Recognizing Phishing",
+      "description_short": "Avoid scams that steal information.",
+      "description_long": "Phishing attacks trick users into giving away passwords, credit card info, or personal data. They often appear as legitimate emails, messages, or websites. Signs of phishing include suspicious sender addresses, urgent requests, or unexpected attachments. Always verify links before clicking, do not download unknown attachments, and never share credentials via email. Awareness and caution are critical to avoid falling victim. Email filters, browser warnings, and MFA further protect against phishing. Understanding common phishing tactics helps students recognize threats and respond safely, maintaining personal and organizational cybersecurity.",
+      "main_points": [
+        "Fake emails",
+        "Suspicious links",
+        "Urgent requests",
+        "Unexpected attachments",
+        "Verify sender",
+        "Do not share credentials",
+        "Browser warnings",
+        "Email filters",
+        "MFA protection",
+        "Caution awareness"
+      ],
+      "example": "Scenario: User receives email claiming bank account locked.\nStep 1: Email asks to click link and enter password.\nStep 2: User notices incorrect sender email.\nStep 3: Ignores email and reports phishing.\nAnswer: User avoided phishing by checking sender and not entering credentials."
+    },
+    {
+      "title": "Safe Browsing",
+      "description_short": "Use trusted websites and secure connections.",
+      "description_long": "Safe browsing practices help protect personal data and devices from attacks. Always use HTTPS websites, which encrypt data between your device and server. Avoid suspicious websites, pop-ups, or downloads from unknown sources. Keep browsers updated, enable security warnings, and use trusted extensions only. Awareness of phishing, malicious ads, and unsafe links is part of safe browsing. Using ad blockers and antivirus software reduces exposure to malware. Teaching students to identify safe versus risky websites ensures their online activities remain secure and reduces chances of infection or data theft.",
+      "main_points": [
+        "Use HTTPS",
+        "Avoid suspicious sites",
+        "Pop-ups caution",
+        "Safe downloads",
+        "Update browser",
+        "Security warnings",
+        "Trusted extensions",
+        "Ad blockers",
+        "Antivirus",
+        "Identify risks"
+      ],
+      "example": "Scenario: User searches for free software.\nStep 1: User chooses official site with HTTPS.\nStep 2: Avoids download from random pop-up ad.\nStep 3: Software installs safely.\nAnswer: Safe browsing prevented malware infection from unknown sources."
+    },
+    {
+      "title": "Software Updates",
+      "description_short": "Keep systems and apps updated regularly.",
+      "description_long": "Software updates fix security vulnerabilities, bugs, and compatibility issues. Attackers often exploit outdated software to gain unauthorized access or install malware. Operating systems, applications, browsers, and antivirus software should be kept up to date. Enable automatic updates when possible, and regularly check for security patches. Updates also improve performance and stability, reducing potential risks. Students should understand that ignoring updates increases their exposure to cyber attacks, while timely updates protect personal and academic information. Maintaining updated software is a basic but essential step in cybersecurity hygiene.",
+      "main_points": [
+        "Security patches",
+        "Bug fixes",
+        "OS updates",
+        "App updates",
+        "Browser updates",
+        "Antivirus updates",
+        "Automatic updates",
+        "Manual checks",
+        "Performance improvement",
+        "Risk reduction"
+      ],
+      "example": "Scenario: User ignores update for 2 months.\nStep 1: Software vulnerability exploited by malware.\nStep 2: Files encrypted and system slowed.\nStep 3: User installs update and restores from backup.\nAnswer: Regular updates prevent vulnerabilities from being exploited."
+    },
+    {
+      "title": "Secure Wi-Fi",
+      "description_short": "Use strong Wi-Fi passwords and trusted networks.",
+      "description_long": "Using secure Wi-Fi prevents unauthorized access to your network and devices. Always use strong passwords for home Wi-Fi and avoid public Wi-Fi for sensitive tasks. If public Wi-Fi must be used, connect via a VPN to encrypt data. Unsecured networks can allow attackers to intercept traffic, capture credentials, or deploy malware. Students should learn to check network names, avoid open networks without passwords, and disable automatic connections to unknown Wi-Fi. Understanding the risks of unsecured networks helps protect personal information and academic data from attackers.",
+      "main_points": [
+        "Strong passwords",
+        "Trusted networks",
+        "Avoid public Wi-Fi",
+        "VPN usage",
+        "Traffic encryption",
+        "Check network name",
+        "No auto-connect",
+        "Prevent interception",
+        "Device security",
+        "Data protection"
+      ],
+      "example": "Scenario: User connects to airport Wi-Fi.\nStep 1: Uses VPN for connection.\nStep 2: Sensitive transactions encrypted.\nStep 3: Data remains safe from attackers on same network.\nAnswer: VPN and awareness ensured secure Wi-Fi usage."
+    },
+    {
+      "title": "Email Safety",
+      "description_short": "Be cautious with attachments and links.",
+      "description_long": "Email is a common vector for cyber attacks. Students must learn to scrutinize attachments, links, and senders. Avoid opening files from unknown sources, clicking on suspicious links, or sharing sensitive info via email. Phishing emails often mimic trusted organizations to trick users. Enable spam filters, report phishing attempts, and keep email software updated. Practicing safe email habits reduces the risk of malware, account compromise, and identity theft. Awareness and caution make email a safer communication tool, essential for academic and personal use.",
+      "main_points": [
+        "Check sender",
+        "Avoid unknown attachments",
+        "Verify links",
+        "Do not share info",
+        "Phishing awareness",
+        "Spam filters",
+        "Report phishing",
+        "Update email client",
+        "Caution habits",
+        "Account safety"
+      ],
+      "example": "Scenario: User receives unexpected invoice email.\nStep 1: Does not open attachment.\nStep 2: Verifies sender email.\nStep 3: Confirms it's a scam and reports it.\nAnswer: Safe email practices avoided malware and data compromise."
+    },
+    {
+      "title": "Backup Data",
+      "description_short": "Keep regular copies of important files.",
+      "description_long": "Backing up data protects against accidental deletion, malware, hardware failure, or ransomware attacks. Students should regularly save copies of documents, projects, and important files to external drives or cloud storage. Automating backups ensures consistent protection. Backups allow recovery even if files are lost or compromised, reducing stress and potential data loss. Understanding the importance of backups instills good digital hygiene and resilience. Secure backups, combined with encryption if necessary, ensure sensitive information is protected from unauthorized access while remaining recoverable.",
+      "main_points": [
+        "Regular backups",
+        "External drives",
+        "Cloud storage",
+        "Automation",
+        "Data recovery",
+        "Ransomware protection",
+        "Hardware failure",
+        "Accidental deletion",
+        "Encryption",
+        "Digital hygiene"
+      ],
+      "example": "Scenario: Laptop hard drive crashes.\nStep 1: User restores all files from cloud backup.\nStep 2: Minimal data loss and work continues.\nAnswer: Regular backups prevented permanent loss of important files."
+    },
+    {
+      "title": "Safe Social Media",
+      "description_short": "Protect your privacy on social platforms.",
+      "description_long": "Social media exposes personal information that can be misused by attackers. Students should configure privacy settings, limit public sharing, and avoid posting sensitive details like home address or passwords. Be cautious of friend requests, messages, and links from unknown users. Using strong passwords, MFA, and safe browsing habits also enhance security on social media. Awareness prevents cyberbullying, identity theft, and account compromise. Ethical cybersecurity habits on social platforms help maintain privacy and professional reputation.",
+      "main_points": [
+        "Privacy settings",
+        "Limit public posts",
+        "Avoid sensitive info",
+        "Unknown messages",
+        "Friend request caution",
+        "Strong passwords",
+        "MFA",
+        "Safe browsing",
+        "Identity protection",
+        "Professional reputation"
+      ],
+      "example": "Scenario: User receives friend request from unknown person.\nStep 1: Checks mutual connections.\nStep 2: Declines request.\nStep 3: Privacy settings ensure posts are visible only to friends.\nAnswer: Social media privacy protected personal information from strangers."
+    },
+    {
+      "title": "Safe Downloads",
+      "description_short": "Only download from trusted sources.",
+      "description_long": "Downloading files from unverified websites can introduce malware, spyware, or ransomware. Students should only download software, media, or documents from official or trusted sources. Verify file authenticity, check digital signatures when available, and avoid pirated content. Using antivirus software and scanning downloads before opening adds an extra layer of protection. Safe download practices prevent infections, data theft, and system compromise, ensuring students’ devices and personal information remain secure.",
+      "main_points": [
+        "Trusted sources",
+        "Avoid unknown sites",
+        "Check authenticity",
+        "Digital signatures",
+        "Avoid pirated content",
+        "Antivirus scanning",
+        "File safety",
+        "Prevent malware",
+        "Data protection",
+        "System security"
+      ],
+      "example": "Scenario: Student needs software for a project.\nStep 1: Downloads only from official website.\nStep 2: Runs antivirus scan before installation.\nStep 3: Software installs safely.\nAnswer: Safe download practices prevented malware infection."
+    }
+  ]
+}

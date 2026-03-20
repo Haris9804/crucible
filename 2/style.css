@@ -1,0 +1,191 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Roboto Mono',monospace;
+}
+
+body{
+background:#0f0f1f;
+color:#00fffc;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
+
+/* HEADER */
+
+header{
+background:#1a1a2e;
+padding:1rem;
+text-align:center;
+}
+
+.company-name{
+color:#ff00ff;
+font-size:2rem;
+}
+
+.dynamic-quote{
+color:#00ffff;
+font-style:italic;
+margin-top:5px;
+}
+
+/* CHAPTER */
+
+.chapter{
+padding:2rem;
+}
+
+.chapter-title{
+text-align:center;
+color:#ff00ff;
+margin-bottom:1.5rem;
+}
+
+/* CARDS */
+
+.chapter-cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:1.5rem;
+}
+
+.topic{
+background:#1a1a2e;
+width:250px;
+height:250px;
+border-radius:50%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:1rem;
+transition:0.3s;
+}
+
+.topic:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px #00ffff;
+}
+
+.topic h3{
+color:#ff00ff;
+margin-bottom:5px;
+}
+
+.topic p{
+font-size:0.9rem;
+margin-bottom:10px;
+}
+
+.topic button{
+background:#00ffff;
+border:none;
+padding:0.4rem 0.8rem;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.topic button:hover{
+background:#ff00ff;
+color:white;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+padding:1rem;
+}
+
+.modal-content{
+background:#1a1a2e;
+max-width:700px;
+width:100%;
+padding:2rem;
+border-radius:10px;
+position:relative;
+max-height:90vh;
+overflow:auto;
+}
+
+#modal-close{
+position:absolute;
+right:15px;
+top:10px;
+font-size:1.5rem;
+color:#ff00ff;
+cursor:pointer;
+}
+
+#modal-title{
+color:#ff00ff;
+margin-bottom:1rem;
+}
+
+#modal-body{
+margin-bottom:2rem;
+line-height:1.6;
+}
+
+#modal-body ul{
+padding-left:20px;
+}
+
+.modal-nav{
+display:flex;
+justify-content:space-between;
+}
+
+.modal-nav button{
+background:#00ffff;
+border:none;
+padding:0.5rem 1rem;
+border-radius:5px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.modal-nav button:hover{
+background:#ff00ff;
+color:white;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:1rem;
+margin-top:auto;
+border-top:1px solid #00ffff;
+color:#ff00ff;
+}
+
+/* BACK BUTTON */
+
+.back-button-container{
+text-align:center;
+margin:1rem;
+}
+
+.back-button{
+background:#ff00ff;
+border:none;
+padding:0.5rem 1rem;
+cursor:pointer;
+border-radius:5px;
+}
+

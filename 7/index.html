@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practical Labs - 3Q Cybersecurity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1 class="company-name">3Q Cybersecurity</h1>
+    <p class="dynamic-quote">Hack the planet, ethically.</p>
+</header>
+
+<!-- Back Button -->
+<div class="back-button-container">
+    <button class="back-button" onclick="history.back()">← Back</button>
+</div>
+
+<section class="hero">
+    <h2>Practical Lab Categories</h2>
+</section>
+
+<main class="card-container">
+
+    <div class="card">
+        <h3>Lab Installation</h3>
+        <p>
+            Learn how to install practice labs and test
+            in a legal and safe environment.
+        </p>
+        <button onclick="goToPage('1')">Try</button>
+    </div>
+
+    <div class="card">
+        <h3>Web Based Vulnerabilities</h3>
+        <p>
+            Practice SQL Injection, XSS, authentication flaws,
+            and other common web security weaknesses.
+        </p>
+        <button onclick="goToPage('2')">Try</button>
+    </div>
+
+    <div class="card">
+        <h3>Network Service Vulnerabilities</h3>
+        <p>
+            Explore vulnerabilities in open ports, services,
+            misconfigurations, and network exposures.
+        </p>
+        <button onclick="goToPage('3')">Try</button>
+    </div>
+
+    <div class="card">
+        <h3>Tools</h3>
+        <p>
+            Learn how to use security tools like scanners,
+            intercepting proxies, and enumeration utilities.
+        </p>
+        <button onclick="goToPage('4')">Try</button>
+    </div>
+
+</main>
+
+<footer>
+    <p>"Stay safe, stay cyber-aware."</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

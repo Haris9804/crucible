@@ -1,0 +1,193 @@
+{
+  "chapter_title": "Ethical Hacking Basics",
+  "cards": [
+    {
+      "title": "What is Ethical Hacking",
+      "description_short": "Learn what ethical hacking is and how it helps improve cybersecurity.",
+      "description_long": "Ethical hacking is the practice of legally testing computer systems, networks, and applications to identify security vulnerabilities before malicious hackers can exploit them. Ethical hackers use the same tools and techniques that cybercriminals use, but their purpose is to improve security rather than cause harm. These professionals are often hired by organizations to perform security testing and identify weaknesses in their systems. Ethical hacking plays an important role in protecting sensitive information, preventing cyberattacks, and strengthening overall cybersecurity defenses. Ethical hackers follow strict legal guidelines and must always have permission before testing a system. Their work helps companies understand how attackers think and how vulnerabilities can be exploited. By discovering security flaws early, organizations can fix them before they are abused by malicious actors. Ethical hacking is an essential part of modern cybersecurity strategies and is widely used in industries such as banking, healthcare, government, and technology.",
+      "main_points": [
+        "Ethical hacking",
+        "Authorized testing",
+        "Security assessment",
+        "Vulnerability discovery",
+        "Legal hacking",
+        "Cyber defense",
+        "System protection",
+        "Security professionals",
+        "Risk reduction",
+        "Security improvement"
+      ],
+      "example": "Scenario: A company hires a cybersecurity expert to test the security of its website.\n\nStep 1: The ethical hacker receives written permission from the company.\nStep 2: The hacker scans the website for vulnerabilities.\nStep 3: A weakness is found in the login system.\nStep 4: The hacker reports the issue to the company instead of exploiting it.\n\nAnswer: The ethical hacker helped the company identify and fix a vulnerability before attackers could exploit it."
+    },
+
+    {
+      "title": "Penetration Testing",
+      "description_short": "Understand how penetration testing simulates real cyberattacks.",
+      "description_long": "Penetration testing, often called pentesting, is a controlled cybersecurity test where ethical hackers simulate real-world cyberattacks to identify vulnerabilities in systems, networks, or applications. The goal is to evaluate how secure a system is by attempting to exploit weaknesses in a safe and authorized environment. During a penetration test, security professionals use specialized tools and techniques to scan systems, discover vulnerabilities, and attempt to gain access just like a real attacker would. This process helps organizations understand their security risks and how attackers might compromise their systems. Penetration testing can be performed on websites, mobile applications, internal networks, or even physical security systems. It is an important part of cybersecurity because it reveals weaknesses that automated security tools may miss. After the test, ethical hackers provide detailed reports explaining the vulnerabilities discovered and recommendations on how to fix them.",
+      "main_points": [
+        "Penetration testing",
+        "Security testing",
+        "Attack simulation",
+        "Vulnerability testing",
+        "Security evaluation",
+        "Controlled attack",
+        "System weaknesses",
+        "Security reports",
+        "Risk analysis",
+        "Security improvement"
+      ],
+      "example": "Scenario: A bank wants to test the security of its online banking system.\n\nStep 1: The bank authorizes a penetration testing team.\nStep 2: The testers attempt to identify vulnerabilities in the login page.\nStep 3: They discover a flaw allowing repeated login attempts.\nStep 4: The issue could allow password guessing attacks.\n\nAnswer: The penetration test revealed a security weakness so the bank could implement login attempt limits and stronger protections."
+    },
+
+    {
+      "title": "Types of Ethical Hacking",
+      "description_short": "Learn different areas where ethical hackers perform security testing.",
+      "description_long": "Ethical hacking can be performed in several areas depending on what type of system or infrastructure is being tested. Different environments require different techniques and security approaches. Network hacking focuses on testing network infrastructure such as routers, switches, and servers to identify vulnerabilities. Web application hacking focuses on identifying security issues in websites and web applications such as authentication flaws or data exposure. System hacking targets operating systems to identify weaknesses that allow attackers to gain control of computers or servers. Wireless hacking focuses on testing Wi-Fi networks to identify weak passwords or insecure configurations. Social engineering testing evaluates how easily employees can be tricked into revealing sensitive information. Each type of ethical hacking requires specialized knowledge, tools, and methodologies. Organizations often combine multiple types of security testing to ensure comprehensive protection across their entire digital infrastructure.",
+      "main_points": [
+        "Network hacking",
+        "Web hacking",
+        "System hacking",
+        "Wireless security",
+        "Social engineering",
+        "Application testing",
+        "Infrastructure security",
+        "Security assessment",
+        "Multiple attack surfaces",
+        "Comprehensive protection"
+      ],
+      "example": "Scenario: A company wants to test the security of its office Wi-Fi network.\n\nStep 1: Ethical hackers attempt to detect the wireless network.\nStep 2: They analyze the type of encryption used.\nStep 3: They test whether weak passwords can be cracked.\nStep 4: They identify insecure Wi-Fi settings.\n\nAnswer: The test revealed weaknesses in the wireless network configuration, allowing the company to strengthen its Wi-Fi security."
+    },
+
+    {
+      "title": "Vulnerabilities",
+      "description_short": "Understand what vulnerabilities are and how attackers exploit them.",
+      "description_long": "A vulnerability is a weakness or flaw in a system, application, network, or process that can be exploited by attackers to gain unauthorized access or cause damage. Vulnerabilities can exist in software code, operating systems, network configurations, or even human behavior. For example, outdated software may contain known security flaws that attackers can exploit. Weak passwords, poor security settings, and unpatched systems also create vulnerabilities. Ethical hackers search for these weaknesses during security testing to help organizations fix them before attackers exploit them. Vulnerabilities are often discovered through security scans, manual testing, or security research. Once identified, organizations must apply patches, improve configurations, or strengthen policies to eliminate the risk. Managing vulnerabilities is a critical part of cybersecurity because unpatched weaknesses are one of the most common entry points used by attackers.",
+      "main_points": [
+        "Security weaknesses",
+        "Software flaws",
+        "System vulnerabilities",
+        "Configuration errors",
+        "Unpatched software",
+        "Security gaps",
+        "Attack entry points",
+        "Risk exposure",
+        "Security scanning",
+        "Patch management"
+      ],
+      "example": "Scenario: A company runs an outdated version of a web server.\n\nStep 1: Attackers scan the internet for servers using that outdated software.\nStep 2: They identify the company's server.\nStep 3: The attackers exploit a known vulnerability in the software.\nStep 4: They gain unauthorized access to the system.\n\nAnswer: The vulnerability existed because the software was not updated, allowing attackers to exploit the known flaw."
+    },
+
+    {
+      "title": "Reconnaissance",
+      "description_short": "Learn how attackers gather information before launching attacks.",
+      "description_long": "Reconnaissance is the first stage of many cyberattacks and penetration tests. It involves gathering information about a target system, organization, or network before attempting to exploit it. During reconnaissance, attackers collect as much information as possible to understand the target environment and identify potential weaknesses. This information may include domain names, IP addresses, employee details, network infrastructure, and technologies used by the organization. Reconnaissance can be passive or active. Passive reconnaissance involves gathering information from publicly available sources such as websites, social media, and public databases without directly interacting with the target system. Active reconnaissance involves directly scanning or probing the target network to identify open ports, running services, and vulnerabilities. Ethical hackers use reconnaissance to better understand the target system and prepare for further testing phases in penetration testing.",
+      "main_points": [
+        "Information gathering",
+        "Attack preparation",
+        "Target analysis",
+        "Passive reconnaissance",
+        "Active reconnaissance",
+        "Public information",
+        "Network scanning",
+        "IP discovery",
+        "Technology identification",
+        "Security assessment"
+      ],
+      "example": "Scenario: An ethical hacker begins testing the security of a company's online systems.\n\nStep 1: The hacker searches public sources for information about the company.\nStep 2: The company website reveals its domain name and technologies used.\nStep 3: The hacker identifies the company's public IP address.\nStep 4: This information helps plan further security testing.\n\nAnswer: Reconnaissance allowed the hacker to gather valuable information before performing deeper security analysis."
+    },
+    {
+  "title": "Footprinting",
+  "description_short": "Learn how hackers map out target systems and networks.",
+  "description_long": "Footprinting is the process of collecting detailed information about a target system, organization, or network to understand its structure, technologies, and potential vulnerabilities. This is a crucial step in ethical hacking and penetration testing, as it helps testers plan their next actions more effectively. Footprinting can include gathering domain names, IP addresses, server information, network topology, employee data, and public records. Tools such as WHOIS, DNS lookup, and online search engines are commonly used. Ethical hackers use footprinting to identify potential entry points without actually interacting with the target system in a way that triggers alarms. Understanding the target thoroughly enables testers to simulate real attacks and help organizations patch weaknesses before attackers can exploit them.",
+  "main_points": [
+    "Target mapping",
+    "Information collection",
+    "Domain details",
+    "IP addresses",
+    "Server info",
+    "Network structure",
+    "Employee data",
+    "Public records",
+    "Tools usage",
+    "Planning attacks"
+  ],
+  "example": "Scenario: An ethical hacker is hired to test a company's security.\n\nStep 1: The hacker uses WHOIS to find the company's domain registration details.\nStep 2: They identify the IP addresses and network blocks associated with the company.\nStep 3: They gather information on technologies and server types from public sources.\nStep 4: This data helps plan further penetration testing.\n\nAnswer: Footprinting allowed the ethical hacker to map the company's digital footprint safely before testing vulnerabilities."
+},
+
+{
+  "title": "Scanning",
+  "description_short": "Understand how attackers identify live systems and open ports.",
+  "description_long": "Scanning is the process of actively probing systems and networks to identify live hosts, open ports, services, and potential vulnerabilities. It follows the reconnaissance and footprinting stages in ethical hacking. Scanning helps ethical hackers and security professionals understand which devices are accessible, what services are running, and where weaknesses might exist. Tools such as Nmap, Nessus, and OpenVAS are commonly used for scanning networks. Techniques include port scanning, network mapping, and vulnerability scanning. Scanning must be conducted carefully and with permission, as aggressive scanning can disrupt services or be flagged as malicious activity. The results of scanning are critical for planning penetration tests and patching security gaps.",
+  "main_points": [
+    "Active probing",
+    "Identify hosts",
+    "Open ports",
+    "Services detection",
+    "Vulnerability scanning",
+    "Network mapping",
+    "Port scanning",
+    "Tools: Nmap/Nessus",
+    "Authorized testing",
+    "Risk assessment"
+  ],
+  "example": "Scenario: A tester is authorized to evaluate a company's network security.\n\nStep 1: The tester runs Nmap to discover live hosts on the network.\nStep 2: They identify which ports and services are active.\nStep 3: The tester checks for known vulnerabilities associated with those services.\nStep 4: A report is prepared with all findings for remediation.\n\nAnswer: Scanning revealed active systems and open ports, helping the company strengthen security controls."
+},
+
+{
+  "title": "Exploits",
+  "description_short": "Learn how vulnerabilities are targeted using exploits.",
+  "description_long": "An exploit is a piece of software, code, or technique that takes advantage of a vulnerability in a system, application, or network to gain unauthorized access or perform malicious actions. In ethical hacking, exploits are used in a controlled and authorized manner to test the security of systems. Exploits can target unpatched software, misconfigured settings, or weak passwords. They can range from simple scripts that perform a buffer overflow to complex multi-stage attacks that bypass multiple security layers. Ethical hackers use exploits to demonstrate potential damage and show organizations the real risk posed by vulnerabilities. This process helps in prioritizing security patches, improving defenses, and training staff to respond to potential attacks.",
+  "main_points": [
+    "Target vulnerabilities",
+    "Exploit code",
+    "Unauthorized access",
+    "Malware delivery",
+    "Buffer overflow",
+    "Misconfiguration",
+    "Weak passwords",
+    "Controlled testing",
+    "Demonstrate risk",
+    "Security improvement"
+  ],
+  "example": "Scenario: An ethical hacker tests a web application with a known SQL injection vulnerability.\n\nStep 1: The tester inputs specially crafted characters into a login form.\nStep 2: The system returns data that should be protected.\nStep 3: The tester confirms the vulnerability exists.\nStep 4: A report is submitted recommending fixes.\n\nAnswer: The exploit demonstrated the risk of SQL injection, allowing the company to secure their application."
+},
+
+{
+  "title": "Payloads",
+  "description_short": "Understand payloads and how they execute after an exploit.",
+  "description_long": "A payload is the part of an exploit that performs the intended action after successfully exploiting a vulnerability. In cybersecurity, payloads can range from simple actions such as opening a backdoor to more complex operations like executing remote commands, stealing data, or installing malware. Ethical hackers use payloads in a controlled environment to demonstrate the potential impact of vulnerabilities. Payloads are combined with exploits: the exploit takes advantage of a weakness, and the payload executes the action. There are different types of payloads, including remote access tools, command execution scripts, and reverse shells. Understanding payloads helps organizations anticipate possible attacks and implement defenses to mitigate risks. Properly testing payloads is essential for responsible security assessment.",
+  "main_points": [
+    "Exploit result",
+    "Remote access",
+    "Backdoors",
+    "Command execution",
+    "Data theft",
+    "Malware delivery",
+    "Reverse shells",
+    "Controlled testing",
+    "Impact demonstration",
+    "Security assessment"
+  ],
+  "example": "Scenario: An ethical hacker exploits a vulnerability in a web server.\n\nStep 1: The hacker sends a crafted request that triggers the exploit.\nStep 2: A reverse shell payload executes, giving temporary access.\nStep 3: The tester uses the shell to demonstrate access without harming data.\nStep 4: A report details the findings and mitigation steps.\n\nAnswer: The payload executed after the exploit, showing potential access points for attackers and guiding security improvements."
+},
+
+{
+  "title": "Responsible Disclosure",
+  "description_short": "Learn how to report vulnerabilities safely and legally.",
+  "description_long": "Responsible disclosure is the practice of reporting discovered security vulnerabilities to the affected organization in a safe, ethical, and legal manner. It ensures that vulnerabilities are fixed before malicious actors can exploit them. Ethical hackers follow clear guidelines when disclosing vulnerabilities: they notify the organization privately, provide detailed information about the issue, and offer suggestions for remediation. Many organizations have formal vulnerability disclosure or bug bounty programs that define reporting rules, timelines, and possible rewards. Responsible disclosure helps build trust between security researchers and organizations, encourages collaboration, and reduces the risk of attacks. It is a critical step in the ethical hacking process because it transforms discovered weaknesses into actionable improvements, enhancing overall cybersecurity.",
+  "main_points": [
+    "Safe reporting",
+    "Ethical process",
+    "Legal disclosure",
+    "Private notification",
+    "Remediation guidance",
+    "Bug bounty programs",
+    "Trust building",
+    "Collaboration",
+    "Reduce risks",
+    "Security improvement"
+  ],
+  "example": "Scenario: A security researcher finds a vulnerability in a popular software application.\n\nStep 1: The researcher documents the issue and how to reproduce it.\nStep 2: They contact the software company privately.\nStep 3: The company acknowledges the report and fixes the vulnerability.\nStep 4: The researcher may receive recognition or a reward.\n\nAnswer: By following responsible disclosure, the researcher helped improve security without exposing users to risk."
+}
+  ]
+}

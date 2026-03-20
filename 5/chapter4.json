@@ -1,0 +1,81 @@
+{
+  "chapter_title": "Exploitation Tools",
+  "cards": [
+    {
+      "title": "Metasploit Framework",
+      "description_short": "Framework for developing and executing exploits",
+      "description_long": "Metasploit Framework is a powerful penetration testing platform used to develop, test, and execute exploits against vulnerable systems. It includes modules for exploits, payloads, scanners, and post‑exploitation tools.",
+      "main_commands": [
+        {"command":"msfconsole", "explanation":"Launch the Metasploit console"},
+        {"command":"search exploit", "explanation":"Search for available exploits"},
+        {"command":"use exploit/windows/smb/ms17_010_eternalblue", "explanation":"Select a specific exploit module"},
+        {"command":"set RHOSTS target.com", "explanation":"Set the target host"},
+        {"command":"exploit", "explanation":"Execute the selected exploit"}
+      ],
+      "activity": [
+        "Start Metasploit and explore available modules",
+        "Search for exploits related to a vulnerability",
+        "Configure exploit parameters",
+        "Launch an exploit in a controlled lab environment",
+        "Observe payload execution results"
+      ]
+    },
+    {
+      "title": "SQLmap",
+      "description_short": "Automated SQL injection and database takeover tool",
+      "description_long": "SQLmap automates the detection and exploitation of SQL injection vulnerabilities. It can enumerate databases, tables, columns, and extract data from vulnerable web applications.",
+      "main_commands": [
+        {"command":"sqlmap -u \"http://target.com/page?id=1\"", "explanation":"Test a URL for SQL injection"},
+        {"command":"sqlmap -u \"http://target.com/page?id=1\" --dbs", "explanation":"Enumerate available databases"},
+        {"command":"sqlmap -u \"http://target.com/page?id=1\" -D dbname --tables", "explanation":"List tables in a database"},
+        {"command":"sqlmap -u \"http://target.com/page?id=1\" -D dbname -T users --dump", "explanation":"Dump table data"},
+        {"command":"sqlmap -r request.txt", "explanation":"Use a saved HTTP request file"}
+      ],
+      "activity": [
+        "Test a web page for SQL injection vulnerabilities",
+        "Enumerate databases on a vulnerable server",
+        "Retrieve table names from a database",
+        "Extract data from a specific table",
+        "Analyze SQLmap output for vulnerabilities"
+      ]
+    },
+    {
+      "title": "BeEF",
+      "description_short": "Browser exploitation framework",
+      "description_long": "BeEF (Browser Exploitation Framework) focuses on exploiting vulnerabilities in web browsers. It allows attackers to hook a browser and run commands through the browser environment.",
+      "main_commands": [
+        {"command":"beef-xss", "explanation":"Start the BeEF framework"},
+        {"command":"http://localhost:3000/ui/panel", "explanation":"Access the BeEF control panel"},
+        {"command":"Hook script injection", "explanation":"Inject hook script into a target browser"},
+        {"command":"Select hooked browser", "explanation":"Interact with connected browsers"},
+        {"command":"Execute command module", "explanation":"Run browser-based exploitation modules"}
+      ],
+      "activity": [
+        "Launch the BeEF control panel",
+        "Inject hook script in a controlled lab",
+        "Observe connected browsers",
+        "Execute browser-based commands",
+        "Understand browser exploitation techniques"
+      ]
+    },
+    {
+      "title": "SearchSploit",
+      "description_short": "Search exploit database from the terminal",
+      "description_long": "SearchSploit is a command‑line tool that allows users to search the Exploit Database locally. It helps find public exploits related to specific software or vulnerabilities.",
+      "main_commands": [
+        {"command":"searchsploit apache", "explanation":"Search exploits related to Apache"},
+        {"command":"searchsploit vsftpd 2.3.4", "explanation":"Search exploit for specific software version"},
+        {"command":"searchsploit -m exploit_id", "explanation":"Copy exploit code to local directory"},
+        {"command":"searchsploit -u", "explanation":"Update local exploit database"},
+        {"command":"searchsploit --json apache", "explanation":"Display results in JSON format"}
+      ],
+      "activity": [
+        "Search for exploits for specific software",
+        "Identify vulnerabilities based on version numbers",
+        "Copy exploit code locally for analysis",
+        "Update the exploit database",
+        "Compare search results with vulnerability scans"
+      ]
+    }
+  ]
+}

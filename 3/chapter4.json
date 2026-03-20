@@ -1,0 +1,100 @@
+{
+  "chapter_title": "System Administration / Privilege Management",
+  "cards": [
+    {
+      "title": "SUDO SU",
+      "description_short": "Switch to superuser",
+      "description_long": "The 'sudo su' command allows a user with sudo privileges to switch to the root user. This gives full administrative control over the system.",
+      "main_commands": [
+        {"command":"sudo su", "explanation":"Switch to root user, prompt for your password"},
+        {"command":"sudo su -", "explanation":"Switch to root and load root’s environment"},
+        {"command":"sudo su - username", "explanation":"Switch to another user with root privileges"},
+        {"command":"sudo su -c 'command'", "explanation":"Run a single command as root and exit"},
+        {"command":"sudo -i", "explanation":"Open an interactive root shell (similar to sudo su -)"}
+      ],
+      "activity": [
+        "Switch to root user",
+        "Switch to root with full environment",
+        "Switch to another user using sudo su",
+        "Run a single command as root",
+        "Compare sudo -i vs sudo su -"
+      ]
+    },
+    {
+      "title": "SUDO",
+      "description_short": "Run commands with elevated privileges",
+      "description_long": "The 'sudo' command allows a permitted user to execute a command as the superuser or another user. It is safer than logging in as root directly.",
+      "main_commands": [
+        {"command":"sudo apt update", "explanation":"Run update command as root"},
+        {"command":"sudo systemctl restart apache2", "explanation":"Restart a service with sudo"},
+        {"command":"sudo -l", "explanation":"List commands you are allowed to run with sudo"},
+        {"command":"sudo !!", "explanation":"Repeat the last command with sudo"},
+        {"command":"sudo su -c 'mkdir /opt/test'", "explanation":"Run mkdir as root without switching shell"}
+      ],
+      "activity": [
+        "Update system packages using sudo",
+        "Restart a service using sudo",
+        "Check allowed sudo commands",
+        "Repeat previous command with sudo",
+        "Run a command as root without switching shell"
+      ]
+    },
+    {
+      "title": "PASSWD",
+      "description_short": "Change user passwords",
+      "description_long": "The 'passwd' command allows you to change your own password or, with sudo, another user's password. It enforces password policies like minimum length and expiration.",
+      "main_commands": [
+        {"command":"passwd", "explanation":"Change your own password"},
+        {"command":"sudo passwd alice", "explanation":"Change password for user alice"},
+        {"command":"passwd -l username", "explanation":"Lock a user account"},
+        {"command":"passwd -u username", "explanation":"Unlock a user account"},
+        {"command":"passwd --expire username", "explanation":"Force a user to change password at next login"}
+      ],
+      "activity": [
+        "Change your own password",
+        "Change another user's password with sudo",
+        "Lock a user account",
+        "Unlock a user account",
+        "Force password change on next login"
+      ]
+    },
+    {
+      "title": "ADDUSER",
+      "description_short": "Add new users",
+      "description_long": "The 'adduser' command creates a new user with home directory and initial settings. It is simpler than 'useradd' and includes prompts for setting password and info.",
+      "main_commands": [
+        {"command":"sudo adduser bob", "explanation":"Create a new user bob with home directory"},
+        {"command":"sudo adduser bob sudo", "explanation":"Add user bob and assign to sudo group"},
+        {"command":"sudo adduser --disabled-password alice", "explanation":"Create user without setting password"},
+        {"command":"sudo adduser --gecos '' charlie", "explanation":"Create user without prompting for info"},
+        {"command":"sudo adduser --shell /bin/bash david", "explanation":"Specify default shell for new user"}
+      ],
+      "activity": [
+        "Create a new user with home directory",
+        "Add user to sudo group",
+        "Create user without password",
+        "Create user without extra info prompts",
+        "Set custom shell for new user"
+      ]
+    },
+    {
+      "title": "ADDGROUP",
+      "description_short": "Add new groups",
+      "description_long": "The 'addgroup' command creates a new group. It is useful for managing permissions and access control for multiple users.",
+      "main_commands": [
+        {"command":"sudo addgroup developers", "explanation":"Create a new group named developers"},
+        {"command":"sudo addgroup --gid 1001 testers", "explanation":"Create a group with specific GID"},
+        {"command":"sudo addgroup alice", "explanation":"Add an existing user to a new group (depends on distro)"},
+        {"command":"sudo addgroup --system sysadmin", "explanation":"Create a system group"},
+        {"command":"getent group developers", "explanation":"Verify group exists and list its members"}
+      ],
+      "activity": [
+        "Create a new group",
+        "Create a group with specific GID",
+        "Add user to a group",
+        "Create a system group",
+        "Verify group creation and members"
+      ]
+    }
+  ]
+}

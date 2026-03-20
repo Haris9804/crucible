@@ -1,0 +1,62 @@
+{
+  "chapter_title": "File Permission & Ownership Commands",
+  "cards": [
+    {
+      "title": "CHMOD",
+      "description_short": "Change file permissions",
+      "description_long": "The 'chmod' command modifies file or directory permissions. You can use symbolic (rwx) or numeric (octal) notation to set read, write, and execute permissions.",
+      "main_commands": [
+        {"command":"chmod 755 file.txt", "explanation":"Set permissions to rwxr-xr-x (owner full, group and others read/execute)"},
+        {"command":"chmod 644 file.txt", "explanation":"Set permissions to rw-r--r-- (owner read/write, group and others read only)"},
+        {"command":"chmod +x script.sh", "explanation":"Add execute permission to a file"},
+        {"command":"chmod -R 700 folder", "explanation":"Recursively set folder and contents to rwx for owner only"},
+        {"command":"chmod u+r,g-w,o=r file.txt", "explanation":"Set custom symbolic permissions for user, group, and others"}
+      ],
+      "activity": [
+        "Set a script file as executable",
+        "Restrict folder permissions to owner only",
+        "Set read/write permissions for owner and read-only for others",
+        "Experiment with symbolic permissions",
+        "Verify permissions using ls -l"
+      ]
+    },
+    {
+      "title": "CHOWN",
+      "description_short": "Change file owner",
+      "description_long": "The 'chown' command changes the owner of a file or directory. You can also change both owner and group at the same time.",
+      "main_commands": [
+        {"command":"chown alice file.txt", "explanation":"Change owner of file.txt to user alice"},
+        {"command":"chown alice:developers file.txt", "explanation":"Change owner to alice and group to developers"},
+        {"command":"chown -R alice folder", "explanation":"Recursively change owner of folder and its contents"},
+        {"command":"sudo chown root file.txt", "explanation":"Change file owner to root (requires sudo)"},
+        {"command":"chown --reference=ref.txt target.txt", "explanation":"Set target.txt owner same as ref.txt"}
+      ],
+      "activity": [
+        "Change a file’s owner",
+        "Change owner and group together",
+        "Recursively change owner of a folder",
+        "Use sudo to change owner to root",
+        "Copy owner permissions from one file to another"
+      ]
+    },
+    {
+      "title": "CHGRP",
+      "description_short": "Change group ownership",
+      "description_long": "The 'chgrp' command changes the group ownership of a file or directory. Useful when collaborating in shared directories.",
+      "main_commands": [
+        {"command":"chgrp developers file.txt", "explanation":"Change the group of file.txt to developers"},
+        {"command":"chgrp -R admins folder", "explanation":"Recursively change group of folder and its contents"},
+        {"command":"chgrp --reference=ref.txt target.txt", "explanation":"Set target.txt group same as ref.txt"},
+        {"command":"sudo chgrp staff file.txt", "explanation":"Change group to staff using sudo"},
+        {"command":"chgrp $(id -gn) file.txt", "explanation":"Change group to current user’s primary group"}
+      ],
+      "activity": [
+        "Change group ownership of a file",
+        "Recursively change group of a folder",
+        "Use reference file to assign group",
+        "Change group using sudo",
+        "Assign current user’s primary group to a file"
+      ]
+    }
+  ]
+}

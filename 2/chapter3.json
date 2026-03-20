@@ -1,0 +1,95 @@
+{
+  "chapter_title": "Tools Basics",
+  "cards": [
+    {
+      "title": "Nmap",
+      "description_short": "Network scanning and discovery tool.",
+      "description_long": "Nmap (Network Mapper) is a free and open-source tool used to discover hosts and services on a computer network. It helps ethical hackers identify live devices, open ports, and running services, which is essential for assessing network security. Beginners should know that Nmap provides an overview of network structure and potential vulnerabilities. While powerful, it should always be used legally with proper permission. Learning basic Nmap commands helps students understand network mapping and reconnaissance, which are the first steps in ethical hacking.",
+      "main_points": [
+        "Network discovery",
+        "Host scanning",
+        "Port scanning",
+        "Service detection",
+        "Vulnerability awareness",
+        "Open-source",
+        "Command-line tool",
+        "Reconnaissance",
+        "Legal use only",
+        "Network overview"
+      ],
+      "example": "Scenario: Student scans a lab network with permission.\nStep 1: Uses `nmap -sP 192.168.1.0/24`.\nStep 2: Identifies active devices.\nStep 3: Reports results to instructor.\nAnswer: Nmap shows which devices are online safely."
+    },
+    {
+      "title": "Wireshark",
+      "description_short": "Network packet analyzer for monitoring traffic.",
+      "description_long": "Wireshark is a popular tool used to capture and inspect network traffic. Students can use it to see data packets, understand protocols, and detect anomalies. Ethical hackers use Wireshark to monitor networks for malicious activity and troubleshoot network issues. Beginners learn to identify IP addresses, TCP/UDP traffic, and HTTP/HTTPS packets. Using Wireshark legally requires permission on the network being monitored. It teaches how data flows through networks and how vulnerabilities might be exploited.",
+      "main_points": [
+        "Packet capture",
+        "Protocol analysis",
+        "Traffic monitoring",
+        "Network troubleshooting",
+        "Detect anomalies",
+        "IP addresses",
+        "TCP/UDP",
+        "HTTP/HTTPS",
+        "Learn network flow",
+        "Legal use only"
+      ],
+      "example": "Scenario: Student monitors lab network.\nStep 1: Starts Wireshark on lab computer.\nStep 2: Captures packets while browsing.\nStep 3: Observes IP addresses and protocols.\nAnswer: Student understands how traffic flows safely."
+    },
+    {
+      "title": "Metasploit",
+      "description_short": "Framework for penetration testing.",
+      "description_long": "Metasploit is a penetration testing framework used to find and exploit vulnerabilities in systems. Beginners learn that Metasploit helps simulate attacks safely to test security defenses. It contains modules for scanning, payload delivery, and reporting. Ethical hackers use it to identify security gaps before malicious hackers do. For beginners, the focus should be on understanding concepts like exploits, payloads, and sessions rather than advanced attack techniques. Metasploit is a core tool in cybersecurity labs and learning environments.",
+      "main_points": [
+        "Penetration testing",
+        "Exploits",
+        "Payloads",
+        "Vulnerability testing",
+        "Safe simulation",
+        "Security gaps",
+        "Framework",
+        "Ethical use",
+        "Lab exercises",
+        "Reporting"
+      ],
+      "example": "Scenario: Student tests a vulnerable lab machine.\nStep 1: Launches Metasploit console.\nStep 2: Selects a safe exploit module.\nStep 3: Confirms vulnerability and reports it.\nAnswer: Security gap identified safely without harm."
+    },
+    {
+      "title": "Hydra",
+      "description_short": "Password-cracking tool for testing account security.",
+      "description_long": "Hydra is a fast and flexible password-cracking tool used to test password strength. Beginners should understand that Hydra automates login attempts on systems to check weak passwords. Ethical hackers use it with permission to strengthen account security. It works with protocols like SSH, FTP, HTTP, and more. Learning Hydra teaches the importance of strong passwords and multi-factor authentication. Students must always use Hydra responsibly and legally in controlled environments.",
+      "main_points": [
+        "Password testing",
+        "Brute force",
+        "SSH/FTP/HTTP",
+        "Automated login attempts",
+        "Check weak passwords",
+        "Ethical use only",
+        "Legal permission",
+        "Account security",
+        "MFA importance",
+        "Controlled environment"
+      ],
+      "example": "Scenario: Student tests a lab FTP account.\nStep 1: Runs Hydra with a password list.\nStep 2: Identifies weak password.\nStep 3: Updates password to strong one.\nAnswer: Weak passwords detected and fixed safely."
+    },
+    {
+      "title": "Dirbuster",
+      "description_short": "Tool to discover hidden directories and files on websites.",
+      "description_long": "Dirbuster is a tool used to find hidden directories, files, or paths on web servers. Ethical hackers use it to identify potentially sensitive or unprotected content that could be exploited. Beginners learn that this tool automates guessing directories using wordlists. Understanding Dirbuster helps students appreciate website structure, access control, and the importance of securing web resources. Like all hacking tools, it should only be used in legal and controlled environments with proper authorization.",
+      "main_points": [
+        "Discover directories",
+        "Find hidden files",
+        "Automated scanning",
+        "Wordlists",
+        "Web server testing",
+        "Identify sensitive content",
+        "Security assessment",
+        "Ethical use",
+        "Controlled environment",
+        "Authorization required"
+      ],
+      "example": "Scenario: Student tests lab web server.\nStep 1: Uses Dirbuster with sample wordlist.\nStep 2: Finds an unprotected test folder.\nStep 3: Reports to instructor.\nAnswer: Hidden directory identified safely."
+    }
+  ]
+}

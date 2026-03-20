@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTF Admin Portal</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<header>
+    <div class="company-name">CTF Admin Portal</div>
+    <button onclick="logoutAdmin()" class="logout-btn">Logout</button>
+</header>
+
+<main>
+
+    <!-- ========================= -->
+    <!-- SECTION 1 - KEY MANAGEMENT -->
+    <!-- ========================= -->
+    <section class="admin-section">
+        <h2>Key Management</h2>
+
+        <div class="box key-control-box">
+            <h3>Key Control</h3>
+
+            <div class="key-tabs">
+                <button onclick="loadMasterKey()" class="tab-btn">Master Key Control</button>
+                <button onclick="loadPassKey()" class="tab-btn">Pass Key Control</button>
+                <button onclick="loadAdminKey()" class="tab-btn">Admin Key Control</button>
+            </div>
+
+            <div id="key-content"></div>
+        </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SECTION 2 - TEAM MANAGEMENT -->
+    <!-- ========================= -->
+    <section class="admin-section">
+        <h2>Team Management</h2>
+
+        <div class="dual-box">
+
+            <!-- LEFT BOARD -->
+            <div class="board-box">
+                <h3>Team Management Board</h3>
+                <div id="team-board" class="scroll-box"></div>
+
+                <div class="board-buttons">
+                    <button onclick="toggleTeamBoard()">Hide Board</button>
+                    <button onclick="refreshTeams()">Refresh Board</button>
+                </div>
+            </div>
+
+            <!-- RIGHT CONTROL -->
+            <div class="control-box">
+                <h3>Team Management Control</h3>
+
+                <button onclick="getTotalTeams()">Number of Total Teams</button>
+                <button onclick="removeAllTeams()" class="danger-btn">Remove All Teams</button>
+
+                <div class="fetch-box">
+                    <input type="text" id="team-search-input" placeholder="Enter Team ID or Team Name">
+                    <button onclick="fetchTeam()">Fetch</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- SECTION 3 - CTF MANAGEMENT -->
+    <!-- ========================= -->
+    <section class="admin-section">
+        <h2>CTF Management</h2>
+
+        <div class="dual-box">
+
+            <!-- LEFT SIDE - CTF INFO -->
+            <div class="board-box">
+                <h3>CTF Details</h3>
+                <div id="ctf-left-panel" class="scroll-box"></div>
+            </div>
+
+            <!-- RIGHT SIDE - FLAGS -->
+            <div class="control-box">
+                <h3>Flags Management</h3>
+                <div id="ctf-right-panel" class="scroll-box"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- SECTION 4 - RESULT MANAGEMENT -->
+    <!-- ========================= -->
+    <section class="admin-section">
+        <h2>Result Management</h2>
+
+        <div class="dual-box">
+
+            <!-- LEFT BOARD -->
+            <div class="board-box">
+                <h3>Result Management Board</h3>
+                <div id="result-board" class="scroll-box"></div>
+
+                <div class="board-buttons">
+                    <button onclick="toggleResultBoard()">Hide Board</button>
+                    <button onclick="refreshResults()">Refresh Board</button>
+                </div>
+            </div>
+
+            <!-- RIGHT CONTROL -->
+            <div class="control-box">
+                <h3>Result Management Control</h3>
+
+                <button onclick="getTotalSubmitted()">Number of Total Teams Submitted</button>
+                <button onclick="removeAllResults()" class="danger-btn">Remove All Results</button>
+
+                <div class="fetch-box">
+                    <input type="text" id="result-search-input" placeholder="Enter Team ID or Team Name">
+                    <button onclick="fetchResult()">Fetch</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- SECTION 5 - LEADERBOARD -->
+    <!-- ========================= -->
+    <section class="admin-section">
+        <h2>Leaderboard</h2>
+
+        <div class="leaderboard-box">
+            <div id="leaderboard-content"></div>
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    &copy; 2026 CTF Portal. All rights reserved.
+</footer>
+
+
+<!-- Notification -->
+<div id="admin-notification"></div>
+
+<!-- Confirmation Modal -->
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <p id="confirmation-message">Are you sure?</p>
+        <div class="modal-buttons">
+            <button id="confirm-btn">Confirm</button>
+            <button id="close-btn">Close</button>
+        </div>
+    </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+{
+  "chapter_title": "Hacking Terminologies",
+  "cards": [
+    {
+      "title": "Vulnerability",
+      "description_short": "A weakness in a system or software.",
+      "description_long": "A vulnerability is a flaw, weakness, or gap in a computer system, network, or software that could be exploited by attackers to gain unauthorized access or cause damage. Vulnerabilities can exist due to coding errors, misconfigurations, outdated software, or weak passwords. Identifying and fixing vulnerabilities is a core part of ethical hacking and cybersecurity. Beginners should understand that even small vulnerabilities can lead to significant security risks if left unpatched. Ethical hackers help organizations detect these vulnerabilities to prevent exploitation.",
+      "main_points": [
+        "Weakness in system",
+        "Software flaw",
+        "Misconfigurations",
+        "Outdated software",
+        "Weak passwords",
+        "Security risk",
+        "Exploitable",
+        "Needs patching",
+        "Detect early",
+        "Prevent attacks"
+      ],
+      "example": "Scenario: Student notices outdated software on a lab machine.\nStep 1: Reports outdated version.\nStep 2: Lab updates software.\nStep 3: Vulnerability removed.\nAnswer: Risk mitigated safely."
+    },
+    {
+      "title": "Exploit",
+      "description_short": "A technique to take advantage of a vulnerability.",
+      "description_long": "An exploit is a piece of software, code, or sequence of commands designed to take advantage of a vulnerability in a system. Exploits allow attackers to gain unauthorized access, execute commands, or extract sensitive data. Ethical hackers use controlled exploits to test security and strengthen defenses. Beginners should understand that exploits demonstrate the real-world consequences of vulnerabilities, highlighting why patching and secure coding practices are essential.",
+      "main_points": [
+        "Takes advantage of flaw",
+        "Software/code",
+        "Unauthorized access",
+        "Execute commands",
+        "Extract data",
+        "Test security",
+        "Controlled use",
+        "Real-world demonstration",
+        "Highlight vulnerabilities",
+        "Patch importance"
+      ],
+      "example": "Scenario: Student uses lab exploit module on a test system.\nStep 1: Exploit runs safely.\nStep 2: Confirms vulnerability.\nStep 3: Reports issue for patching.\nAnswer: Exploit tested ethically without harm."
+    },
+    {
+      "title": "Payload",
+      "description_short": "Code delivered after exploiting a vulnerability.",
+      "description_long": "A payload is the part of an exploit that executes after a vulnerability is exploited. It can perform tasks such as opening a backdoor, stealing data, or running malicious code. In ethical hacking, payloads are used in controlled environments to simulate attacks and understand risks. Beginners should know that payloads are the outcome of an exploit and are central to penetration testing. Understanding payloads helps in designing defenses and preparing for real-world attacks safely.",
+      "main_points": [
+        "Executed after exploit",
+        "Runs code",
+        "Backdoor creation",
+        "Data theft",
+        "Simulate attacks",
+        "Controlled testing",
+        "Understand risk",
+        "Penetration testing",
+        "Defensive planning",
+        "Safe simulation"
+      ],
+      "example": "Scenario: Student uses test payload on lab server.\nStep 1: Payload opens safe test backdoor.\nStep 2: Observes behavior.\nStep 3: Reports findings.\nAnswer: Payload demonstrated safely."
+    },
+    {
+      "title": "Zero Day",
+      "description_short": "A vulnerability unknown to developers.",
+      "description_long": "A zero-day vulnerability is a security flaw that is unknown to the software vendor or developers and has no available patch. Attackers can exploit zero-day vulnerabilities before they are discovered or fixed. Ethical hackers and cybersecurity professionals aim to identify zero-day vulnerabilities responsibly to protect systems. Beginners should understand that zero-day attacks are highly dangerous because there is no immediate defense, highlighting the importance of proactive monitoring and responsible disclosure.",
+      "main_points": [
+        "Unknown flaw",
+        "No patch available",
+        "High risk",
+        "Exploitable immediately",
+        "Attack opportunity",
+        "Responsible disclosure",
+        "Proactive monitoring",
+        "Critical vulnerability",
+        "Security priority",
+        "Early detection"
+      ],
+      "example": "Scenario: Student discovers unknown vulnerability in test software.\nStep 1: Reports to instructor immediately.\nStep 2: Instructor confirms zero-day.\nStep 3: Patch applied before real attacks.\nAnswer: Zero-day handled responsibly."
+    },
+    {
+      "title": "Threat",
+      "description_short": "Potential danger to systems or data.",
+      "description_long": "A threat is any circumstance, event, or actor that can exploit vulnerabilities to cause harm to systems, networks, or data. Threats can be malicious hackers, malware, phishing attacks, insider threats, or even natural disasters affecting IT infrastructure. Understanding threats helps students assess risks and implement security measures. Ethical hackers identify potential threats and prioritize defenses. Beginners should recognize that threats are the 'why' behind vulnerabilities and that proactive protection reduces risk.",
+      "main_points": [
+        "Potential danger",
+        "Exploits vulnerabilities",
+        "Hackers",
+        "Malware",
+        "Phishing",
+        "Insider threats",
+        "Natural disasters",
+        "Risk assessment",
+        "Security measures",
+        "Proactive protection"
+      ],
+      "example": "Scenario: Student reviews lab system.\nStep 1: Identifies possible threats like malware.\nStep 2: Implements antivirus and firewalls.\nStep 3: Monitors activity.\nAnswer: Threats mitigated before harm."
+    }
+  ]
+}

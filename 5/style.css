@@ -1,0 +1,142 @@
+/* Reset & Base */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto Mono', monospace; }
+body { background:#0f0f1f; color:#00fffc; line-height:1.6; display:flex; flex-direction:column; min-height:100vh; }
+
+/* Header */
+header { background:linear-gradient(90deg,#0f0f1f 0%,#1a1a2e 100%); padding:1rem 2rem; text-align:center; }
+.company-name { font-size:2rem; color:#ff00ff; }
+.dynamic-quote { font-size:1rem; color:#00ffff; font-style:italic; margin-top:0.5rem; }
+
+/* Chapter */
+.chapter { padding:2rem; }
+.chapter-title { font-size:1.8rem; color:#ff00ff; margin-bottom:1.5rem; text-align:center; }
+
+/* Cards */
+.chapter-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; }
+.topic {
+    background: linear-gradient(145deg, #1a1a2e, #0f0f1f);
+    width: 320px; /* bigger width */
+    height: 320px; /* bigger height */
+    clip-path: polygon(
+        30% 0%, 70% 0%,   /* top sides */
+        100% 30%, 100% 70%, /* right sides */
+        70% 100%, 30% 100%, /* bottom sides */
+        0% 70%, 0% 30%    /* left sides */
+    );
+    border-radius: 12px; /* rounded corners inside octagon */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.topic h3 {
+    color: #ff00ff;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.topic p {
+    color: #00ffff;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.topic button {
+    padding: 0.6rem 1.2rem;
+    background-color: #00ffff;
+    color: #0f0f1f;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0.3rem;
+    transition: 0.2s;
+}
+
+.topic button:hover {
+    background-color: #ff00ff;
+    color: #fff;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+.topic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00ffff;
+}
+
+/* Responsive adjustments for octagon */
+@media(max-width:768px) {
+    .topic { width: 260px; height: 260px; padding: 1rem; }
+}
+
+@media(max-width:480px) {
+    .topic { width: 90vw; height: auto; min-height: 260px; border-radius: 1rem; padding: 1.5rem 2rem; }
+}
+/* Modal */
+.modal { display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background-color:rgba(0,0,0,0.95); justify-content:center; align-items:center; padding:1rem; overflow-y:auto; }
+.modal-content {
+    background:#1a1a2e; color:#00ffff; padding:2rem; border-radius:8px; width:100%; max-width:700px; max-height:90vh; overflow-y:auto; position:relative;
+}
+#modal-close { position:absolute; top:10px; right:15px; font-size:1.5rem; color:#ff00ff; cursor:pointer; }
+.modal h3 { color:#ff00ff; margin-bottom:1rem; }
+.modal p { margin-bottom:1rem; }
+.command-box { background:#0f0f1f; padding:0.5rem; border-radius:5px; margin-bottom:0.5rem; font-family:'Roboto Mono'; }
+.command { color:#00ffff; }
+.explanation { color:#ff00ff; font-size:0.9rem; margin-top:0.2rem; }
+.activity-line { margin-bottom:0.5rem; }
+
+/* Footer */
+footer { background:#0f0f1f; padding:1rem 2rem; text-align:center; border-top:1px solid #00ffff; }
+footer p { color:#ff00ff; font-style:italic; }
+
+/* Responsive */
+@media(max-width:768px){ .chapter-cards{flex-direction:column;align-items:center;} .topic{width:200px;height:200px;} }
+@media(max-width:480px){ .topic{width:90vw;height:auto;min-height:220px;border-radius:1rem;padding:1.5rem 2rem;} }
+
+.chapter-section {
+    margin-bottom: 3rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #00ffff44;
+}
+
+.chapter-heading {
+    font-size: 1.8rem;
+    color: #ff00ff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+.chapter-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+/* Back Button */
+.back-button-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.back-button {
+    background-color: #ff00ff;
+    color: #0f0f1f;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.back-button:hover {
+    background-color: #ff66ff;
+    transform: scale(1.05);
+}

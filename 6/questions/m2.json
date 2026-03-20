@@ -1,0 +1,62 @@
+[
+  {
+    "question": "1. What is ethical hacking?",
+    "options": [
+      "Hacking without permission",
+      "Legally probing systems to identify vulnerabilities and secure them",
+      "Breaking into websites for fun",
+      "Writing malware to attack computers"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "2. Which term means “a weakness that can be exploited”?",
+    "options": [
+      "Payload",
+      "Exploit",
+      "Vulnerability",
+      "Footprinting"
+    ],
+    "correct_option": 2
+  },
+  {
+    "question": "3. Which step of ethical hacking involves gathering information about a target?",
+    "options": [
+      "Scanning",
+      "Reconnaissance",
+      "Reporting",
+      "Gaining Access"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "4. Which of these is a safe way for beginners to practice ethical hacking?",
+    "options": [
+      "Testing live company servers without permission",
+      "Using isolated labs or virtual machines",
+      "Exploiting websites for personal gain",
+      "Sharing passwords publicly"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "5. Which tool is commonly used for network scanning?",
+    "options": [
+      "Wireshark",
+      "Nmap",
+      "John the Ripper",
+      "Burp Suite"
+    ],
+    "correct_option": 1
+  },
+  {
+    "question": "6. What must ethical hackers always do before testing a system?",
+    "options": [
+      "Share results on social media",
+      "Obtain written permission",
+      "Hack as fast as possible",
+      "Delete backups"
+    ],
+    "correct_option": 1
+  }
+]
