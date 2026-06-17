@@ -1,0 +1,462 @@
+{
+  "id": 1,
+  "slug": "installation-setup-windows",
+  "title": "Installation Setup For Windows User",
+  "description": "Setup virtualization environment and install Kali Linux.",
+  "difficulty": "Beginner",
+
+  "phases": [
+
+    {
+      "id": 1,
+      "title": "CHECK VIRTUALIZATION",
+      "sub":"System pre-check",
+      "objective": "Verify that your system supports hardware virtualization before installing any virtual machines.",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+          "content": "Checking for system virtualization is important"
+        },
+
+        {
+          "type": "requirements",
+
+          "title": "System Pre-requisites",
+
+          "items": [
+            "Windows 10 or Windows 11",
+            "Minimum 4 GB RAM",
+            "Access to Task Manager (Ctrl+Shift+Esc)",
+            "Admin access to BIOS settings (if needed)"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Step 1: Open Task Manager",
+
+          "items": [
+            "Press Ctrl+Shift+Esc (Task Manager) to open Task Manager",
+            "Click on the Performance tab at the top",
+            "Click on CPU in the left panel"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Step 2: Check System Virtualization",
+
+          "items": [
+            "Scroll down to the bottom of the CPU details panel",
+            "Look for the line: Virtualization: Enabled",
+            "If Enabled — this phase is complete, proceed to Phase 2",
+            "If Disabled — follow the steps below to enable it"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "If Not Enabled — Enable in BIOS",
+
+          "items": [
+            "Restart your laptop and boot into BIOS settings",
+            "Navigate to Configuration or Advanced tab",
+            "Find Virtualization Technology or VT-x and Enable it",
+            "Save changes and reboot the system"
+          ]
+        },
+
+        {
+          "type": "links",
+
+          "title": "Youtube References",
+
+          "items": [
+            "https://www.youtube.com/shorts/56rVqkO4uuE",
+            "https://www.youtube.com/watch?v=LQIyowZMiY8"
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": 2,
+      "title": "Installing VMware or VirtualBox",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Installing a hypervisor is required to run virtual machines"
+        },
+
+        {
+          "type": "tabs",
+
+          "title": "Select Hypervisor Software",
+
+          "tabs": [
+
+            {
+              "id": "vmware",
+
+              "label": "VMware",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Step 1: Create Broadcom Account",
+
+                  "items": [
+                    "Go to Broadcom registration page",
+                    "Create a new account",
+                    "Login to Broadcom portal"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Step 2: Download VMware Workstation Pro",
+
+                  "items": [
+                    "Search for VMware Workstation Pro",
+                    "Click search result",
+                    "Select Windows version 17.0",
+                    "Select version 17.5.x or 17.6",
+                    "Accept Terms of Use",
+                    "Check agreement box",
+                    "Click Download"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Step 3: Install VMware",
+
+                  "items": [
+                    "Double click installer",
+                    "Click Next",
+                    "Accept license agreement",
+                    "Click Install",
+                    "Wait for installation"
+                  ]
+                }
+
+              ]
+            },
+
+            {
+              "id": "virtualbox",
+
+              "label": "VirtualBox",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Step 1: Download VirtualBox",
+
+                  "items": [
+                    "Go to VirtualBox download page",
+                    "Click Windows Host",
+                    "Download installer"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Step 2: Download Extension Pack",
+
+                  "items": [
+                    "Locate Extension Pack",
+                    "Accept and Download"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Step 3: Install VirtualBox",
+
+                  "items": [
+                    "Open installer",
+                    "Click Install",
+                    "Wait for installation",
+                    "Click Finish"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Step 4: Install Extension Pack",
+
+                  "items": [
+                    "Open Downloads folder",
+                    "Open Extension Pack",
+                    "Click Install",
+                    "Accept agreement"
+                  ]
+                }
+
+              ]
+            }
+
+          ]
+        },
+
+        {
+          "type": "downloads",
+
+          "title": "Download Links",
+
+          "items": [
+            "https://profile.broadcom.com/web/registration",
+            "https://access.broadcom.com/default/ui/v1/signin/",
+            "https://www.virtualbox.org/wiki/Downloads"
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": 3,
+      "title": "Downloading Kali Linux",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Downloading the Kali Linux ISO is required before setup"
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Step 1: Visit Official Kali Linux Downloads Page",
+
+          "items": [
+            "Go to https://www.kali.org/get-kali/"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Step 2: Download Installer",
+
+          "items": [
+            "Choose installer for your system",
+            "Download ISO file"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Step 3: Locate ISO",
+
+          "items": [
+            "Open Downloads folder",
+            "Locate Kali Linux ISO"
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": 4,
+      "title": "Setting Up Kali Linux on Hypervisor",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "This phase covers adding Kali Linux to VMware or VirtualBox"
+        },
+
+        {
+          "type": "tabs",
+
+          "title": "Select Hypervisor",
+
+          "tabs": [
+
+            {
+              "id": "vmware-kali",
+
+              "label": "VMware",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Create Virtual Machine",
+
+                  "items": [
+                    "Launch VMware",
+                    "Create new VM",
+                    "Select Typical",
+                    "Select ISO file",
+                    "Choose Kali ISO"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Configure Guest OS",
+
+                  "items": [
+                    "Select Linux",
+                    "Choose Debian 12.x 64-bit"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Configure Hardware",
+
+                  "items": [
+                    "Allocate RAM",
+                    "Allocate processors",
+                    "Configure bridged adapter"
+                  ]
+                }
+
+              ]
+            },
+
+            {
+              "id": "vbox-kali",
+
+              "label": "VirtualBox",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Create New Machine",
+
+                  "items": [
+                    "Click New",
+                    "Select Kali ISO",
+                    "Choose Debian 64-bit"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Configure Hardware",
+
+                  "items": [
+                    "Allocate memory",
+                    "Configure processors"
+                  ]
+                },
+
+                {
+                  "type": "steps",
+
+                  "title": "Extra Settings",
+
+                  "items": [
+                    "Enable bidirectional clipboard",
+                    "Enable virtualization",
+                    "Configure bridged adapter"
+                  ]
+                }
+
+              ]
+            }
+
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": 5,
+      "title": "Final Kali Linux Setup",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "This phase completes the Kali Linux installation"
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Basic Setup",
+
+          "items": [
+            "Power on virtual machine",
+            "Select Graphical Install",
+            "Choose location",
+            "Configure keyboard",
+            "Create username",
+            "Create password"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Disk Partition",
+
+          "items": [
+            "Use entire disk",
+            "Finish partitioning",
+            "Write changes"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Display and GRUB",
+
+          "items": [
+            "Select gdm3",
+            "Install GRUB",
+            "Select /dev/sda",
+            "Reboot system",
+            "Login to Kali Linux"
+          ]
+        }
+
+      ]
+    }
+
+  ]
+}

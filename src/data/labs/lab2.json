@@ -1,0 +1,141 @@
+{
+  "id": 2,
+  "slug": "web-based-vulnerabilities",
+  "title": "Web Based Vulnerabilities",
+  "description": "Introduction to common web vulnerabilities including SQL Injection and Cross-Site Scripting.",
+  "difficulty": "Beginner",
+
+  "phases": [
+
+    {
+      "id": 1,
+      "title": "SQL Injection (SQLi)",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Practice only on legal vulnerable labs."
+        },
+
+        {
+          "type": "links",
+
+          "title": "Test Link",
+
+          "items": [
+            "http://testphp.vulnweb.com/login.php"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Guided Demonstration",
+
+          "items": [
+            "Open the given link.",
+            "Check if login input fields exist.",
+            "Insert basic test characters like (').",
+            "Search for simple SQLi payloads.",
+            "Observe if application behaves differently."
+          ]
+        },
+
+        {
+          "type": "payloads",
+
+          "title": "Example Payloads",
+
+          "items": [
+
+            {
+              "label": "Authentication Bypass Payload",
+
+              "value": "' OR '1'='1"
+            },
+
+            {
+              "label": "Admin Comment Payload",
+
+              "value": "admin' --"
+            },
+
+            {
+              "label": "Boolean Injection Payload",
+
+              "value": "' OR 1=1 --"
+            }
+
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": 2,
+      "title": "Cross-Site Scripting (XSS)",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Practice only on legal vulnerable labs."
+        },
+
+        {
+          "type": "links",
+
+          "title": "Test Link",
+
+          "items": [
+            "http://testphp.vulnweb.com/search.php?test=query"
+          ]
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Guided Demonstration",
+
+          "items": [
+            "Open the search page.",
+            "Check if search term appears on page.",
+            "Insert basic script test payload.",
+            "Search for simple XSS payloads.",
+            "Observe if script executes."
+          ]
+        },
+
+        {
+          "type": "payloads",
+
+          "title": "Example Payloads",
+
+          "items": [
+
+            {
+              "label": "Basic Script Alert",
+
+              "value": "<script>alert(1)</script>"
+            },
+
+            {
+              "label": "Image OnError Payload",
+
+              "value": "<img src=x onerror=alert(1)>"
+            }
+
+          ]
+        }
+
+      ]
+    }
+
+  ]
+}

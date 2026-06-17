@@ -1,0 +1,223 @@
+{
+  "id": 3,
+  "slug": "network-service-vulnerabilities",
+  "title": "Network Service Vulnerabilities",
+  "description": "Introduction to exploiting common network services such as FTP and SSH in controlled lab environments.",
+  "difficulty": "Intermediate",
+
+  "phases": [
+
+    {
+      "id": 1,
+      "title": "FTP Service Exploitation",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Practice only in authorized lab environments."
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Reconnaissance Steps",
+
+          "items": [
+            "Run Nmap scan on target IP address.",
+            "Identify if FTP service (Port 21) is open.",
+            "Use service detection (-sV) to view FTP version.",
+            "Search online if that FTP version has known vulnerabilities."
+          ]
+        },
+
+        {
+          "type": "tabs",
+
+          "title": "Exploitation Methods",
+
+          "tabs": [
+
+            {
+              "id": "ftp-metasploit",
+
+              "label": "Using Metasploit",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Metasploit Workflow",
+
+                  "items": [
+                    "Start Metasploit Framework.",
+                    "Search for FTP related exploit modules.",
+                    "Select appropriate exploit.",
+                    "Configure required options (RHOSTS, etc).",
+                    "Run the exploit."
+                  ]
+                },
+
+                {
+                  "type": "commands",
+
+                  "title": "Metasploit Commands",
+
+                  "items": [
+                    "msfconsole",
+                    "search ftp"
+                  ]
+                }
+
+              ]
+            },
+
+            {
+              "id": "ftp-direct",
+
+              "label": "Direct FTP Connection",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Manual FTP Access",
+
+                  "items": [
+                    "If username/password is known, attempt login.",
+                    "Connect to FTP service manually.",
+                    "Check accessible directories and files."
+                  ]
+                },
+
+                {
+                  "type": "commands",
+
+                  "title": "FTP Connection Command",
+
+                  "items": [
+                    "ftp <target-ip>"
+                  ]
+                }
+
+              ]
+            }
+
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": 2,
+      "title": "SSH Service Exploitation",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Practice only in authorized lab environments."
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Reconnaissance Steps",
+
+          "items": [
+            "Run Nmap scan on target IP address.",
+            "Identify if SSH service (Port 22) is open.",
+            "Use service detection (-sV) to view SSH version.",
+            "Search online if that SSH version has known vulnerabilities."
+          ]
+        },
+
+        {
+          "type": "tabs",
+
+          "title": "Exploitation Methods",
+
+          "tabs": [
+
+            {
+              "id": "ssh-metasploit",
+
+              "label": "Using Metasploit",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Metasploit Workflow",
+
+                  "items": [
+                    "Start Metasploit Framework.",
+                    "Search for SSH related exploit modules.",
+                    "Select appropriate exploit.",
+                    "Configure required options (RHOSTS, etc).",
+                    "Run the exploit."
+                  ]
+                },
+
+                {
+                  "type": "commands",
+
+                  "title": "Metasploit Commands",
+
+                  "items": [
+                    "msfconsole",
+                    "search ssh"
+                  ]
+                }
+
+              ]
+            },
+
+            {
+              "id": "ssh-direct",
+
+              "label": "Direct SSH Connection",
+
+              "blocks": [
+
+                {
+                  "type": "steps",
+
+                  "title": "Manual SSH Access",
+
+                  "items": [
+                    "If username/password or SSH key is known, attempt login.",
+                    "Connect to SSH service manually.",
+                    "Check user privileges after login."
+                  ]
+                },
+
+                {
+                  "type": "commands",
+
+                  "title": "SSH Connection Command",
+
+                  "items": [
+                    "ssh user@<target-ip>"
+                  ]
+                }
+
+              ]
+            }
+
+          ]
+        }
+
+      ]
+    }
+
+  ]
+}

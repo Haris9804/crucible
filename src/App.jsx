@@ -1,11 +1,7 @@
-import './App.css'
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
-  return (
-    <div className="app-shell">
-      <h1>UI Redesign Migration Started</h1>
-    </div>
-  )
+  return <AppRoutes />;
 }
 
-export default App
+export default App;

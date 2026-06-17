@@ -1,0 +1,100 @@
+{
+  "id": 4,
+  "slug": "security-tools",
+  "title": "Security Tools",
+  "description": "Introduction to commonly used cybersecurity tools including Nmap and Metasploit Framework.",
+  "difficulty": "Beginner",
+
+  "phases": [
+
+    {
+      "id": 1,
+      "title": "Nmap (Network Mapper)",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Use only in authorized environments."
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Steps to Use Nmap",
+
+          "items": [
+            "Identify the target IP address.",
+            "Run basic scan to check open ports.",
+            "Use service detection to identify versions.",
+            "Use OS detection if required.",
+            "Analyze results for vulnerabilities."
+          ]
+        },
+
+        {
+          "type": "commands",
+
+          "title": "Example Commands",
+
+          "items": [
+            "nmap <target-ip>",
+            "nmap -sV <target-ip>",
+            "nmap -A <target-ip>",
+            "nmap -p 21,22,80 <target-ip>"
+          ]
+        }
+
+      ]
+    },
+
+    {
+      "id": 2,
+      "title": "Metasploit Framework",
+      "status": "incomplete",
+
+      "blocks": [
+
+        {
+          "type": "warning",
+
+          "content": "Use only in authorized environments."
+        },
+
+        {
+          "type": "steps",
+
+          "title": "Steps to Use Metasploit",
+
+          "items": [
+            "Start Metasploit Framework.",
+            "Search for an exploit module.",
+            "Select the desired exploit.",
+            "Set required options (RHOSTS, LHOST, etc).",
+            "Choose payload if needed.",
+            "Run the exploit.",
+            "Interact with session if successful."
+          ]
+        },
+
+        {
+          "type": "commands",
+
+          "title": "Example Commands",
+
+          "items": [
+            "msfconsole",
+            "search exploit",
+            "use exploit/<module_name>",
+            "set RHOSTS <target-ip>",
+            "run"
+          ]
+        }
+
+      ]
+    }
+
+  ]
+}

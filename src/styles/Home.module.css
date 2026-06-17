@@ -1,0 +1,719 @@
+.tl { top:0; left:0; border-right:none; border-bottom:none; }
+.tr { top:0; right:0; border-left:none; border-bottom:none; }
+.bl { bottom:0; left:0; border-right:none; border-top:none; }
+.br { bottom:0; right:0; border-left:none; border-top:none; }
+
+@keyframes pulse-expand {
+  from { transform: scale(0); opacity: .6; }
+  to   { transform: scale(6); opacity: 0; }
+}
+
+/* ── SECTION HEADER BAR ─────────────────────────────── */
+.pageContent {
+  width: min(96%, 1200px);
+  margin: 0 auto;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+.sectionHeader {
+  width: min(96%, 1200px);
+  margin: 48px auto 0;
+  border: 2px solid #A1FFC2;
+  background: #071409;
+  padding: clamp(28px, 5vw, 48px) clamp(24px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.sectionHeader::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: #A1FFC2;
+  box-shadow: 0 0 10px #A1FFC2, 0 0 20px #A1FFC2;
+}
+.sectionHeader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(0,255,65,.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,65,.15) 1px, transparent 1px);
+
+  background-size: 32px 32px;
+
+  opacity: 0.6; /* control intensity */
+}
+.sectionLevel {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(13px, 1.5vw, 18px);
+  color: #ffdd00;
+  letter-spacing: 3px;
+}
+
+.sectionTitle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(22px, 3vw, 28px);
+  color: #ffdd00;
+  letter-spacing: 6px;
+  text-shadow: 0 0 10px rgba(0,255,65,.6), 0 0 24px rgba(0,255,65,.3);
+}
+
+/* ── MODULE GRID ─────────────────────────────────────── */
+.moduleSection {
+  width: 100%;
+  margin: 24px 0 0;
+  padding: 24px 3% 48px;
+  box-sizing: border-box;
+}
+
+.moduleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* last 2 cards left-aligned in row 2 */
+.moduleGrid .moduleCard:nth-child(4),
+.moduleGrid .moduleCard:nth-child(5) {
+  grid-column: auto;
+}
+
+/* ── MODULE CARD ─────────────────────────────────────── */
+.moduleCard {
+  background: #071409;
+  border: 2px solid #A1FFC2;
+  position: relative;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  animation: card-in .4s steps(7) both;
+}
+.moduleCard:nth-child(1) { animation-delay: .04s; }
+.moduleCard:nth-child(2) { animation-delay: .08s; }
+.moduleCard:nth-child(3) { animation-delay: .12s; }
+.moduleCard:nth-child(4) { animation-delay: .16s; }
+.moduleCard:nth-child(5) { animation-delay: .20s; }
+
+.moduleCard::before, .moduleCard::after,
+.moduleCard .mcBl, .moduleCard .mcBr {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px;
+  border-color: #A1FFC2;
+  border-style: solid;
+  z-index: 2;
+  transition: border-color .15s;
+}
+.moduleCard::before { top:-3px;    left:-3px;    border-width: 4px 0 0 4px; }
+.moduleCard::after  { top:-3px;    right:-3px;   border-width: 4px 4px 0 0; }
+.moduleCard .mcBl  { bottom:-3px; left:-3px;  border-color: #A1FFC2;  border-width: 0 0 4px 4px; }
+.moduleCard .mcBr  { bottom:-3px; right:-3px;  border-color: #A1FFC2; border-width: 0 4px 4px 0; }
+
+
+.moduleCard:hover { border-color: #00AA2A; transform: translateY(-3px); }
+.moduleCard:hover::before,
+.moduleCard:hover::after,
+.moduleCard:hover .mcBl { border-color: #A1FFC2; }
+.moduleCard:hover .mcBr { border-color: #A1FFC2; }
+
+.moduleCard.locked { border-color: #0f1f12; cursor: not-allowed; opacity: .55; }
+.moduleCard.locked:hover { transform: none; border-color: #A1FFC2; }
+
+.moduleCard.completed { border-color: #A1FFC2; }
+.moduleCard.completed::before,
+.moduleCard.completed::after,
+.moduleCard.completed .mcBl,
+.moduleCard.completed .mcBr { border-color: #A1FFC2; }
+
+/* ── ICON AREA ───────────────────────────────────────── */
+.cardIconArea {
+  width: 100%;
+  padding: 32px 0 24px;
+  background: rgba(0,255,65,0.03);
+  border-bottom: 2px solid #A1FFC2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardIcon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardIcon svg {
+  width: 100%;
+  height: 100%;
+}
+.thumbNum {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #A1FFC2;
+  letter-spacing: 1px;
+  z-index: 3;
+}
+.thumbDone {
+  position: absolute;
+  top: 8px; right: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: #A1FFC2;
+  z-index: 4;
+  display: none;
+}
+.moduleCard.completed .thumbDone { display: block; }
+
+
+/* ── CARD BODY ───────────────────────────────────────── */
+.cardBody {
+  padding: 14px 16px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  
+}
+.cardTag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: #00aa2a;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.cardHeading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(20px, 2vw, 26px);
+  color: #A1FFC2;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.cardSubHeading{
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #A1FFC2;
+}
+
+.cardTopics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topicChip {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  padding: 9px 15px;
+  border: 1px solid #00aa2a;
+  color: #00aa2a;
+  letter-spacing: 1px;
+  background: rgba(0,255,65,0.05);
+}
+
+/* ── CARD FOOTER / LOAD BUTTON ───────────────────────── */
+.cardFooter {
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px 14px;
+  border-top: 1px solid #A1FFC2;
+  margin-top: 12px;
+}
+
+/* ── KEYFRAMES ───────────────────────────────────────── */
+@keyframes card-in { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media(max-width: 900px) { .moduleGrid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 520px) { .moduleGrid { grid-template-columns: 1fr; } }
+
+
+
+
+/* ── TEST CARD GRID ──────────────────────────────────── */
+.testSection {
+  width: 100%;
+  margin: 24px 0 0;
+  padding: 24px 3% 48px;
+  box-sizing: border-box;
+}
+
+.testGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* ── TEST CARD ───────────────────────────────────────── */
+.testCard {
+  background: #071409;
+  border: 2px solid #A1FFC2;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+  animation: card-in .4s steps(7) both;
+}
+.testCard:nth-child(1) { animation-delay: .04s; }
+.testCard:nth-child(2) { animation-delay: .08s; }
+.testCard:nth-child(3) { animation-delay: .12s; }
+.testCard:nth-child(4) { animation-delay: .16s; }
+.testCard:nth-child(5) { animation-delay: .20s; }
+
+.testCard::before, .testCard::after,
+.testCard .tcBl, .testCard .tcBr {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px;
+  border-color: #A1FFC2;
+  border-style: solid;
+  z-index: 2;
+  transition: border-color .15s;
+}
+
+
+.testCard::before { top:-3px;    left:-3px;    border-width: 4px 0 0 4px; }
+.testCard::after  { top:-3px;    right:-3px;   border-width: 4px 4px 0 0; }
+.testCard .tcBl  { bottom:-3px; left:-3px;    border-width: 0 0 4px 4px; }
+.testCard .tcBr  { bottom:-3px; right:-3px;   border-width: 0 4px 4px 0; }
+
+.testCard:hover { border-color: #00aa2a; transform: translateY(-3px); }
+.testCard:hover::before,
+.testCard:hover::after,
+.testCard:hover .tcBl,
+.testCard:hover .tcBr { border-color: #A1FFC2; }
+
+.testCard.locked { border-color: #00aa2a; }
+.testCard.locked:hover { transform: translateY(-3px); border-color: #A1FFC2; }
+.testCard.completed { border-color: #A1FFC2; }
+
+/* ── THUMB ───────────────────────────────────────────── */
+.tcThumb {
+  width: 90px;
+  flex-shrink: 0;
+  background: rgba(0,255,65,0.03);
+  border-right: 2px solid #A1FFC2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 16px 0;
+}
+.thumbScore {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  padding: 3px 6px;
+  letter-spacing: 1px;
+}
+
+
+.scoreHigh { color: #A1FFC2; border: 1px solid #A1FFC2; }
+.scoreMid  { color: #ffaa00; border: 1px solid #ffaa00; }
+.scoreLow  { color: #00c8ff; border: 1px solid #00c8ff; }
+.scoreNone { color: #00c8ff; border: 1px solid #00c8ff; }
+
+/* ── CONTENT ─────────────────────────────────────────── */
+.tcContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.tcTop {
+  padding: 14px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.tcCategory {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px;
+  color: #00aa2a;
+  letter-spacing: 2px;
+}
+
+
+.tcHeading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(18px, 1.2vw, 22px);
+  color: #A1FFC2;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+.testCard.locked .tcHeading { color: #A1FFC2; }
+
+/* ── BOTTOM ──────────────────────────────────────────── */
+.tcButton {
+  padding: 10px 16px 14px;
+  border-top: 1px solid #A1FFC2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  align-items: flex-start; /* ADD THIS */
+}
+.tcProgWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.tcProgTrack {
+  flex: 1;
+  height: 5px;
+  background: #646e67;
+  border: 1px solid #646e67;
+  overflow: hidden;
+}
+.tcProgFill {
+  height: 100%;
+  transition: width .5s;
+}
+.tcProgLabel {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: #00aa2a;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+.tcBest {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: #3a6a42;
+  letter-spacing: 1px;
+}
+
+
+.tc-best span { color: #A1FFC2; }
+
+
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media(max-width: 768px) { 
+  .testGrid { 
+    grid-template-columns: 1fr; 
+  } 
+
+  .tcButton{
+    align-items: center;
+  }
+
+  .tcButton :global(button){
+    min-width: 160px;
+  }
+
+}
+
+/* ── LOCK MESSAGE ────────────────────────────────────── */
+.tcLockMsg {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: rgba(2,11,6,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(10px, 1vw, 12px);
+  color: #ffaa00;
+  letter-spacing: 1px;
+  line-height: 2;
+  padding: 20px;
+  border: 2px solid #ffaa00;
+  box-shadow: inset 0 0 20px rgba(255,170,0,0.1);
+  animation: msg-in .15s steps(4) both;
+}
+@keyframes msg-in { from { opacity: 0; } to { opacity: 1; } }
+
+
+/* ── PRACTICAL SECTION ───────────────────────── */
+.practicalSection {
+  width: min(96%, 2500px);
+  margin: 32px auto 64px;
+}
+
+/* ── CARD ───────────────────────────────────────────── */
+.practicalCard{
+  width: 100%;
+  background: #071409;
+  border: 2px solid #A1FFC2; /* match module/test */
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px; /* increased height */
+  transition: border-color .15s, transform .15s;
+  animation: card-in .4s steps(7) both;
+}
+
+/* ── CORNERS (MATCH MODULE CARD) ───────────────────── */
+.practicalCard::before,
+.practicalCard::after,
+.practicalCard .hc-Bl,
+.practicalCard .hc-Br {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #A1FFC2;
+}
+
+.practicalCard::before { top:-3px; left:-3px; border-right:none; border-bottom:none;  }
+.practicalCard::after  {top:-3px; right:-3px; border-left:none; border-bottom:none; }
+.practicalCard .hc-Bl  { bottom:-3px; left:-3px; border-right:none; border-top:none; }
+.practicalCard .hc-Br  { bottom:-3px; right:-3px; border-left:none; border-top:none; }
+
+/* ── HOVER (MATCH OTHER CARDS) ───────────────────── */
+.practicalCard:hover {
+  border-color: #00aa2a;
+  transform: translateY(-3px);
+}
+
+.practicalCard:hover::before,
+.practicalCard:hover::after,
+.practicalCard:hover .hc-Bl,
+.practicalCard:hover .hc-Br {
+  border-color: #A1FFC2;
+}
+
+/* ── INNER ───────────────────────────────────────── */
+.practicalInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* bring back but correctly */
+  gap: 24px;
+  padding: 32px;
+}
+
+/* ── TEXT ───────────────────────────────────────── */
+.practicalText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.practicalHeading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(20px, 2vw, 26px);
+  color: #A1FFC2;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.practicalSubtitle {
+ font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(16px, 2vw, 22px);
+  color: #7acc82;
+  line-height: 1.9;
+}
+
+/* ── PROGRESS ───────────────────────────────────── */
+.practicalProgress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progressTrack {
+  width: clamp(250px, 40vw, 500px);
+  height: 16px;
+  background: #646e67;
+  border: 1px solid #1a3a22;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #00ff41;
+  transition: width 0.3s ease;
+}
+
+
+.progressPercent {
+  font-size: 18px;
+  color: #A1FFC2;
+}
+
+@media (max-width: 768px) {
+  .progressTrack {
+    flex: 1; /* allow full width on mobile */
+    max-width: 100%;
+  }
+}
+
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 640px) {
+  .practicalInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+
+/*Final Challenge Card*/
+
+/* ── WRAPPER ───────────────── */
+.finalChallengeSection {
+  width: min(96%, 2500px);
+  margin: 32px auto 64px;
+}
+
+/* ── CARD ───────────────── */
+.finalChallengeCard {
+ width: 100%;
+  background: #071409;
+  border: 2px solid #A1FFC2; /* match module/test */
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px; /* increased height */
+  transition: border-color .15s, transform .15s;
+  animation: card-in .4s steps(7) both;
+}
+
+/* ── CORNERS */
+.finalChallengeCard::before,
+.finalChallengeCard::after,
+.fcBl,
+.fcBr {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #A1FFC2;
+}
+
+.finalChallengeCard::before { top:-3px; left:-3px; border-right:none; border-bottom:none; }
+.finalChallengeCard::after  { top:-3px; right:-3px; border-left:none; border-bottom:none; }
+.fcBl { bottom:-3px; left:-3px; border-right:none; border-top:none; }
+.fcBr { bottom:-3px; right:-3px; border-left:none; border-top:none; }
+
+/* ── HOVER */
+.finalChallengeCard:hover {
+  border-color: #00aa2a;
+  transform: translateY(-3px);
+}
+
+/* ── INNER LAYOUT (THIS FIXES YOUR ISSUE) */
+.finalChallengeInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* bring back but correctly */
+  gap: 24px;
+  padding: 32px;
+}
+
+/* ── ICON PANEL */
+.finalChallengeIcon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid #A1FFC2;
+}
+
+.finalChallengeSvg {
+  font-size: 40px;
+}
+
+/* ── TEXT */
+.finalChallengeContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.finalChallengeHeading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(20px, 2vw, 26px);
+  color: #A1FFC2;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.finalChallengeSubtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(16px, 2vw, 22px);
+  color: #7acc82;
+  line-height: 1.9;
+}
+
+
+/* ── RESPONSIVE */
+@media (max-width: 768px) {
+  .finalChallengeInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .finalChallengeIcon {
+    
+    border-right: none;
+    border-bottom: 2px solid #A1FFC2;
+  }
+
+  .finalChallengeSvg {
+    font-size: 30px;
+  }
+
+}
+
+/*FOOTER SECTION*/
+
+.footer {
+  margin-top: 80px;
+  border-top: 1px solid #004d15;
+  background: #020b06;
+  
+}
+
+.footerTitle {
+  font-family: 'Press Start 2P';
+  font-size: 20px;
+  color: #00ff41;
+}
+
+.footerTagline {
+  font-size: 16px;
+  color: #00aa2a;
+  margin-top: 8px;
+}
+
+.footerBottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #004d15;
+}

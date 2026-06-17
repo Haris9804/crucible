@@ -1,18 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #0f172a;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-.app-shell {
+html,
+body,
+#root {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
+  width:100%;
 }
+
+@keyframes glitch {
+  0%, 88%, 100% {
+    text-shadow: 0 0 8px #00ff41, 0 0 28px rgba(0,255,65,.4);
+    transform: none;
+  }
+  89% {
+    text-shadow: 3px 0 #ff2a2a, -3px 0 #00aaff, 0 0 14px #00ff41;
+    transform: skewX(-1.5deg);
+  }
+  90% {
+    text-shadow: -2px 0 #ff2a2a, 2px 0 #00aaff;
+    transform: skewX(1deg);
+  }
+  91% {
+    text-shadow: 0 0 8px #00ff41;
+    transform: none;
+  }
+}
+

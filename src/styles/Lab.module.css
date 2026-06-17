@@ -1,0 +1,599 @@
+
+.pageWrap {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  gap: 16px;
+  width:100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  height: 100vh;
+  color: #A1FFC2;
+}
+
+.modMain {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  gap: 20px;
+}
+
+.modContent {
+  flex: 1;
+  border: 1px solid var(--gdim);
+  background: var(--gbg);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.contentHead {
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--gdim);
+  flex-shrink: 0;
+}
+
+.contentBody{
+  display:flex;
+  align-items:flex-start;
+
+  gap:10px;
+
+  width:100%;
+
+  padding:
+    32px
+    clamp(12px,2.5vw,40px)
+    60px;
+
+  overflow-x:clip;
+
+  position:relative;
+
+  box-sizing:border-box;
+}
+
+.labsColumn {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+.labRow{
+    display:flex;
+    align-items:stretch;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.labCard{
+  width:min(100%,1100px);
+  flex:1;
+  min-height:180px;
+
+  display:flex;
+  flex-direction:column;
+
+  background:var(--gbg);
+  border:1px solid var(--g);
+
+  position:relative;
+
+  overflow:hidden;   /* ADD THIS */
+
+  box-sizing:border-box;
+
+  box-shadow:0 0 14px rgba(0,255,65,.08);
+
+  transition:
+    border-color .15s,
+    box-shadow .15s,
+    transform .12s;
+}
+
+.labCard::before,
+.labCard::after{
+ content:"";
+ position:absolute;
+ width:10px;
+ height:10px;
+ border-style:solid;
+ border-color:var(--g);
+ z-index:5;
+}
+
+.labCard::before{
+ top:-1px;
+ left:-1px;
+ border-width:2px 0 0 2px;
+}
+
+.labCard::after{
+ top:-1px;
+ right:-1px;
+ border-width:2px 2px 0 0;
+}
+
+.labCard:hover{
+  border-color:var(--g);
+  box-shadow:0 0 20px rgba(0,255,65,.15);
+}
+
+.labHeader {
+  border: 1px solid var(--gdim);
+  background: var(--gbg);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  gap:16px;
+  flex-shrink: 0;
+}
+
+.labHeader::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--g);
+}
+
+.labHeader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0,255,65,.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,65,.15) 1px, transparent 1px);
+  background-size: 15px 15px;
+  opacity: 0.6;
+}
+
+.labLabel {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  color: var(--a);
+  letter-spacing: 3px;
+}
+
+.labTitle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(20px, 4vw, 20px);
+  color: var(--g);
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px rgba(0,255,65,.3);
+}
+
+.liveBadge {
+  font-family:var(--pixel); 
+  font-size:10px; 
+  color:var(--blue);
+  border:1px solid rgba(0,200,255,.25); 
+  padding:10px 10px;
+  background:rgba(0,200,255,.05); 
+  display:flex; align-items:center; gap:5px;
+}
+.liveDot { width:5px; height:5px; background:var(--blue); animation:blink 1s step-end infinite; }
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+
+.labFooter {
+  border: 1px solid var(--gdim);
+  background: var(--gbg);
+  padding: 10px 16px;
+  font-size: 12px;
+  color: var(--gd);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.headerRight{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.headerLeft{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+@media (max-width: 768px) {
+  
+  .pageWrap{
+    padding:20px 16px;
+  }
+
+  .modMain{
+    flex-direction:column;
+  }
+  
+  .labHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .headerRight {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contentBody {
+    gap: 12px;
+  }
+
+  .labsColumn {
+    width: 100%;
+  }
+
+  .labCard { 
+    min-height: 250px; 
+    width: 100%;
+  }
+}
+
+/* =========================================
+   LAB CARD
+========================================= */
+
+/*spine*/
+
+.levelSpine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 56px;
+  flex-shrink: 0;
+  position: relative;
+  padding-top: 18px;
+}
+
+.levelSpine::before {
+  content: "";
+  position: absolute;
+  top: 54px;
+  bottom: 10px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--gdim) 0px,
+    var(--gdim) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.spineGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spineNode {
+  position: relative;
+  z-index: 2;
+}
+
+.nodeCircle {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gbg);
+  border: 2px solid var(--gdim);
+  font-family: var(--pixel);
+  font-size: 8px;
+  color: var(--gdim);
+  letter-spacing: 1px;
+  transition: .15s;
+}
+
+.done,
+.active,
+.locked {
+  border-color: var(--g);
+  color: var(--g);
+  background: rgba(0,255,65,.08);
+  box-shadow: 0 0 12px rgba(0,255,65,.12);
+}
+
+.nodeGap {
+  min-height: 178px;
+  width: 1px;
+}
+
+/* =========================================
+   CONNECTOR
+========================================= */
+
+.rowConnector {
+  flex-shrink: 0;
+}
+
+/* =========================================
+   PIXEL CORNERS
+========================================= */
+
+.lcBl,
+.lcBr {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  border-color: var(--g);
+  z-index: 5;
+}
+
+.lcBl {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 2px 2px;
+}
+
+.lcBr {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--gdim);
+  flex-wrap: wrap;
+}
+
+.cardHeadLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardNum {
+  font-family: var(--pixel);
+  font-size: 5px;
+  color: var(--gdim);
+  letter-spacing: 1px;
+}
+
+.cardTitleWrap {
+  width: 100%;
+}
+
+.cardTitle{
+  flex:1;
+
+  font-family:var(--pixel);
+
+  font-size:clamp(8px,1vw,11px);
+
+  letter-spacing:2px;
+
+  line-height:1.5;
+
+  color:var(--g);
+}
+
+/* =========================================
+   STATUS CHIP
+========================================= */
+
+.cardChip{
+  display:flex;
+  align-items:center;
+  gap:4px;
+
+  padding:4px 8px;
+
+  border:1px solid var(--g);
+
+  background:rgba(0,255,65,.08);
+
+  box-shadow:0 0 10px rgba(0,255,65,.08);
+
+  font-family:var(--pixel);
+
+  font-size:5px;
+
+  letter-spacing:1px;
+
+  white-space:nowrap;
+}
+
+.completed,
+.notCompleted {
+  color: var(--g);
+}
+
+.chipDot {
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+}
+
+/* =========================================
+   BODY
+========================================= */
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.cardDesc {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #3a6a42;
+}
+
+.cardChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.techChip {
+  padding: 4px 7px;
+  border: 1px solid var(--gdim);
+  font-family: var(--pixel);
+  font-size: 5px;
+  letter-spacing: 1px;
+  color: var(--gdim);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.cardFoot{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:14px;
+
+  padding:12px 16px;
+
+  border-top:1px solid var(--gdim);
+}
+
+.cardMeta{
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:clamp(8px,2vw,18px);
+
+  min-width:0;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-family: var(--pixel);
+  font-size: 5px;
+  color: var(--gdim);
+  letter-spacing: 1px;
+}
+
+.metaVal {
+  font-family: var(--pixel);
+  font-size: 6px;
+  color: var(--gd);
+}
+
+.cardActions {
+  width: auto;
+}
+
+.cardButton {
+  width: auto;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width:768px){
+
+  .levelSpine{
+    width:42px;
+  }
+
+  .nodeCircle{
+    width:30px;
+    height:30px;
+    font-size:6px;
+  }
+
+  .nodeGap{
+    min-height:220px;
+  }
+
+  .cardHead{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .cardTitle{
+    font-size:9px;
+  }
+
+  .cardFoot{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .cardMeta{
+    width:100%;
+    justify-content:space-between;
+  }
+
+  .cardActions,
+  .cardButton{
+    width:100%;
+  }
+}
+
+@media (max-width:540px){
+
+  .levelSpine{
+    width:30px;
+  }
+
+  .nodeCircle{
+    width:24px;
+    height:24px;
+    font-size:5px;
+  }
+
+  .nodeGap{
+    min-height:250px;
+  }
+
+  .cardTitle{
+    font-size:8px;
+    line-height:1.6;
+  }
+
+  .cardDesc{
+    font-size:11px;
+  }
+}
