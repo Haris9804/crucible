@@ -1,0 +1,20 @@
+# Render Blueprint. In Render: New → Blueprint → point at this repo.
+# Then set MONGODB_URI in the dashboard (it is marked sync:false so it isn't committed).
+services:
+  - type: web
+    name: 3q-ctf
+    runtime: node
+    plan: free
+    branch: prod # Render only auto-deploys when this branch updates
+    buildCommand: npm install && npm run build
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_DB
+        value: ctf
+      - key: MONGODB_URI
+        sync: false # set manually in the Render dashboard (your Atlas connection string)
+      - key: SESSION_SECRET
+        generateValue: true # Render generates a strong random value

@@ -1,0 +1,31 @@
+name: CI
+
+# Runs on day-to-day pushes and on PRs into the integration/deploy branches.
+# Gate PRs into `prod` on this workflow (branch protection) so the deploy
+# branch only ever receives code that built and passed the backend smoke test.
+on:
+  push:
+    branches: [master, prod]
+  pull_request:
+    branches: [master, prod]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      # Spins up its own in-memory MongoDB — no Atlas / secrets needed.
+      - name: Backend smoke test
+        run: npm run smoke

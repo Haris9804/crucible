@@ -1,0 +1,281 @@
+/* Shared styles for the CTF pages (home / play / admin). Neon terminal theme. */
+
+.page {
+  min-height: 100vh;
+  background: var(--bg, #020b06);
+  color: var(--g, #00ff41);
+  font-family: var(--mono, 'Share Tech Mono', monospace);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #0f3;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 18px;
+  color: var(--g, #00ff41);
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: #7dffa6;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.headerActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ---- layout ---- */
+.grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.wide {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  border: 1px solid #0f3;
+  background: linear-gradient(160deg, #06180c, #020b06);
+  padding: 20px;
+  position: relative;
+}
+
+.cardTitle {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 12px;
+  color: #4ded72;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.section {
+  border: 1px solid #0f3;
+  background: #04130a;
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.sectionTitle {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 13px;
+  color: var(--g, #00ff41);
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+/* ---- form controls ---- */
+.label {
+  display: block;
+  font-size: 12px;
+  color: #7dffa6;
+  margin: 10px 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #020b06;
+  border: 1px solid #0a5;
+  color: var(--g, #00ff41);
+  font-family: var(--mono, monospace);
+  font-size: 14px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--g, #00ff41);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
+}
+
+.textarea { resize: vertical; min-height: 70px; }
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.row > * { flex: 1; min-width: 120px; }
+
+.btn {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 16px;
+  margin: 10px 6px 0 0;
+  background: #4ded72;
+  color: #020b06;
+  border: 2px solid #A1FFC2;
+  transition: all 0.15s;
+}
+
+.btn:hover { background: #A1FFC2; box-shadow: 0 0 10px rgba(0, 255, 65, 0.5); }
+
+.btnGhost {
+  background: transparent;
+  color: var(--g, #00ff41);
+  border-color: #0a5;
+}
+.btnGhost:hover { background: #06180c; box-shadow: none; }
+
+.btnDanger {
+  background: transparent;
+  color: var(--r, #ff3c3c);
+  border-color: #a33;
+}
+.btnDanger:hover { background: #1a0606; box-shadow: 0 0 10px rgba(255, 60, 60, 0.4); }
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 14px;
+  font-size: 12px;
+  border: 1px solid #0a5;
+  color: #7dffa6;
+}
+.tab.active { background: #4ded72; color: #020b06; border-color: #A1FFC2; }
+
+/* ---- messages & badges ---- */
+.msg { margin-top: 12px; font-size: 13px; min-height: 18px; }
+.msgError { color: var(--r, #ff3c3c); }
+.msgOk { color: var(--g, #00ff41); }
+
+.badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+}
+.active { color: var(--g, #00ff41); }
+.inactive { color: var(--r, #ff3c3c); }
+
+.kv { font-size: 13px; line-height: 1.8; }
+.kv strong { color: #7dffa6; }
+
+/* ---- play page ---- */
+.ctfBox {
+  border: 1px solid #0f3;
+  background: #04130a;
+  padding: 18px;
+  margin-bottom: 22px;
+}
+
+.ctfHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ctfName {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 13px;
+  color: #ff00ff;
+}
+
+.progressTrack { height: 8px; background: #062; margin: 10px 0 18px; }
+.progressBar { height: 100%; background: var(--g, #00ff41); transition: width 0.3s; }
+
+.flagItem {
+  border: 1px solid #073;
+  padding: 14px;
+  margin-bottom: 12px;
+  background: #020b06;
+}
+
+.flagTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.flagPts { color: var(--a, #ffaa00); }
+
+.hint {
+  margin-top: 10px;
+  border-left: 2px solid var(--a, #ffaa00);
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #ffd27d;
+  background: #140e02;
+}
+
+/* ---- table ---- */
+.table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table th,
+.table td { border: 1px solid #073; padding: 8px 10px; text-align: left; }
+.table th { color: #7dffa6; font-weight: normal; text-transform: uppercase; font-size: 11px; }
+
+.scroll { max-height: 360px; overflow: auto; }
+
+/* ---- modal ---- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal {
+  border: 1px solid var(--g, #00ff41);
+  background: #04130a;
+  padding: 26px;
+  max-width: 420px;
+  text-align: center;
+}
+
+.idDisplay {
+  font-family: var(--pixel, 'Press Start 2P', monospace);
+  font-size: 14px;
+  color: var(--a, #ffaa00);
+  margin: 12px 0;
+  word-break: break-all;
+}
+
+.muted { color: #5a8; font-size: 12px; }
