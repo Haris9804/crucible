@@ -112,7 +112,7 @@
 
 /* SIDEBAR */
 .modSidebar {
-  width: 280px;
+  width: 350px;
   flex-shrink: 0;
   border: 1px solid var(--gdim);
   background: var(--gbg);

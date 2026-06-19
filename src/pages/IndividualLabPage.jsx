@@ -461,6 +461,12 @@ export default function IndividualLabPage() {
           </div>
         </div>
       </div>
+
+      {/* FOOTER */}
+        <div className={styles.ilabFooter}>
+          <span>© 2026 Cyber Learning</span>
+          <span>LAB {labData.id} · ACTIVE</span>
+        </div>
     </div>
   );
 
