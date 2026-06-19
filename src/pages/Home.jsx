@@ -90,7 +90,7 @@ export default function Home() {
         {/* LEVEL 4 */}
         <SectionHeader level="LEVEL 4" title="FINAL CHALLENGE" />
           <FinalChallengeCard
-            onStart={() => console.log("Start challenge")}
+            onStart={() => navigate("/ctf")}
           />
 
         <footer className={styles.footer}>

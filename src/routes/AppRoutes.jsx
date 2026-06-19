@@ -5,6 +5,9 @@ import ModulePage from "../pages/ModulePage";
 import TestPage from "../pages/TestPage";
 import LabPage from "../pages/LabPage";
 import IndividualLabPage from "../pages/IndividualLabPage";
+import CtfHomePage from "../pages/ctf/CtfHomePage";
+import CtfPlayPage from "../pages/ctf/CtfPlayPage";
+import CtfAdminPage from "../pages/ctf/CtfAdminPage";
 
 export default function AppRoutes() {
 
@@ -39,6 +42,23 @@ export default function AppRoutes() {
       <Route
         path="/labs/:labId"
         element={<IndividualLabPage />}
+      />
+
+      {/* CTF — LEVEL 4 FINAL CHALLENGE */}
+
+      <Route
+        path="/ctf"
+        element={<CtfHomePage />}
+      />
+
+      <Route
+        path="/ctf/play"
+        element={<CtfPlayPage />}
+      />
+
+      <Route
+        path="/ctf/admin"
+        element={<CtfAdminPage />}
       />
 
     </Routes>
