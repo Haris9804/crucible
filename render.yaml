@@ -6,7 +6,9 @@ services:
     runtime: node
     plan: free
     branch: prod # Render only auto-deploys when this branch updates
-    buildCommand: npm install && npm run build
+    # --include=dev is required: NODE_ENV=production makes npm skip
+    # devDependencies, but the build needs vite (a devDependency).
+    buildCommand: npm install --include=dev && npm run build
     startCommand: node server/index.js
     healthCheckPath: /api/health
     envVars:
