@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "../styles/Home.module.css";
+import { useReveal } from "../animations/useReveal";
 
 import HomeHeroSection from "../sections/home/HomeHeroSection";
 import SectionHeader from "../components/SectionHeader";
@@ -47,15 +49,17 @@ const MODULES = [
 export default function Home() {
 
   const navigate = useNavigate();
-  
+  const rootRef = useRef(null);
+  useReveal(rootRef);
+
   return (
-    <>
+    <div ref={rootRef}>
       <HomeHeroSection />
 
       {/* LEVEL 1 */}
       <SectionHeader level="LEVEL 1" title="CORE MODULES" />
       <div className={styles.moduleSection}>
-        <div className={styles.moduleGrid}>
+        <div className={styles.moduleGrid} data-stagger-children>
           {MODULES.map(m => (
             <ModuleCard key={m.id} {...m}
             onStart={()=> navigate(`/module/${m.id}`)} />
@@ -66,7 +70,7 @@ export default function Home() {
       {/* LEVEL 2 */}
       <SectionHeader level="LEVEL 2" title="KNOWLEDGE CHECKPOINT" />
       <div className={styles.testSection}>
-        <div className={styles.testGrid}>
+        <div className={styles.testGrid} data-stagger-children>
           <TestCard moduleNumber="1" moduleName="CYBERSEC BASICS" category="FUNDAMENTALS" status="unlocked" progress={0} score={0} mcqPath="/quiz/1" />
           <TestCard moduleNumber="2" moduleName="ETHICAL HACKING BASICS" category="ETHICAL HACKING" status="unlocked" progress={0} score={0} mcqPath="/quiz/2" />
           <TestCard moduleNumber="3" moduleName="TERMINAL BASICS" category="LINUX" status="unlocked" progress={0} score={0} mcqPath="/quiz/3" />
@@ -77,7 +81,7 @@ export default function Home() {
 
       {/* LEVEL 3 */}
       <SectionHeader level="LEVEL 3" title="HANDS-ON PRACTICAL" />
-          <div className={styles.practicalSection}>
+          <div className={styles.practicalSection} data-reveal-scroll>
             <PracticalCard
               title="PRACTICAL HACKING LABS"
               subtitle="Execute structured attack flows and refine your tactics before entering high-stakes CTF environments."
@@ -89,19 +93,21 @@ export default function Home() {
 
         {/* LEVEL 4 */}
         <SectionHeader level="LEVEL 4" title="FINAL CHALLENGE" />
-          <FinalChallengeCard
-            onStart={() => navigate("/ctf")}
-          />
+          <div data-reveal-scroll>
+            <FinalChallengeCard
+              onStart={() => navigate("/ctf")}
+            />
+          </div>
 
         <footer className={styles.footer}>
           <div className={styles.footerBottom}>
-            <div className={styles.footerTitle}>3Q CyberSecurity</div>
+            <div className={styles.footerTitle}>Crucible</div>
             <div className={styles.footerTagline}>Train. Exploit. Secure.</div>
-            © 2026 3Q CyberSecurity • Built for ethical hackers.
+            © 2026 Crucible • Built for ethical hackers.
           </div>
         </footer>
 
-    </>
-    
+    </div>
+
   );
 }

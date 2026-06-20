@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-"3Q CyberSecurity" — an ethical-hacking learning platform with four levels: learning **modules** (theory), **tests** (MCQ quizzes), hands-on **labs**, and a **CTF** final challenge. The CTF is a full-stack feature (React frontend + Express/MongoDB backend); everything else is frontend-only. There is no README; this file is the orientation.
+"Crucible" — an ethical-hacking learning platform with four levels: learning **modules** (theory), **tests** (MCQ quizzes), hands-on **labs**, and a **CTF** final challenge. The CTF is a full-stack feature (React frontend + Express/MongoDB backend); everything else is frontend-only. See README.md for a quickstart; this file is the deeper orientation for working in the code.
 
 ## Commands
 

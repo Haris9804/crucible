@@ -41,8 +41,13 @@ export const api = {
 
   // ---- admin: ctfs / flags ----
   adminCtfs: () => req('/admin/ctfs'),
+  adminCreateCtf: (payload) => req('/admin/ctfs', { method: 'POST', body: payload }),
   adminPatchCtf: (id, patch) => req(`/admin/ctfs/${id}`, { method: 'PATCH', body: patch }),
+  adminDeleteCtf: (id) => req(`/admin/ctfs/${encodeURIComponent(id)}`, { method: 'DELETE' }),
+  adminAddFlag: (id, payload) => req(`/admin/ctfs/${id}/flags`, { method: 'POST', body: payload }),
   adminPatchFlag: (id, num, patch) => req(`/admin/ctfs/${id}/flags/${num}`, { method: 'PATCH', body: patch }),
+  adminDeleteFlag: (id, num) => req(`/admin/ctfs/${id}/flags/${num}`, { method: 'DELETE' }),
+  adminReorderFlags: (id, order) => req(`/admin/ctfs/${id}/flags/order`, { method: 'PUT', body: { order } }),
 
   // ---- admin: results ----
   adminResults: () => req('/admin/results'),

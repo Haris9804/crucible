@@ -2,7 +2,7 @@
 # Then set MONGODB_URI in the dashboard (it is marked sync:false so it isn't committed).
 services:
   - type: web
-    name: 3q-ctf
+    name: crucible-ctf
     runtime: node
     plan: free
     branch: prod # Render only auto-deploys when this branch updates

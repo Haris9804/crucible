@@ -1,4 +1,4 @@
-# 3Q CyberSecurity
+# Crucible
 
 An ethical-hacking learning platform with four progressive levels:
 

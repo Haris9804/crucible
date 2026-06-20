@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../api/ctfApi';
+import { useReveal } from '../../animations/useReveal';
 import styles from '../../styles/Ctf.module.css';
 
 const EMPTY_MEMBER = { name: '', profession: '', gender: '' };
 
 export default function CtfHomePage() {
   const navigate = useNavigate();
+  const rootRef = useRef(null);
+  useReveal(rootRef);
 
   // already logged in? jump straight to the right place
   useEffect(() => {
@@ -17,10 +20,10 @@ export default function CtfHomePage() {
   }, [navigate]);
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} ref={rootRef}>
       <div className={styles.header}>
         <div>
-          <div className={styles.title}>CTF CHALLENGE PORTAL</div>
+          <div className={styles.title} data-glitch>CTF CHALLENGE PORTAL</div>
           <div className={styles.subtitle}>Welcome to the final challenge.</div>
         </div>
         <button className={`${styles.btn} ${styles.btnGhost}`} onClick={() => navigate('/')}>
@@ -28,7 +31,7 @@ export default function CtfHomePage() {
         </button>
       </div>
 
-      <div className={styles.grid}>
+      <div className={styles.grid} data-stagger-children>
         <AdminLogin onDone={() => navigate('/ctf/admin')} />
         <TeamPanel onLoggedIn={() => navigate('/ctf/play')} />
       </div>
@@ -130,9 +133,33 @@ function TeamRegister() {
   const [members, setMembers] = useState([{ ...EMPTY_MEMBER }, { ...EMPTY_MEMBER }, { ...EMPTY_MEMBER }, { ...EMPTY_MEMBER }]);
   const [msg, setMsg] = useState('');
   const [created, setCreated] = useState(null); // { teamId, passkey }
+  const [copied, setCopied] = useState(false);
 
   function setMember(i, field, value) {
     setMembers((prev) => prev.map((m, idx) => (idx === i ? { ...m, [field]: value } : m)));
+  }
+
+  async function copyCreds() {
+    const text = `Team ID: ${created.teamId}\nPasskey: ${created.passkey}`;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback for non-secure contexts (e.g. HTTP over a LAN IP).
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      setCopied(false);
+    }
   }
 
   async function submit() {
@@ -153,11 +180,8 @@ function TeamRegister() {
           <div className={styles.idDisplay}>{created.passkey}</div>
         </div>
         <div className={styles.muted}>Save these now — the passkey is shown only once.</div>
-        <button
-          className={styles.btn}
-          onClick={() => navigator.clipboard?.writeText(`Team ID: ${created.teamId}\nPasskey: ${created.passkey}`)}
-        >
-          COPY
+        <button className={styles.btn} onClick={copyCreds}>
+          {copied ? 'COPIED ✓' : 'COPY'}
         </button>
       </div>
     );

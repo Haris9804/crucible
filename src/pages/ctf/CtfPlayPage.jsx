@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../api/ctfApi';
+import { useReveal } from '../../animations/useReveal';
 import styles from '../../styles/Ctf.module.css';
 
 export default function CtfPlayPage() {
   const navigate = useNavigate();
+  const pageRef = useRef(null);
 
   const [team, setTeam] = useState(null);
   const [ctfs, setCtfs] = useState([]);
@@ -14,6 +16,8 @@ export default function CtfPlayPage() {
   const [loading, setLoading] = useState(true);
   const [confirming, setConfirming] = useState(false);
   const [notice, setNotice] = useState('');
+
+  useReveal(pageRef, [loading, result]);
 
   useEffect(() => {
     (async () => {
@@ -55,10 +59,10 @@ export default function CtfPlayPage() {
   if (loading) return <div className={styles.page}>Loading...</div>;
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} ref={pageRef}>
       <div className={styles.header}>
         <div>
-          <div className={styles.title}>CTF PLAYGROUND</div>
+          <div className={styles.title} data-glitch>CTF PLAYGROUND</div>
           {team && <div className={styles.subtitle}>{team.name} · {team.teamId}</div>}
         </div>
         <button className={`${styles.btn} ${styles.btnGhost}`} onClick={logout}>LOGOUT</button>
@@ -97,7 +101,7 @@ export default function CtfPlayPage() {
 function PlayView({ team, ctfs, responses, openHints, onAnswer, onToggleHint, onSubmit, notice }) {
   return (
     <>
-      <div className={styles.section}>
+      <div className={styles.section} data-reveal>
         <div className={styles.sectionTitle}>// TEAM INFO</div>
         <div className={styles.kv}>
           <div><strong>Team ID:</strong> {team.teamId}</div>
@@ -115,7 +119,7 @@ function PlayView({ team, ctfs, responses, openHints, onAnswer, onToggleHint, on
         const filled = ctf.flags.filter((f) => (responses[ctf.ctfId]?.[f.flagNum] || '').trim() !== '').length;
         const pct = ctf.flags.length ? (filled / ctf.flags.length) * 100 : 0;
         return (
-          <div key={ctf.ctfId} className={styles.ctfBox}>
+          <div key={ctf.ctfId} className={styles.ctfBox} data-reveal>
             <div className={styles.ctfHeading}>
               <span className={styles.ctfName}>{ctf.name}</span>
               <span>{filled} / {ctf.flags.length} answered</span>
@@ -171,7 +175,7 @@ function PlayView({ team, ctfs, responses, openHints, onAnswer, onToggleHint, on
 function ResultView({ result }) {
   return (
     <>
-      <div className={styles.section}>
+      <div className={styles.section} data-reveal>
         <div className={styles.sectionTitle}>// SUBMISSION REPORT — {result.teamName}</div>
         <div className={styles.kv}>
           <div><strong>Team ID:</strong> {result.teamId}</div>
@@ -186,7 +190,7 @@ function ResultView({ result }) {
       </div>
 
       {result.ctfs.map((ctf) => (
-        <div key={ctf.ctfId} className={styles.ctfBox}>
+        <div key={ctf.ctfId} className={styles.ctfBox} data-reveal>
           <div className={styles.ctfName}>{ctf.ctfName}</div>
           {ctf.flags.map((f) => (
             <div key={f.flagNum} className={styles.flagTop}>

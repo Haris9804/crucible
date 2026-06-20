@@ -112,6 +112,35 @@ try {
   res = await call('/api/team/result', { cookie: teamCookie });
   check('result cleared by admin', (await res.json()).found === false);
 
+  // 12+. Admin content management (Phase A: CTF/flag CRUD + reorder)
+  const ctfsOf = async () => (await (await call('/api/admin/ctfs', { cookie: adminCookie })).json());
+  const ctf3 = async () => (await ctfsOf()).find((c) => c.ctfId === '10003');
+
+  res = await call('/api/admin/ctfs', { method: 'POST', cookie: adminCookie, body: { ctfId: '10003', name: 'Test CTF', instructions: ['a', 'b'] } });
+  check('create CTF', (await res.json()).success === true);
+
+  res = await call('/api/admin/ctfs', { method: 'POST', cookie: adminCookie, body: { ctfId: '10003', name: 'dup' } });
+  check('duplicate CTF id rejected', (await res.json()).success === false);
+
+  res = await call('/api/admin/ctfs/10003/flags', { method: 'POST', cookie: adminCookie, body: { name: 'F1', points: 10, answers: ['x'], hints: ['h'] } });
+  check('add flag → flagNum 1', (await res.json()).flagNum === 1);
+  await call('/api/admin/ctfs/10003/flags', { method: 'POST', cookie: adminCookie, body: { name: 'F2', points: 20, answers: ['y'] } });
+  check('CTF now has 2 flags', (await ctf3()).flags.length === 2);
+
+  await call('/api/admin/ctfs/10003/flags/order', { method: 'PUT', cookie: adminCookie, body: { order: [2, 1] } });
+  let c3 = await ctf3();
+  check('reorder renumbers (F2 → flag 1)', c3.flags[0].name === 'F2' && c3.flags[0].flagNum === 1);
+
+  await call('/api/admin/ctfs/10003/flags/1', { method: 'DELETE', cookie: adminCookie });
+  c3 = await ctf3();
+  check('delete flag renumbers remainder', c3.flags.length === 1 && c3.flags[0].flagNum === 1);
+
+  await call('/api/admin/ctfs/10003', { method: 'PATCH', cookie: adminCookie, body: { name: 'Renamed CTF' } });
+  check('edit CTF name', (await ctf3()).name === 'Renamed CTF');
+
+  await call('/api/admin/ctfs/10003', { method: 'DELETE', cookie: adminCookie });
+  check('delete CTF', (await ctf3()) === undefined);
+
   console.log(`\n${failed === 0 ? 'ALL PASSED' : 'FAILURES'}: ${passed} passed, ${failed} failed\n`);
 } catch (err) {
   console.error('Smoke test error:', err);

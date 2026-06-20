@@ -218,7 +218,7 @@ export default function HeroBanner() {
                 fontWeight: 900,
               }}
             >
-              3Q CyberSecurity
+              Crucible
             </h1>
 
             <span

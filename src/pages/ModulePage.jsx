@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import  styles from "../styles/Modules.module.css"
 
 import { useParams, useNavigate } from "react-router-dom";
 import CyberButton from "../components/CyberButton";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { prefersReducedMotion } from "../animations/useReveal";
 
 import PlayIcon from "../components/Icons/PlayIcon";
 
@@ -16,6 +19,26 @@ export default function ModulePage() {
   const [cardIndex, setCardIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [openChapter, setOpenChapter] = useState(0);
+
+  const contentRef = useRef(null);
+
+  // Card-to-card content transition. Keyed to the active card, but built to stay
+  // readable under rapid PREV/NEXT: it never drops below ~50% opacity, has no
+  // skew, kills any in-flight tween (overwrite), and clears inline styles on
+  // finish so the resting state is always full opacity — even when interrupted.
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return;
+      const body = contentRef.current?.querySelector("[data-reveal]");
+      if (!body) return;
+      gsap.fromTo(
+        body,
+        { opacity: 0.5, y: 14 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", overwrite: true, clearProps: "opacity,transform" }
+      );
+    },
+    { scope: contentRef, dependencies: [chapterIndex, cardIndex] }
+  );
 
   // LOAD DATA
   useEffect(() => {
@@ -155,7 +178,7 @@ export default function ModulePage() {
           </div>
 
           {/* CONTENT */}
-          <div className={styles.modContent}>
+          <div className={styles.modContent} ref={contentRef}>
             {card && (
               <>
                 <div className={styles.contentHead}>
@@ -164,7 +187,7 @@ export default function ModulePage() {
                   </div>
                 </div>
 
-                <div className={styles.contentBody}>
+                <div className={styles.contentBody} data-reveal>
 
                   <div className={styles.topicTitle}>{card.title}</div>
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import {
   useNavigate,
@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import styles from "../styles/IndividualLab.module.css";
+import { useReveal } from "../animations/useReveal";
 
 import lab1 from "../data/labs/lab1.json";
 import lab2 from "../data/labs/lab2.json";
@@ -37,6 +38,9 @@ export default function IndividualLabPage() {
     useState([]);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const contentRef = useRef(null);
+  useReveal(contentRef, [currentPhase]);
 
   if (!labData) {
 
@@ -333,7 +337,7 @@ export default function IndividualLabPage() {
         </div>
 
         {/* CONTENT */}
-        <div className={styles.labContent}>
+        <div className={styles.labContent} ref={contentRef}>
           <div className={styles.contentHd}>
             <div className={styles.breadcrumb}>
               LAB-{labData.id}
@@ -345,7 +349,7 @@ export default function IndividualLabPage() {
               {labData.phases.length}
             </div>
           </div>
-          <div className={styles.contentBody}>
+          <div className={styles.contentBody} data-reveal>
             <div className={styles.phaseTitle}>
               PHASE {phase.id} — {phase.title}
             </div>

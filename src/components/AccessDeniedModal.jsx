@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CyberButton from "../components/CyberButton";
 import styles from "../styles/Test.module.css";
 
-const LOCK_KEY = "3q_test_lock_";
+const LOCK_KEY = "crucible_test_lock_";
 
 export default function AccessDeniedModal({
   testId = 1,

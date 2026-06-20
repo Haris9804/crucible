@@ -184,10 +184,38 @@ router.patch('/ctfs/:id/flags/:num', async (req, res) => {
 });
 
 router.delete('/ctfs/:id/flags/:num', async (req, res) => {
-  await getDb().collection('ctfs').updateOne(
-    { _id: req.params.id },
-    { $pull: { flags: { flagNum: Number(req.params.num) } } }
-  );
+  const db = getDb();
+  const ctf = await db.collection('ctfs').findOne({ _id: req.params.id });
+  if (!ctf) return res.status(404).json({ success: false, message: 'CTF not found' });
+  // Drop the flag and renumber the rest to stay contiguous (1..N).
+  const flags = (ctf.flags || [])
+    .filter((f) => f.flagNum !== Number(req.params.num))
+    .map((f, i) => ({ ...f, flagNum: i + 1 }));
+  await db.collection('ctfs').updateOne({ _id: ctf._id }, { $set: { flags } });
+  res.json({ success: true });
+});
+
+// Reorder flags. Body: { order: [flagNum, ...] } in the desired sequence.
+// Flags are renumbered 1..N to match the new order; any omitted flags keep
+// their data and are appended at the end.
+router.put('/ctfs/:id/flags/order', async (req, res) => {
+  const db = getDb();
+  const { order } = req.body || {};
+  if (!Array.isArray(order)) return res.json({ success: false, message: 'order must be an array of flagNums' });
+  const ctf = await db.collection('ctfs').findOne({ _id: req.params.id });
+  if (!ctf) return res.status(404).json({ success: false, message: 'CTF not found' });
+
+  const byNum = new Map((ctf.flags || []).map((f) => [f.flagNum, f]));
+  const ordered = [];
+  const used = new Set();
+  for (const n of order) {
+    const f = byNum.get(n);
+    if (f && !used.has(n)) { ordered.push(f); used.add(n); }
+  }
+  const missing = (ctf.flags || []).filter((f) => !used.has(f.flagNum));
+  const flags = [...ordered, ...missing].map((f, i) => ({ ...f, flagNum: i + 1 }));
+
+  await db.collection('ctfs').updateOne({ _id: ctf._id }, { $set: { flags } });
   res.json({ success: true });
 });
 
