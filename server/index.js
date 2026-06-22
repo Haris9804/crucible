@@ -1,6 +1,11 @@
 // CTF backend: Express + MongoDB, session-based auth.
 // Dev:  `npm run dev:all` (Vite + this API).  Prod: serves the built dist/ too.
 import 'dotenv/config'; // loads .env locally; no-op in prod where env vars are injected
+
+console.log("MONGODB_URI =", process.env.MONGODB_URI);
+console.log("MONGODB_DB =", process.env.MONGODB_DB);
+console.log("SESSION_SECRET =", process.env.SESSION_SECRET);
+
 import express from 'express';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
