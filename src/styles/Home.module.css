@@ -717,3 +717,238 @@
   font-size: 14px;
   color: #004d15;
 }
+
+
+
+/* ════════════════════════════════════════════════════════════
+   FloatingNav.module.css
+   3Q CyberSecurity — Floating Bottom Navigation Bar
+   ————————————————————————————————————————————————————————————
+   Glassmorphism panel + pixel corner brackets.
+   All class names match exactly what FloatingNav.jsx uses.
+════════════════════════════════════════════════════════════ */
+
+/* ── WRAPPER ──────────────────────────────────────────────── */
+.floatNav {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000;
+
+  display: flex;
+  align-items: center;
+
+  background: rgba(7, 20, 9, 0.65);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+
+  border: 1px solid rgba(0,255,65,.18);
+
+  box-shadow:
+      0 0 0 1px rgba(0,255,65,.05) inset,
+      0 12px 40px rgba(0,0,0,.55),
+      0 0 28px rgba(0,255,65,.08);
+
+  padding: 12px 16px;
+
+  border-radius: 0;
+}
+
+/* ── PIXEL CORNER BRACKETS (::before / ::after) ───────────── */
+.floatNav::before,
+.floatNav::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  border-color: rgba(0, 255, 65, 0.45);
+  pointer-events: none;
+}
+.floatNav::before { top: -1px;    left: -1px;  border-width: 2px 0 0 2px; }
+.floatNav::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+/* extra two corners via explicit spans */
+.cornerTR {
+  position: absolute;
+  top: -1px; right: -1px;
+  width: 10px; height: 10px;
+  border: 2px solid rgba(0, 255, 65, 0.45);
+  border-left: none;
+  border-bottom: none;
+  pointer-events: none;
+}
+.cornerBL {
+  position: absolute;
+  bottom: -1px; left: -1px;
+  width: 10px; height: 10px;
+  border: 2px solid rgba(0, 255, 65, 0.45);
+  border-right: none;
+  border-top: none;
+  pointer-events: none;
+}
+
+/* ── SCROLL PROGRESS BAR (across the top of the nav) ─────── */
+.progressBar {
+  position: absolute;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #004d15 0%,
+    #00ff41 60%,
+    #00c8ff 100%
+  );
+  box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+  transition: width 0.2s ease;
+  pointer-events: none;
+}
+
+/* ── BTN GROUP (button + separator) ──────────────────────── */
+.btnGroup {
+  display: flex;
+  align-items: center;
+}
+
+/* ── NAV BUTTON ───────────────────────────────────────────── */
+.navBtn{
+    all:unset;
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:10px;
+
+    width:115px;
+    height:82px;
+
+    position:relative;
+
+    transition:.2s;
+}
+
+.navBtn:hover{
+    background:rgba(0,255,65,.06);
+}
+/* active underline */
+.navBtn.active { background: rgba(0, 255, 65, 0.12); }
+.navBtn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%; right: 10%;
+  height: 2px;
+  background: #00ff41;
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.7);
+}
+
+/* level badge (top-right corner of button) */
+.badge {
+  position: absolute;
+  top: 8px; right: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: .82rem;
+  color: #ffaa00;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+/* icon */
+.icon {
+  font-size: 22px;
+  line-height: 1;
+  color: rgba(0, 255, 65, 0.5);
+  transition: filter 0.15s, transform 0.15s, color 0.15s;
+}
+.navBtn:hover .icon {
+  filter: drop-shadow(0 0 4px rgba(0, 255, 65, 0.7));
+  transform: translateY(-2px);
+  color: #00ff41;
+}
+.navBtn.active{
+
+    background:rgba(0,255,65,.08);
+
+    box-shadow:
+        inset 0 -3px #00ff41;
+}
+.navBtn.active .icon {
+  color: #00ff41;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.8));
+}
+
+/* text label */
+.label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 1.2px;
+  color: rgba(0, 255, 65, 0.45);
+  white-space: nowrap;
+  text-align: center;
+  transition: color 0.15s;
+}
+.navBtn:hover .label  { color: #00aa2a; }
+.navBtn.active .label { color: #00ff41; }
+
+/* ── SEPARATOR ────────────────────────────────────────────── */
+.sep {
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 255, 65, 0.2),
+    transparent
+  );
+  flex-shrink: 0;
+  margin: 0 6px;
+}
+
+/* ── SCROLL-TO-TOP BUTTON ─────────────────────────────────── */
+.topBtn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:82px;
+  height:82px;
+  gap: 4px;
+  padding: 7px 10px;
+  border-left: 1px solid rgba(0, 255, 65, 0.12);
+  margin-left: 4px;
+  transition: background 0.15s;
+}
+.topBtn:hover { background: rgba(0, 255, 65, 0.07); }
+
+.topIcon {
+  font-size: 1.3rem;
+  color: rgba(0, 255, 65, 0.4);
+  transition: color 0.15s, transform 0.15s;
+}
+.topBtn:hover .topIcon {
+  color: #00ff41;
+  transform: translateY(-2px);
+}
+
+.topLabel {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  color: rgba(0, 255, 65, 0.3);
+  letter-spacing: 1px;
+  transition: color 0.15s;
+}
+.topBtn:hover .topLabel { color: #00aa2a; }
+
+/* ── RESPONSIVE: hide labels on narrow screens ────────────── */
+@media (max-width: 580px) {
+  .label    { display: none; }
+  .badge    { display: none; }
+  .navBtn   { padding: 7px 10px; }
+  .floatNav { bottom: 14px; }
+}

@@ -2,20 +2,48 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../api/ctfApi';
 import { useReveal } from '../../animations/useReveal';
-import styles from '../../styles/Ctf.module.css';
+import styles from '../../styles/CtfAdmin.module.css';
+
+import CyberButton from "../../components/CyberButton";
+import PlayIcon from "../../components/Icons/PlayIcon";
 
 export default function CtfAdminPage() {
   const navigate = useNavigate();
   const rootRef = useRef(null);
   const [ready, setReady] = useState(false);
-  useReveal(rootRef, [ready]);
+  const [activeSection, setActiveSection]=useState("teams");
 
+  const [teams, setTeams] = useState([]);
+  const [ctfs, setCtfs] = useState([]);
+  const [results, setResults] = useState([]);
+  const [rows, setRows] = useState([]);
+
+  useReveal(rootRef, [ready]);
+  
   useEffect(() => {
     api.me().then((d) => {
       if (d?.role !== 'admin') navigate('/ctf');
       else setReady(true);
     });
   }, [navigate]);
+
+  useEffect(() => {
+  async function loadStats() {
+    const t = await api.adminTeams();
+    setTeams(Array.isArray(t) ? t : []);
+
+    const c = await api.adminCtfs();
+    setCtfs(Array.isArray(c) ? c : []);
+
+    const r = await api.adminResults();
+    setResults(Array.isArray(r) ? r : []);
+
+    const l = await api.adminLeaderboard();
+    setRows(Array.isArray(l) ? l : []);
+  }
+
+  loadStats();
+}, []);
 
   async function logout() {
     await api.logout();
@@ -24,19 +52,363 @@ export default function CtfAdminPage() {
 
   if (!ready) return <div className={styles.page}>Checking access...</div>;
 
+  const workspace = {
+
+keys:{
+title:"KEY MANAGEMENT"
+},
+
+teams:{
+title:"TEAM MANAGEMENT"
+},
+
+ctfs:{
+title:"CTF MANAGEMENT"
+},
+
+results:{
+title:"RESULT MANAGEMENT"
+},
+
+leaderboard:{
+title:"LEADERBOARD"
+}
+
+};
+
+const workspaceTitle = workspace[activeSection].title;
+
+const workspacePath = workspace[activeSection].path;
+
+  
+function renderActions() {
+  switch (activeSection) {
+
+    case "keys":
+      return (
+        <>
+          
+        </>
+      );
+
+    case "teams":
+      return (
+        <>
+          <input
+            className={styles.input}
+            placeholder="Team ID or Name"
+          />
+
+          <button className={styles.btn}>
+            FETCH
+          </button>
+
+          <button className={`${styles.btn} ${styles.btnGhost}`}>
+            REFRESH
+          </button>
+
+          <button className={`${styles.btn} ${styles.btnDanger}`}>
+            REMOVE ALL
+          </button>
+        </>
+      );
+
+    case "ctfs":
+      return (
+        <>
+          <button 
+          className={`${styles.btn} ${styles.btnGreen}`}>
+            + NEW CTF
+          </button>
+        </>
+      );
+
+    case "results":
+      return (
+        <>
+          <input
+            className={styles.input}
+            placeholder="Team ID or Name"
+          />
+
+          <button className={styles.btn}>
+            FETCH
+          </button>
+
+          <button className={`${styles.btn} ${styles.btnGhost}`}>
+            REFRESH
+          </button>
+
+          <button className={`${styles.btn} ${styles.btnDanger}`}>
+            REMOVE ALL
+          </button>
+        </>
+      );
+
+    case "leaderboard":
+      return (
+        <>
+          <button className={`${styles.btn} ${styles.btnGhost}`}>
+            REFRESH
+          </button>
+        </>
+      );
+
+    default:
+      return null;
+  }
+}
+
   return (
     <div className={styles.page} ref={rootRef}>
       <div className={styles.header}>
-        <div className={styles.title} data-glitch>CTF ADMIN PORTAL</div>
-        <button className={`${styles.btn} ${styles.btnGhost}`} onClick={logout}>LOGOUT</button>
+        <div className={styles.headerLeft}>
+          <div className={styles.title} data-glitch>CTF ADMIN PORTAL</div>
+        </div>
+        <div className={styles.headerRight}>
+          <div className={styles.liveChip}>
+            <div className={styles.liveDot}></div>
+            ADMIN ACTIVE
+          </div>
+            
+          <CyberButton
+              className={`${styles.btn} ${styles.btnGhost}`}
+              onClick={logout}
+              icon={
+                <PlayIcon
+                  style={{
+                    transform: "rotate(180deg)"
+                  }}
+                />
+              }
+           >
+           LOGOUT
+          </CyberButton>
+        </div>
+        
       </div>
-      <div className={styles.wide}>
-        <KeysSection />
-        <TeamsSection />
-        <CtfSection />
-        <ResultsSection />
-        <LeaderboardSection />
+      
+      <div className={styles.statsRow}>
+          <div className={`${styles.statCard} ${styles.greenCard}`}>
+    <div className={styles.statIcon}>
+      ◈
+    </div>
+
+    <div className={styles.statInfo}>
+      <div className={styles.statValue}>
+        {0}
       </div>
+
+      <div className={styles.statLabel}>
+        TEAMS
+      </div>
+
+      <div className={styles.statSub}>
+        Registered Teams
+      </div>
+    </div>
+  </div>
+
+
+  <div className={`${styles.statCard} ${styles.blueCard}`}>
+    <div className={styles.statIcon}>
+      ⚑
+    </div>
+
+    <div className={styles.statInfo}>
+      <div className={styles.statValue}>
+        {0}
+      </div>
+
+      <div className={styles.statLabel}>
+        ACTIVE CTFs
+      </div>
+
+      <div className={styles.statSub}>
+        Challenges
+      </div>
+    </div>
+  </div>
+
+
+  <div className={`${styles.statCard} ${styles.amberCard}`}>
+    <div className={styles.statIcon}>
+      ▣
+    </div>
+
+    <div className={styles.statInfo}>
+      <div className={styles.statValue}>
+        {0}
+      </div>
+
+      <div className={styles.statLabel}>
+        RESULTS
+      </div>
+
+      <div className={styles.statSub}>
+        Submissions
+      </div>
+    </div>
+  </div>
+
+
+  <div className={`${styles.statCard} ${styles.purpleCard}`}>
+    <div className={styles.statIcon}>
+      ★ 
+    </div>
+
+    <div className={styles.statInfo}>
+      <div className={styles.statValue}>
+        {rows[0]?.totalScore || 0}
+      </div>
+
+      <div className={styles.statLabel}>
+        TOP SCORE
+      </div>
+
+      <div className={styles.statSub}>
+        Highest Team
+      </div>
+    </div>
+  </div>
+      </div>
+
+      <div className={styles.dashboardBody}>
+
+<aside className={styles.sidebar}>
+
+  <div className={styles.sbHead}>
+    // SECTIONS
+    <div className={styles.sbHeadDot}></div>
+  </div>
+
+  <div className={styles.navScroll}>
+
+    {/* KEYS */}
+    <button
+      className={`${styles.sideBtn} ${
+        activeSection === "keys" ? styles.activeSection : ""
+      }`}
+      onClick={() => setActiveSection("keys")}
+    >
+      <div className={styles.navIconBox}>🔑</div>
+
+      <div className={styles.navTxt}>
+        <div className={styles.navLbl}>KEY MANAGEMENT</div>
+      </div>
+    </button>
+
+    {/* TEAMS */}
+    <button
+      className={`${styles.sideBtn} ${
+        activeSection === "teams" ? styles.activeSection : ""
+      }`}
+      onClick={() => setActiveSection("teams")}
+    >
+      <div className={styles.navIconBox}>👥</div>
+
+      <div className={styles.navTxt}>
+        <div className={styles.navLbl}>TEAMS</div>
+      </div>
+    </button>
+
+    {/* CTFS */}
+    <button
+      className={`${styles.sideBtn} ${
+        activeSection === "ctfs" ? styles.activeSection : ""
+      }`}
+      onClick={() => setActiveSection("ctfs")}
+    >
+      <div className={styles.navIconBox}>⚑</div>
+
+      <div className={styles.navTxt}>
+        <div className={styles.navLbl}>CTFS</div>
+      </div>
+    </button>
+
+    {/* RESULTS */}
+    <button
+      className={`${styles.sideBtn} ${
+        activeSection === "results" ? styles.activeSection : ""
+      }`}
+      onClick={() => setActiveSection("results")}
+    >
+      <div className={styles.navIconBox}>📄</div>
+
+      <div className={styles.navTxt}>
+        <div className={styles.navLbl}>RESULTS</div>
+      </div>
+    </button>
+
+    {/* LEADERBOARD */}
+    <button
+      className={`${styles.sideBtn} ${
+        activeSection === "leaderboard" ? styles.activeSection : ""
+      }`}
+      onClick={() => setActiveSection("leaderboard")}
+    >
+      <div className={styles.navIconBox}>★</div>
+
+      <div className={styles.navTxt}>
+        <div className={styles.navLbl}>LEADERBOARD</div>
+      </div>
+    </button>
+
+  </div>
+
+  <div className={styles.sbFooter}>
+    <div className={styles.sbVer}>// v1.0.0</div>
+    <div className={styles.sbCopy}>Crucible</div>
+  </div>
+
+</aside>
+
+  <main className={styles.contentArea}>
+
+      <div className={styles.workspace}>
+
+    <div className={styles.wsHead}>
+
+        <div className={styles.wsHeadLeft}>
+
+            <div className={styles.wsTitle}>
+                {workspaceTitle}
+            </div>
+
+            <div className={styles.wsBreadcrumb}>
+                {workspacePath}
+            </div>
+
+        </div>
+
+        <div className={styles.wsActions}>
+            {renderActions()}
+        </div>
+
+    </div>
+
+     <div className={styles.workspaceScroll}>
+    <div className={styles.wsBody}>
+
+        {activeSection === "keys" && <KeysSection />}
+
+        {activeSection === "teams" && <TeamsSection />}
+
+        {activeSection === "ctfs" && <CtfSection />}
+
+        {activeSection === "results" && <ResultsSection />}
+
+        {activeSection === "leaderboard" && <LeaderboardSection />}
+
+    </div>
+      </div>
+</div>
+
+</main>
+
+</div>
+
+
     </div>
   );
 }
@@ -62,61 +434,221 @@ function KeyRow({ title, value, setValue, status, onSave, onToggle, onRegen }) {
 
 function KeysSection() {
   const [data, setData] = useState(null);
-  const [master, setMaster] = useState('');
-  const [pass, setPass] = useState('');
-  const [username, setUsername] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+  const [master, setMaster] = useState("");
+  const [pass, setPass] = useState("");
+  const [username, setUsername] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   async function load() {
     const d = await api.adminKeys();
     setData(d);
-    setMaster(d?.keys?.master?.value || '');
-    setPass(d?.keys?.pass?.value || '');
-    setUsername(d?.admin?.username || '');
+    setMaster(d?.keys?.master?.value || "");
+    setPass(d?.keys?.pass?.value || "");
+    setUsername(d?.admin?.username || "");
   }
-  useEffect(() => { load(); }, []);
+
+  useEffect(() => {
+    load();
+  }, []);
 
   if (!data) return null;
 
-  const patchKey = (name, patch) => api.adminPatchKey(name, patch).then(load);
+  const patchKey = (name, patch) =>
+    api.adminPatchKey(name, patch).then(load);
 
   return (
-    <div className={styles.section}>
-      <div className={styles.sectionTitle}>// KEY MANAGEMENT</div>
+    <>
 
-      <KeyRow
-        title="Master Key"
-        value={master}
-        setValue={setMaster}
-        status={data.keys.master.status}
-        onSave={() => patchKey('master', { value: master })}
-        onToggle={() => patchKey('master', { status: data.keys.master.status === 'Active' ? 'Inactive' : 'Active' })}
-        onRegen={() => api.adminRegenKey('master').then(load)}
-      />
+      {/* MASTER KEY */}
 
-      <KeyRow
-        title="Passkey Login Toggle"
-        value={pass}
-        setValue={setPass}
-        status={data.keys.pass.status}
-        onSave={() => patchKey('pass', { value: pass })}
-        onToggle={() => patchKey('pass', { status: data.keys.pass.status === 'Active' ? 'Inactive' : 'Active' })}
-        onRegen={() => api.adminRegenKey('pass').then(load)}
-      />
+      <div className={styles.item}>
 
-      <div className={styles.flagItem}>
-        <strong>Admin Credentials</strong>
-        <label className={styles.label}>Username</label>
-        <input className={styles.input} value={username} onChange={(e) => setUsername(e.target.value)} />
-        <label className={styles.label}>New Password (leave blank to keep)</label>
-        <input className={styles.input} type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-        <button className={styles.btn} onClick={async () => {
-          await api.adminPatchCreds({ username, ...(newPassword ? { password: newPassword } : {}) });
-          setNewPassword('');
-          load();
-        }}>UPDATE CREDENTIALS</button>
+<div className={styles.itemTop}>
+
+  <strong>Master Key</strong>
+
+  <span
+    className={`${styles.badge} ${
+      data.keys.master.status === "Active"
+        ? styles.badgeActive
+        : styles.badgeInactive
+    }`}
+  >
+    {data.keys.master.status.toUpperCase()}
+  </span>
+
+</div>
+
+        <input
+          className={styles.input}
+          value={master}
+          onChange={(e) => setMaster(e.target.value)}
+        />
+
+        <div className={styles.row}>
+
+  <button
+    className={`${styles.btn} ${styles.btnGreen}`}
+    onClick={() =>
+      patchKey("master", { value: master })
+    }
+  >
+    SAVE
+  </button>
+
+  <button
+  className={`${styles.btn} ${
+    data.keys.master.status === "Active"
+      ? styles.btnRed
+      : styles.btnGhost
+  }`}
+  onClick={() =>
+    patchKey("master", {
+      status:
+        data.keys.master.status === "Active"
+          ? "Inactive"
+          : "Active",
+    })
+  }
+>
+  {data.keys.master.status === "Active"
+    ? "DEACTIVATE"
+    : "ACTIVATE"}
+</button>
+
+  <button
+    className={`${styles.btn} ${styles.btnGhost}`}
+    onClick={() =>
+      api.adminRegenKey("master").then(load)
+    }
+  >
+    REGENERATE
+  </button>
+
+</div>
+
       </div>
-    </div>
+
+      {/* PASSKEY */}
+
+      <div className={styles.item}>
+
+<div className={styles.itemTop}>
+
+  <strong>Passkey Login Toggle</strong>
+
+  <span
+    className={`${styles.badge} ${
+      data.keys.pass.status === "Active"
+        ? styles.badgeActive
+        : styles.badgeInactive
+    }`}
+  >
+    {data.keys.pass.status.toUpperCase()}
+  </span>
+
+</div>
+
+        <input
+          className={styles.input}
+          value={pass}
+          onChange={(e) => setPass(e.target.value)}
+        />
+
+<div className={styles.row}>
+
+  <button
+    className={`${styles.btn} ${styles.btnGreen}`}
+    onClick={() =>
+      patchKey("pass", { value: pass })
+    }
+  >
+    SAVE
+  </button>
+
+  <button
+    className={`${styles.btn} ${
+  data.keys.pass.status === "Active"
+    ? styles.btnRed
+    : styles.btnGhost
+}`}
+  >
+    {data.keys.pass.status === "Active"
+      ? "DEACTIVATE"
+      : "ACTIVATE"}
+  </button>
+
+  <button
+    className={`${styles.btn} ${styles.btnGhost}`}
+    onClick={() =>
+      api.adminRegenKey("pass").then(load)
+    }
+  >
+    REGENERATE
+  </button>
+
+</div>
+
+      </div>
+
+      {/* ADMIN CREDENTIALS */}
+
+      <div className={styles.item}>
+
+        <div className={styles.cardTitle}>
+          ADMIN CREDENTIALS
+        </div>
+
+        <label className={styles.label}>
+          USERNAME
+        </label>
+
+        <input
+          className={styles.input}
+          value={username}
+          onChange={(e) =>
+            setUsername(e.target.value)
+          }
+        />
+
+        <label className={styles.label}>
+          NEW PASSWORD
+        </label>
+
+        <input
+          className={styles.input}
+          type="password"
+          placeholder="Leave blank to keep current password"
+          value={newPassword}
+          onChange={(e) =>
+            setNewPassword(e.target.value)
+          }
+        />
+
+        <div className={styles.row}>
+
+          <button
+  className={`${styles.btn} ${styles.btnGreen}`}
+  onClick={async () => {
+    await api.adminPatchCreds({
+      username,
+      ...(newPassword
+        ? { password: newPassword }
+        : {}),
+    });
+
+    setNewPassword("");
+    load();
+  }}
+>
+  UPDATE CREDENTIALS
+</button>
+
+        </div>
+
+      </div>
+
+    </>
   );
 }
 
@@ -152,36 +684,97 @@ function TeamsSection() {
     load();
   }
 
-  return (
-    <div className={styles.section}>
-      <div className={styles.sectionTitle}>// TEAM MANAGEMENT ({teams.length})</div>
-      <div className={styles.row}>
-        <input className={styles.input} placeholder="Team ID or name" value={search} onChange={(e) => setSearch(e.target.value)} />
-        <button className={styles.btn} onClick={doSearch}>FETCH</button>
-        <button className={`${styles.btn} ${styles.btnGhost}`} onClick={load}>REFRESH</button>
-        <button className={`${styles.btn} ${styles.btnDanger}`} onClick={removeAll}>REMOVE ALL</button>
-      </div>
-      <div className={styles.msg}>{info}</div>
+ return (
+  <>
 
-      <div className={styles.scroll}>
-        {teams.map((t) => (
-          <div key={t.teamId} className={styles.flagItem}>
-            <div className={styles.flagTop}>
-              <strong>{t.name}</strong>
-              <span>{t.submitted ? 'Submitted' : 'Not submitted'}</span>
-            </div>
-            <div className={styles.kv}>
-              <div><strong>ID:</strong> {t.teamId}</div>
-              <div><strong>Org:</strong> {t.organisation || '—'}</div>
-              <div><strong>Status:</strong> {t.status}</div>
-              {t.members.map((m, i) => <div key={i}>· {m.name} — {m.profession} ({m.gender})</div>)}
-            </div>
-            <button className={`${styles.btn} ${styles.btnDanger}`} onClick={() => remove(t.teamId)}>DELETE</button>
-          </div>
-        ))}
+    {info && (
+      <div className={styles.msgError}>
+        {info}
       </div>
+    )}
+
+    <div className={styles.scroll}>
+
+      {teams.map((t) => (
+
+        <div
+          key={t.teamId}
+          className={styles.item}
+        >
+
+          <div className={styles.itemTop}>
+
+            <strong>{t.name}</strong>
+
+            <div className={styles.badgeGroup}>
+
+              <span
+                className={
+                  t.submitted
+                    ? styles.badgeSubmitted
+                    : styles.badgeInactive
+                }
+              >
+                {t.submitted
+                  ? "SUBMITTED"
+                  : "NOT SUBMITTED"}
+              </span>
+
+              <span
+                className={
+                  t.status === "Active"
+                    ? styles.badgeActive
+                    : styles.badgeInactive
+                }
+              >
+                {t.status.toUpperCase()}
+              </span>
+
+            </div>
+
+          </div>
+
+          <div className={styles.kv}>
+
+            <div>
+              <span className={styles.kvKey}>
+                ID:
+              </span>
+              {t.teamId}
+            </div>
+
+            <div>
+              <span className={styles.kvKey}>
+                ORG:
+              </span>
+              {t.organisation || "—"}
+            </div>
+
+            {t.members.map((m, i) => (
+
+              <div key={i}>
+                • {m.name} — {m.profession} ({m.gender})
+              </div>
+
+            ))}
+
+          </div>
+
+          <button
+            className={`${styles.btn} ${styles.btnRed}`}
+            onClick={() => remove(t.teamId)}
+          >
+            DELETE
+          </button>
+
+        </div>
+
+      ))}
+
     </div>
-  );
+
+  </>
+);
 }
 
 // ============================ CTFs / FLAGS ============================
@@ -195,13 +788,15 @@ function CtfSection() {
   useEffect(() => { load(); }, []);
 
   return (
-    <div className={styles.section}>
-      <div className={styles.sectionTitle}>// CTF MANAGEMENT</div>
-      <NewCtfForm reload={load} />
+    <>
+      
       {ctfs.map((ctf) => (
-        <CtfCard key={ctf.ctfId} ctf={ctf} reload={load} />
+        <CtfCard 
+        key={ctf.ctfId} 
+        ctf={ctf} 
+        reload={load} />
       ))}
-    </div>
+    </>
   );
 }
 
@@ -281,9 +876,20 @@ function CtfCard({ ctf, reload }) {
 
   return (
     <div className={styles.ctfBox}>
-      <div className={styles.ctfHeading}>
-        <span className={styles.ctfName}>{ctf.name} (#{ctf.ctfId})</span>
-        <span className={`${styles.badge} ${ctf.status === 'Active' ? styles.active : styles.inactive}`}>{ctf.status}</span>
+      <div className={styles.ctfTop}>
+
+<div className={styles.ctfName}>
+        {ctf.name}
+    </div>
+
+        <span
+          className={`${styles.badge} ${
+          ctf.status === "Active"
+          ? styles.badgeActive
+          : styles.badgeInactive
+        }`}
+        >
+          {ctf.status}</span>
       </div>
 
       {editing ? (
@@ -300,7 +906,9 @@ function CtfCard({ ctf, reload }) {
           {(ctf.instructions || []).length > 0 && (
             <div className={styles.muted}>{ctf.instructions.join(' · ')}</div>
           )}
-          <div className={styles.row}>
+          <div className={styles.row}
+          style={{marginBottom: 0}}
+          >
             <button className={`${styles.btn} ${styles.btnGhost}`} onClick={() => setEditing(true)}>EDIT CTF</button>
             <button className={`${styles.btn} ${styles.btnGhost}`} onClick={async () => {
               await api.adminPatchCtf(ctf.ctfId, { status: ctf.status === 'Active' ? 'Inactive' : 'Active' });
@@ -308,7 +916,7 @@ function CtfCard({ ctf, reload }) {
             }}>
               {ctf.status === 'Active' ? 'DEACTIVATE CTF' : 'ACTIVATE CTF'}
             </button>
-            <button className={`${styles.btn} ${styles.btnDanger}`} onClick={remove}>DELETE CTF</button>
+            <button className={`${styles.btn} ${styles.btnRed}`} onClick={remove}>DELETE CTF</button>
           </div>
         </>
       )}
@@ -324,7 +932,12 @@ function CtfCard({ ctf, reload }) {
           onMove={moveFlag}
         />
       ))}
-      <button className={styles.btn} onClick={addFlag}>+ ADD FLAG</button>
+      <button
+className={`${styles.btn}
+${styles.btnGreen}`}
+>
++ ADD FLAG
+</button>
     </div>
   );
 }
@@ -360,18 +973,61 @@ function FlagRow({ ctfId, flag, reload, isFirst, isLast, onMove }) {
 
   return (
     <div className={styles.flagItem}>
+      
       <div className={styles.flagTop}>
-        <span>Flag {flag.flagNum} — {flag.name}</span>
-        <span className={`${styles.badge} ${flag.status === 'Active' ? styles.active : styles.inactive}`}>{flag.status}</span>
-      </div>
+
+    <div className={styles.flagLeft}>
+
+        <div className={styles.flagTitle}>
+            Flag {flag.flagNum} — {flag.name}
+        </div>
+
+    </div>
+
+    <div className={styles.flagRight}>
+
+        <span className={styles.flagPts}>
+            {flag.points} pts
+        </span>
+
+        <span
+            className={
+                flag.status === "Active"
+                    ? styles.badgeActive
+                    : styles.badgeInactive
+            }
+        >
+            {flag.status}
+        </span>
+
+    </div>
+
+</div>
 
       {!editing ? (
-        <div className={styles.kv}>
-          <div><strong>Points:</strong> {flag.points}</div>
-          <div><strong>Answers:</strong> {(flag.answers || []).join(', ') || '—'}</div>
-          <div className={styles.muted}>{(flag.hints || []).join(' · ')}</div>
+        <div className={styles.flagBody}>
+          <div className={styles.infoRow}>
+    <span className={styles.infoLabel}>
+        ANSWERS
+    </span>
 
-          <div className={styles.row}>
+    <span>
+        {(flag.answers || []).join(", ") || "—"}
+    </span>
+</div>
+          <div className={styles.infoRow}>
+
+    <span className={styles.infoLabel}>
+        HINTS
+    </span>
+
+    <span>
+        {(flag.hints || []).join(" · ") || "No hints"}
+    </span>
+
+</div>
+
+          <div className={styles.flagButtons}>
             <button className={`${styles.btn} ${styles.btnGhost}`} onClick={() => setEditing(true)}>EDIT</button>
             <button className={`${styles.btn} ${styles.btnGhost}`} onClick={async () => {
               await api.adminPatchFlag(ctfId, flag.flagNum, { status: flag.status === 'Active' ? 'Inactive' : 'Active' });
@@ -382,13 +1038,21 @@ function FlagRow({ ctfId, flag, reload, isFirst, isLast, onMove }) {
             <button className={`${styles.btn} ${styles.btnGhost}`} disabled={isFirst} onClick={() => onMove(flag.flagNum, 'up')}>▲</button>
             <button className={`${styles.btn} ${styles.btnGhost}`} disabled={isLast} onClick={() => onMove(flag.flagNum, 'down')}>▼</button>
             <button className={`${styles.btn} ${styles.btnGhost}`} onClick={() => setPreview((p) => !p)}>{preview ? 'HIDE' : 'PREVIEW'}</button>
-            <button className={`${styles.btn} ${styles.btnDanger}`} onClick={remove}>DELETE</button>
+            <button className={`${styles.btn} ${styles.btnRed}`} onClick={remove}>DELETE</button>
           </div>
 
-          {preview && <FlagPreview flag={flag} />}
+          {preview && (
+
+<div className={styles.previewCard}>
+
+    <FlagPreview flag={flag} />
+
+</div>
+
+)}
         </div>
       ) : (
-        <div>
+        <div className={styles.editCard}>
           <label className={styles.label}>Name</label>
           <input className={styles.input} value={name} onChange={(e) => setName(e.target.value)} />
           <label className={styles.label}>Points</label>
@@ -397,8 +1061,26 @@ function FlagRow({ ctfId, flag, reload, isFirst, isLast, onMove }) {
           <textarea className={styles.textarea} value={answers} onChange={(e) => setAnswers(e.target.value)} />
           <label className={styles.label}>Hints (one per line)</label>
           <textarea className={styles.textarea} value={hints} onChange={(e) => setHints(e.target.value)} />
-          <button className={styles.btn} onClick={save}>SAVE</button>
-          <button className={`${styles.btn} ${styles.btnGhost}`} onClick={() => { setEditing(false); setErr(''); }}>CANCEL</button>
+          <div className={styles.editActions}>
+
+    <button
+        className={`${styles.btn} ${styles.btnGreen}`}
+        onClick={save}
+    >
+        SAVE
+    </button>
+
+    <button
+        className={`${styles.btn} ${styles.btnGhost}`}
+        onClick={()=>{
+            setEditing(false);
+            setErr("");
+        }}
+    >
+        CANCEL
+    </button>
+
+</div>
           <div className={`${styles.msg} ${styles.msgError}`}>{err}</div>
         </div>
       )}
@@ -409,16 +1091,62 @@ function FlagRow({ ctfId, flag, reload, isFirst, isLast, onMove }) {
 // Live preview: how the flag appears to a team on the play page.
 function FlagPreview({ flag }) {
   return (
-    <div className={styles.flagItem} style={{ borderStyle: 'dashed' }}>
-      <div className={styles.muted}>// TEAM VIEW PREVIEW</div>
-      <div className={styles.flagTop}>
-        <span>Flag {flag.flagNum} — {flag.name}</span>
-        <span className={styles.flagPts}>{flag.points} pts</span>
+    <div className={styles.previewCard}>
+
+      <div className={styles.muted}>
+        // TEAM VIEW PREVIEW
       </div>
-      <input className={styles.input} placeholder="Enter flag" disabled />
+
+      <div className={styles.flagTop}>
+
+        <div className={styles.flagLeft}>
+          <div className={styles.flagTitle}>
+            Flag {flag.flagNum} — {flag.name}
+          </div>
+        </div>
+
+        <div className={styles.flagRight}>
+          <span className={styles.flagPts}>
+            {flag.points} pts
+          </span>
+
+          <span
+            className={`${styles.badge} ${
+              flag.status === "Active"
+                ? styles.badgeActive
+                : styles.badgeInactive
+            }`}
+          >
+            {flag.status}
+          </span>
+        </div>
+
+      </div>
+
+      <input
+        className={styles.input}
+        placeholder="Enter flag..."
+        disabled
+      />
+
       {(flag.hints || []).length > 0 && (
-        <div className={styles.hint}>{flag.hints.map((h, i) => <div key={i}>• {h}</div>)}</div>
+        <div className={styles.previewHints}>
+
+          <div className={styles.previewHintTitle}>
+            HINTS
+          </div>
+
+          <div className={styles.hintBox}>
+            {flag.hints.map((hint, index) => (
+              <div key={index}>
+                • {hint}
+              </div>
+            ))}
+          </div>
+
+        </div>
       )}
+
     </div>
   );
 }
@@ -456,15 +1184,8 @@ function ResultsSection() {
   }
 
   return (
-    <div className={styles.section}>
-      <div className={styles.sectionTitle}>// RESULT MANAGEMENT ({results.length})</div>
-      <div className={styles.row}>
-        <input className={styles.input} placeholder="Team ID or name" value={search} onChange={(e) => setSearch(e.target.value)} />
-        <button className={styles.btn} onClick={doSearch}>FETCH</button>
-        <button className={`${styles.btn} ${styles.btnGhost}`} onClick={load}>REFRESH</button>
-        <button className={`${styles.btn} ${styles.btnDanger}`} onClick={removeAll}>REMOVE ALL</button>
-      </div>
-      <div className={styles.msg}>{info}</div>
+    <>
+      
 
       <div className={styles.scroll}>
         {results.map((r) => (
@@ -478,11 +1199,16 @@ function ResultsSection() {
               <div><strong>Captured:</strong> {r.capturedCount} / {r.totalFlags}</div>
               <div><strong>Submitted:</strong> {new Date(r.submittedAt).toLocaleString()}</div>
             </div>
-            <button className={`${styles.btn} ${styles.btnDanger}`} onClick={() => remove(r.teamId)}>DELETE</button>
+            <button
+  className={`${styles.btn} ${styles.btnDanger} ${styles.deleteBtn}`}
+  onClick={() => remove(r.teamId)}
+>
+  DELETE
+</button>
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 
@@ -494,29 +1220,81 @@ function LeaderboardSection() {
     const d = await api.adminLeaderboard();
     setRows(Array.isArray(d) ? d : []);
   }
-  useEffect(() => { load(); }, []);
+
+  useEffect(() => {
+    load();
+  }, []);
 
   return (
-    <div className={styles.section}>
-      <div className={styles.sectionTitle}>// LEADERBOARD</div>
-      <button className={`${styles.btn} ${styles.btnGhost}`} onClick={load}>REFRESH</button>
+    <div className={styles.tableWrapper}>
+
       <table className={styles.table}>
+
         <thead>
-          <tr><th>Rank</th><th>Team</th><th>ID</th><th>Score</th><th>Captured</th><th>Submitted</th></tr>
+          <tr>
+            <th>RANK</th>
+            <th>TEAM</th>
+            <th>ID</th>
+            <th>SCORE</th>
+            <th>CAPTURED</th>
+            <th>SUBMITTED</th>
+          </tr>
         </thead>
+
         <tbody>
-          {rows.map((r) => (
-            <tr key={r.teamId}>
-              <td>{r.rank}</td>
-              <td>{r.teamName}</td>
-              <td>{r.teamId}</td>
-              <td>{r.totalScore}</td>
-              <td>{r.capturedCount}</td>
-              <td>{new Date(r.submittedAt).toLocaleString()}</td>
+
+          {rows.length === 0 ? (
+
+            <tr>
+              <td
+                colSpan={6}
+                className={styles.emptyTable}
+              >
+                No leaderboard data available.
+              </td>
             </tr>
-          ))}
+
+          ) : (
+
+            rows.map((r) => (
+
+              <tr
+                key={r.teamId}
+                className={r.rank === 1 ? styles.firstPlace : ""}
+              >
+
+                <td>{r.rank}</td>
+
+                <td className={styles.teamName}>
+                  {r.teamName}
+                </td>
+
+                <td>{r.teamId}</td>
+
+                <td className={styles.score}>
+                  {r.totalScore}
+                </td>
+
+                <td>
+                  {r.capturedCount}
+                </td>
+
+                <td>
+                  {r.submittedAt
+                    ? new Date(r.submittedAt).toLocaleString()
+                    : "—"}
+                </td>
+
+              </tr>
+
+            ))
+
+          )}
+
         </tbody>
+
       </table>
+
     </div>
   );
 }

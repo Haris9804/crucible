@@ -13,6 +13,7 @@ import FinalChallengeCard from "../components/FinalChallengeCard";
 
 
 
+
 const MODULES = [
   {
     id: 1, icon: 'shield',
@@ -53,12 +54,16 @@ export default function Home() {
   useReveal(rootRef);
 
   return (
+    <>
     <div ref={rootRef}>
-      <HomeHeroSection />
+      <div id="banner">
+        <HomeHeroSection />
+      </div>
+      
 
       {/* LEVEL 1 */}
       <SectionHeader level="LEVEL 1" title="CORE MODULES" />
-      <div className={styles.moduleSection}>
+      <div id="modules" className={styles.moduleSection}>
         <div className={styles.moduleGrid} data-stagger-children>
           {MODULES.map(m => (
             <ModuleCard key={m.id} {...m}
@@ -69,7 +74,7 @@ export default function Home() {
 
       {/* LEVEL 2 */}
       <SectionHeader level="LEVEL 2" title="KNOWLEDGE CHECKPOINT" />
-      <div className={styles.testSection}>
+      <div id="checkpoint" className={styles.testSection}>
         <div className={styles.testGrid} data-stagger-children>
           <TestCard moduleNumber="1" moduleName="CYBERSEC BASICS" category="FUNDAMENTALS" status="unlocked" progress={0} score={0} mcqPath="/quiz/1" />
           <TestCard moduleNumber="2" moduleName="ETHICAL HACKING BASICS" category="ETHICAL HACKING" status="unlocked" progress={0} score={0} mcqPath="/quiz/2" />
@@ -81,7 +86,7 @@ export default function Home() {
 
       {/* LEVEL 3 */}
       <SectionHeader level="LEVEL 3" title="HANDS-ON PRACTICAL" />
-          <div className={styles.practicalSection} data-reveal-scroll>
+          <div id="practical" className={styles.practicalSection} data-reveal-scroll>
             <PracticalCard
               title="PRACTICAL HACKING LABS"
               subtitle="Execute structured attack flows and refine your tactics before entering high-stakes CTF environments."
@@ -93,7 +98,7 @@ export default function Home() {
 
         {/* LEVEL 4 */}
         <SectionHeader level="LEVEL 4" title="FINAL CHALLENGE" />
-          <div data-reveal-scroll>
+          <div id="ctf" data-reveal-scroll>
             <FinalChallengeCard
               onStart={() => navigate("/ctf")}
             />
@@ -107,7 +112,11 @@ export default function Home() {
           </div>
         </footer>
 
+        
+
     </div>
+
+    </>
 
   );
 }
