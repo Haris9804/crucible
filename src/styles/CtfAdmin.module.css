@@ -199,12 +199,12 @@
 .statLabel { 
     font-family:var(--pixel); 
     font-size:5px; 
-    color:var(--gdim); 
+    color: #A1FFC2;
     letter-spacing:1px; 
 }
 .statSub { 
     font-size:10px; 
-    color:var(--gdim); 
+    color:var(--gd); 
     letter-spacing:.3px; 
     margin-top:1px; 
 }
@@ -236,7 +236,7 @@
     border-bottom:1px solid var(--gdim); 
     font-family:var(--pixel); 
     font-size:5px;
-    color:var(--gdim); 
+    color: #A1FFC2;
     letter-spacing:2px; 
     flex-shrink:0; 
     display:flex; 
@@ -313,11 +313,12 @@
     display:flex; 
     flex-direction:column; 
     gap:2px; 
+    
 }
 .navLbl { 
     font-family:var(--pixel); 
     font-size:5px; 
-    color:var(--gdim); 
+    color: #A1FFC2;
     letter-spacing:1px; 
     transition:color .1s; 
 }
@@ -592,7 +593,7 @@
     font-family:var(--pixel);
     font-size:9px;
     letter-spacing:2px;
-    color:var(--g);
+    color: #A1FFC2;
 }
 
 .cardTitle{
@@ -766,7 +767,7 @@
 }
 
 .ctfInstructions{
-    color:var(--gdim);
+    color: #A1FFC2;
     font-size:12px;
     line-height:1.7;
 }
@@ -846,6 +847,33 @@
   flex-wrap:wrap;
 }
 
+.sidebarOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  z-index: 999;
+}
+
+.sidebarOverlay.active {
+  display: block;
+}
+
+.menuBtn {
+  all: unset;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  display: none;
+  cursor: pointer;
+  border: 1px solid red;
+  padding: 6px 10px;
+  color: var(--g);
+  background: none;
+}
+
+.menuBtn:hover {
+  border-color: var(--g);
+}
 
 
 /* ======================================================
@@ -966,7 +994,7 @@
 }
 
 .infoRow span:last-child{
-    color:var(--gd);
+    color: #A1FFC2;
     font-size:13px;
     line-height:1.7;
     word-break:break-word;
@@ -1225,7 +1253,7 @@
 .table th{
     font-family:var(--pixel);
     font-size:6px;
-    color:var(--gdim);
+    color: #A1FFC2;
     letter-spacing:1px;
     padding:12px;
     text-align:left;
@@ -1280,6 +1308,40 @@
     justify-content:center;
     margin-top:10px;
     flex:none;
+}
+
+.statsPanel{
+    margin-bottom:20px;
+}
+
+.statsHeader{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 18px;
+
+    cursor:pointer;
+
+    border:1px solid var(--gdim);
+
+    background:var(--gbg);
+
+    font-family:var(--pixel);
+
+    font-size:8px;
+    margin-bottom: 10px;
+    color:var(--g);
+
+}
+
+.statsArrow{
+
+    font-size:12px;
+
+    color:var(--g);
+
 }
 
 /* ==========================================================
@@ -1351,4 +1413,330 @@
 
 }
 
+/* ==========================================================
+   RESPONSIVE - LARGE TABLETS
+========================================================== */
 
+@media (max-width:1200px){
+
+  .page{
+    padding:16px;
+  }
+
+  .statsRow{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .dashboardBody{
+    grid-template-columns:180px 1fr;
+    gap:16px;
+  }
+
+  .sidebar{
+    width:180px;
+  }
+
+  .title{
+    font-size:16px;
+  }
+
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE - TABLETS
+========================================================== */
+
+@media (max-width:900px){
+
+  .page{
+    padding:12px;
+  }
+
+  .header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+
+  .headerRight{
+    width:100%;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+
+  .statsRow{
+    grid-template-columns:1fr;
+  }
+
+  .dashboardBody{
+    grid-template-columns:1fr;
+  }
+
+  .menuBtn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .sidebar{
+
+    position:fixed;
+
+    top:0;
+    left:-270px;
+
+    width:250px;
+    height:100vh;
+
+    z-index:1000;
+
+    transition:left .25s ease;
+  }
+
+  .sidebar.open{
+    left:0;
+  }
+
+  .contentArea{
+    width:100%;
+  }
+
+  .wsHead{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .wsActions{
+    width:100%;
+    gap:8px;
+  }
+
+}
+
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+  .title{
+    font-size:13px;
+    line-height:1.6;
+    letter-spacing:2px;
+  }
+
+  .liveChip{
+    display:none;
+  }
+
+  .header{
+    padding:14px;
+    margin-bottom:18px;
+  }
+
+  .statCard{
+    padding:12px;
+  }
+
+  .statIcon{
+    width:32px;
+    height:32px;
+    font-size:14px;
+  }
+
+  .workspace{
+    overflow:hidden;
+  }
+
+  .wsBody{
+    padding:14px;
+  }
+
+  .wsHead{
+    padding:14px;
+  }
+
+  .row{
+    flex-direction:column;
+  }
+
+  .row .btn{
+    width:100%;
+  }
+
+  .flagButtons{
+    flex-direction:column;
+  }
+
+  .flagButtons .btn{
+    width:100%;
+  }
+
+  .editActions{
+    flex-direction:column;
+  }
+
+  .editActions .btn{
+    width:100%;
+    min-width:unset;
+  }
+
+  .badgeGroup{
+    flex-wrap:wrap;
+  }
+
+  .itemTop,
+  .ctfTop,
+  .flagTop{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .flagRight{
+    width:100%;
+    justify-content:space-between;
+  }
+
+  .tableWrapper{
+    overflow-x:auto;
+  }
+
+  .table{
+    min-width:700px;
+  }
+
+}
+
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width:480px){
+
+  .page{
+    padding:8px;
+  }
+
+  .header{
+    padding:12px;
+  }
+
+  .title{
+    font-size:11px;
+    letter-spacing:1px;
+  }
+
+  .statCard{
+    gap:8px;
+  }
+
+  .statIcon{
+    width:28px;
+    height:28px;
+    font-size:12px;
+  }
+
+  .statSub{
+    display:none;
+  }
+
+  .wsTitle{
+    font-size:8px;
+  }
+
+  .wsBreadcrumb{
+    font-size:9px;
+  }
+
+  .sidebar{
+    width:230px;
+  }
+
+  .btn{
+    font-size:5px;
+    padding:8px 10px;
+  }
+
+  .input{
+    font-size:11px;
+  }
+
+}
+
+/* ============================
+   Mobile Stats Cards
+============================ */
+
+@media (max-width:768px){
+
+    .statsRow{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .statCard{
+        padding:12px;
+        gap:10px;
+
+        min-height:72px;
+    }
+
+    .statIcon{
+        width:32px;
+        height:32px;
+        font-size:14px;
+    }
+
+    .statInfo{
+        gap:2px;
+    }
+
+    .statValue{
+        font-size:16px;
+    }
+
+    .statLabel{
+        font-size:6px;
+        letter-spacing:1px;
+    }
+
+    .statSub{
+        display:none;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .statsRow{
+        grid-template-columns:repeat(2,1fr);
+        gap:8px;
+    }
+
+    .statCard{
+        padding:10px;
+        min-height:64px;
+    }
+
+    .statIcon{
+        width:26px;
+        height:26px;
+        font-size:12px;
+    }
+
+    .statValue{
+        font-size:14px;
+    }
+
+    .statLabel{
+        font-size:5px;
+    }
+
+}

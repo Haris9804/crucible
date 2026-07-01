@@ -27,19 +27,7 @@ function PracticalCard({
               {subtitle}
             </div>
 
-            {/* PROGRESS */}
-            <div className={styles.practicalProgress}>
-              <div className={styles.progressLabel}>PROGRESS</div>
-
-              <div className={styles.progressTrack}>
-                <div
-                  className={styles.progressFill}
-                  style={{ width: `${progress}%` }}
-                />
-              </div>
-
-              <div className={styles.progressPercent}>{progress}%</div>
-            </div>
+            
           </div>
 
           {/* RIGHT BUTTON */}

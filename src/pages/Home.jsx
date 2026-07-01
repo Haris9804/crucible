@@ -90,7 +90,6 @@ export default function Home() {
             <PracticalCard
               title="PRACTICAL HACKING LABS"
               subtitle="Execute structured attack flows and refine your tactics before entering high-stakes CTF environments."
-              progress={25}
               onStart={() => navigate("/labs")}
             />
           </div>

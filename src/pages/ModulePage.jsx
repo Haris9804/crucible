@@ -75,7 +75,7 @@ export default function ModulePage() {
   const cards = chapter.cards || [];
   const card = cards[cardIndex];
 
-  // 🔥 KEY FIX
+  // KEY FIX
   const isCommandModule = !!card.main_commands;
 
   return (
@@ -107,9 +107,9 @@ export default function ModulePage() {
 
             <CyberButton
               onClick={() => navigate("/")}
-              icon={<PlayIcon style={{ transform: "rotate(180deg)" }} />}
+              
             >
-              BACK
+              ◀ BACK
             </CyberButton>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function ModulePage() {
 
                   {isCommandModule && (
                     <>
-                      <div className="content-section-theory">
+                      <div className={styles.contentSectionTheory}>
                         <p>{card.description_long}</p>
                       </div>
 
@@ -274,8 +274,9 @@ export default function ModulePage() {
                 {/* FOOTER */}
                 <div className={styles.contentFooter}>
                   <div className={styles.cfRight}>
-
-                    <CyberButton
+                    <div className={styles.btn}>
+                      <div className={styles.prvBtn}>
+                        <CyberButton
                       onClick={() => {
                         if (cardIndex > 0) {
                           setCardIndex(cardIndex - 1);
@@ -286,10 +287,11 @@ export default function ModulePage() {
                         }
                       }}
                     >
-                      PREV
+                      ◀ PREV
                     </CyberButton>
-
-                    <CyberButton
+                    </div>
+                      <div className={styles.nxtBtn}>
+                        <CyberButton
                       onClick={() => {
                         if (cardIndex < cards.length - 1) {
                           setCardIndex(cardIndex + 1);
@@ -299,8 +301,13 @@ export default function ModulePage() {
                         }
                       }}
                     >
-                      NEXT
+                      NEXT ▶
                     </CyberButton>
+                      </div>
+                    </div>
+                    
+
+                    
 
                   </div>
                 </div>

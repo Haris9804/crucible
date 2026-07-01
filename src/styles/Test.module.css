@@ -323,7 +323,9 @@
 /* DIALOG */
 .lockDialog {
   width: min(90vw, 900px);   /* bigger + responsive */
-  min-height: 420px;         /* gives presence */
+  max-width: 900px;
+  max-height: 90vh;
+  
   background: var(--gbg);
   border: 2px solid var(--r);
   position: relative;
@@ -362,13 +364,13 @@
 }
 
 
-.lockDialog .ld-bl {
+.lockDialog .ldBl {
   bottom: -2px;
   left: -2px;
   border-width: 0 0 3px 3px;
 }
 
-.lockDialog .ld-br {
+.lockDialog .ldBr {
   bottom: -2px;
   right: -2px;
   border-width: 0 3px 3px 0;

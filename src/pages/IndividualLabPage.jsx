@@ -1,17 +1,30 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   useNavigate,
   useParams
 } from "react-router-dom";
 
+import {
+  getLabProgress,
+  saveLabProgress
+} from "../utils/labProgress";
+
 import styles from "../styles/IndividualLab.module.css";
 import { useReveal } from "../animations/useReveal";
+import CyberButton from "../components/CyberButton";
 
 import lab1 from "../data/labs/lab1.json";
 import lab2 from "../data/labs/lab2.json";
 import lab3 from "../data/labs/lab3.json";
 import lab4 from "../data/labs/lab4.json";
+
+// Replace these fallback values with the real admin contact details,
+// or define VITE_ADMIN_WHATSAPP_NUMBER and VITE_ADMIN_EMAIL in your .env file.
+const ADMIN_WHATSAPP_NUMBER =
+  import.meta.env.VITE_ADMIN_WHATSAPP_NUMBER || "919XXXXXXXXX";
+const ADMIN_EMAIL =
+  import.meta.env.VITE_ADMIN_EMAIL || "admin@example.com";
 
 export default function IndividualLabPage() {
 
@@ -34,28 +47,67 @@ export default function IndividualLabPage() {
   const [selectedTabs, setSelectedTabs] =
     useState({});
 
-  const [completedPhases, setCompletedPhases] =
-    useState([]);
+const [completedPhases, setCompletedPhases] =
+  useState(() => getLabProgress(labId).completedPhases);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const contentRef = useRef(null);
   useReveal(contentRef, [currentPhase]);
 
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setSidebarOpen(false);
+        setContactOpen(false);
+      }
+    }
+
+    function handleResize() {
+      if (window.innerWidth > 900) {
+        setSidebarOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+  const savedProgress = getLabProgress(labId);
+
+  setCompletedPhases(
+    Array.isArray(savedProgress.completedPhases)
+      ? savedProgress.completedPhases
+      : []
+  );
+
+  setCurrentPhase(0);
+}, [labId]);
+
+  useEffect(() => {
+    const mobileSidebarOpen = sidebarOpen && window.innerWidth <= 900;
+
+    if (!mobileSidebarOpen && !contactOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [sidebarOpen, contactOpen]);
+
   if (!labData) {
 
     return (
-
-       <>
-        <div
-          className={[
-            styles.sidebarOverlay,
-            sidebarOpen ? styles.active : ""
-          ].join(" ")}
-          onClick={() => setSidebarOpen(false)}
-        />
-
-  <div className={styles.pageWrap}>
+      <div className={styles.pageWrap}>
         <div className={styles.labContent}>
           <div className={styles.contentBody}>
             <div className={styles.phaseTitle}>
@@ -64,12 +116,24 @@ export default function IndividualLabPage() {
           </div>
         </div>
       </div>
-    </>
     );
   }
 
   const phase =
     labData.phases[currentPhase];
+
+  const supportMessage =
+    `Hello Admin, I need help with LAB-${labData.id} (${labData.title}), ` +
+    `Phase ${phase.id}: ${phase.title}.`;
+
+  const whatsappUrl =
+    `https://wa.me/${ADMIN_WHATSAPP_NUMBER.replace(/\D/g, "")}` +
+    `?text=${encodeURIComponent(supportMessage)}`;
+
+  const emailUrl =
+    `mailto:${ADMIN_EMAIL}` +
+    `?subject=${encodeURIComponent(`Help required for LAB-${labData.id}`)}` +
+    `&body=${encodeURIComponent(supportMessage)}`;
   const handleTab = (
     phaseId,
     tabId
@@ -80,16 +144,24 @@ export default function IndividualLabPage() {
     }));
   };
 
-  const handleCompletePhase = () => {
-    if (
-      !completedPhases.includes(currentPhase)
-    ) {
-      setCompletedPhases([
-        ...completedPhases,
-        currentPhase
-      ]);
-    }
-  };
+ const handleCompletePhase = () => {
+  if (completedPhases.includes(currentPhase)) {
+    return;
+  }
+
+  const updatedPhases = [
+    ...completedPhases,
+    currentPhase
+  ];
+
+  setCompletedPhases(updatedPhases);
+
+  saveLabProgress(
+    labData.id,
+    updatedPhases,
+    labData.phases.length
+  );
+};
 
   const renderBlock = (block) => {
     switch (block.type) {
@@ -120,7 +192,7 @@ export default function IndividualLabPage() {
 
       case "steps":
         return (
-          <div className={styles.prereqItem}>
+          <div className={styles.stepsWrap}>
             {block.title && (
               <div className={styles.stepSubHeading}>
                 {block.title}
@@ -196,7 +268,7 @@ export default function IndividualLabPage() {
           <div>
             <div className={styles.hvToggleWrap}>
               {block.tabs.map((tab) => (
-                <button
+                <button type="button"
                   key={tab.id}
                   className={[
                     styles.hvButton,
@@ -238,16 +310,98 @@ export default function IndividualLabPage() {
   };
 
   return (
+    <>
+      {sidebarOpen && (
+        <button
+          type="button"
+          className={`${styles.sidebarOverlay} ${styles.active}`}
+          aria-label="Close phase navigation"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-    <div className={styles.pageWrap}>
+      {contactOpen && (
+        <div
+          className={styles.contactOverlay}
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setContactOpen(false);
+            }
+          }}
+        >
+          <section
+            className={styles.contactModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-admin-title"
+          >
+            <div className={styles.contactModalHeader}>
+              <div>
+                <div className={styles.contactEyebrow}>// SUPPORT CHANNEL</div>
+                <h2 id="contact-admin-title" className={styles.contactTitle}>
+                  CONNECT WITH ADMIN
+                </h2>
+              </div>
+
+              <button
+                type="button"
+                className={styles.contactModalClose}
+                aria-label="Close contact options"
+                onClick={() => setContactOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+
+            <p className={styles.contactDescription}>
+              Choose a contact method. The lab and current phase details will be
+              included automatically.
+            </p>
+
+            <div className={styles.contactOptions}>
+              <a
+                className={`${styles.contactOption} ${styles.whatsappOption}`}
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setContactOpen(false)}
+              >
+                <span className={styles.contactOptionIcon}>◉</span>
+                <span className={styles.contactOptionText}>
+                  <strong>WHATSAPP</strong>
+                  <small>Open admin chat</small>
+                </span>
+                <span className={styles.contactOptionArrow}>►</span>
+              </a>
+
+              <a
+                className={`${styles.contactOption} ${styles.emailOption}`}
+                href={emailUrl}
+                onClick={() => setContactOpen(false)}
+              >
+                <span className={styles.contactOptionIcon}>✉</span>
+                <span className={styles.contactOptionText}>
+                  <strong>EMAIL</strong>
+                  <small>Open your email application</small>
+                </span>
+                <span className={styles.contactOptionArrow}>►</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      )}
+
+      <div className={styles.pageWrap}>
       {/* HEADER */}
       <div className={styles.labHeader}>
-        <button
-          className={styles.backButton}
+        <CyberButton
+          type="button"
+          className={styles.headerBackButton}
           onClick={() => navigate(-1)}
         >
-        ◄ BACK
-        </button>
+          ◄ BACK
+        </CyberButton>
         <div className={styles.headerDivider}></div>
         <div className={styles.headerTitleWrap}>
           <div className={styles.headerTag}>
@@ -260,10 +414,14 @@ export default function IndividualLabPage() {
         <div className={styles.headerRight}>
 
           <button
-              className={styles.menuBtn}
-              onClick={() => setSidebarOpen(true)}
-            >
-              ☰
+            type="button"
+            className={styles.menuBtn}
+            aria-label={sidebarOpen ? "Close phase navigation" : "Open phase navigation"}
+            aria-expanded={sidebarOpen}
+            aria-controls="lab-phase-sidebar"
+            onClick={() => setSidebarOpen((open) => !open)}
+          >
+            {sidebarOpen ? "✕" : "☰"}
           </button>
 
           <div className={styles.progressChip}>
@@ -281,7 +439,8 @@ export default function IndividualLabPage() {
       {/* MAIN */}
       <div className={styles.labMain}>
         {/* SIDEBAR */}
-        <div
+        <aside
+          id="lab-phase-sidebar"
           className={[
             styles.labSidebar,
             sidebarOpen ? styles.open : ""
@@ -289,22 +448,34 @@ export default function IndividualLabPage() {
         >
 
           <div className={styles.sidebarHd}>
-            <span> // PHASES </span>
-            <span className={styles.sidebarHdRight}>
-              {completedPhases.length}/
-              {labData.phases.length}
-            </span>
+            <span>// PHASES</span>
+
+            <div className={styles.sidebarHdActions}>
+              <span className={styles.sidebarHdRight}>
+                {completedPhases.length}/{labData.phases.length}
+              </span>
+
+              <button
+                type="button"
+                className={styles.sidebarClose}
+                aria-label="Close phase navigation"
+                onClick={() => setSidebarOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
           </div>
           <div className={styles.phaseScroll}>
             {labData.phases.map(
               (item, index) => (
-                <button
+                <button type="button"
                   key={item.id}
                   className={[
                     styles.phaseItem,
-                    currentPhase===index ? styles.active : "",
+                    currentPhase === index ? styles.active : "",
                     completedPhases.includes(index) ? styles.done : ""
                   ].join(" ")}
+                  aria-current={currentPhase === index ? "step" : undefined}
                   onClick={() => {
                     setCurrentPhase(index);
                     setSidebarOpen(false);
@@ -317,7 +488,7 @@ export default function IndividualLabPage() {
                     <div className={styles.phaseName}>
                       {item.title}
                     </div>
-                    <div className={styles.phaseSubtitle}>
+                    <div className={styles.phaseItemSubtitle}>
                       {item.subtitle}
                     </div>
                   </div>
@@ -326,15 +497,23 @@ export default function IndividualLabPage() {
             )}
           </div>
           <div className={styles.sidebarFooter}>
-            <button className={styles.stuckButton}>
-              <div className={styles.stuckIconWrap}> 💬 </div>
+            <button
+              type="button"
+              className={styles.stuckButton}
+              aria-haspopup="dialog"
+              onClick={() => {
+                setSidebarOpen(false);
+                setContactOpen(true);
+              }}
+            >
+              <div className={styles.stuckIconWrap}>💬</div>
               <div className={styles.stuckTxt}>
-                <div className={styles.stuckLabel}>  GOT STUCK? </div>
-                <div className={styles.stuckSub}> Contact admin </div>
+                <div className={styles.stuckLabel}>GOT STUCK?</div>
+                <div className={styles.stuckSub}>Connect with admin</div>
               </div>
             </button>
           </div>
-        </div>
+        </aside>
 
         {/* CONTENT */}
         <div className={styles.labContent} ref={contentRef}>
@@ -364,7 +543,7 @@ export default function IndividualLabPage() {
                 >
                   {block.title && (
                     <div className={styles.sectionLabel}>
-                      // {block.title}
+                      
                     </div>
                   )}
                   {renderBlock(block)}
@@ -373,7 +552,7 @@ export default function IndividualLabPage() {
             )}
             <div className={styles.phaseActions}>
 
-              <button
+              <button type="button"
                 className={[
                   styles.actionButton,
                   styles.completeButton,
@@ -393,21 +572,24 @@ export default function IndividualLabPage() {
                     : "▶ MARK COMPLETE"
                 }
               </button>
-              <button
+              <button type="button"
                 className={[
                   styles.actionButton,
                   styles.resetButton
                   ].join(" ")}
                 onClick={() => {
-                
-                  setCompletedPhases(
-                    completedPhases.filter(
-                      (item) =>
-                        item !== currentPhase
-                    )
-                  );
-                
-                }}
+  const updatedPhases = completedPhases.filter(
+    (phaseIndex) => phaseIndex !== currentPhase
+  );
+
+  setCompletedPhases(updatedPhases);
+
+  saveLabProgress(
+    labData.id,
+    updatedPhases,
+    labData.phases.length
+  );
+}}
               >
                 ↺ RESET
 
@@ -430,37 +612,33 @@ export default function IndividualLabPage() {
               )}
             </div>
             <div className={styles.footerNav}>
-              <button
-                className={[
-                  styles.navButton,
-                  styles.prev
-                ].join(" ")}
-                disabled={currentPhase === 0}
-                onClick={() =>
-                  setCurrentPhase(
-                    currentPhase - 1
-                  )
-                }
-              >
-                ◄ PREV
-              </button>
-              <button
-                className={[
-                  styles.navButton,
-                  styles.next
-                ].join(" ")}
-                disabled={
-                  currentPhase ===
-                  labData.phases.length - 1
-                }
-                onClick={() =>
-                  setCurrentPhase(
-                    currentPhase + 1
-                  )
-                }
-              >
-                NEXT ►
-              </button>
+               <div className={styles.btn}>
+                                    <div className={styles.prvBtn}>
+                                     <CyberButton
+  disabled={currentPhase === 0}
+  onClick={() => {
+    if (currentPhase > 0) {
+      setCurrentPhase(currentPhase - 1);
+    }
+  }}
+>
+  ◀ PREV
+</CyberButton>
+                                  </div>
+                                    <div className={styles.nxtBtn}>
+                                      <CyberButton
+  disabled={currentPhase === labData.phases.length - 1}
+  onClick={() => {
+    if (currentPhase < labData.phases.length - 1) {
+      setCurrentPhase(currentPhase + 1);
+    }
+  }}
+>
+  NEXT ▶
+</CyberButton>
+                                    </div>
+                                  </div>
+                                  
             </div>
           </div>
         </div>
@@ -471,7 +649,8 @@ export default function IndividualLabPage() {
           <span>© 2026 Cyber Learning</span>
           <span>LAB {labData.id} · ACTIVE</span>
         </div>
-    </div>
+      </div>
+    </>
   );
 
 }

@@ -1,6 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import {
+  useEffect,
+  useState
+} from "react";
 
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/Lab.module.css";
+
+import { getAllLabProgress } from "../utils/labProgress";
 
 import PlayIcon from "../components/Icons/PlayIcon";
 import CyberButton from "../components/CyberButton";
@@ -10,6 +16,37 @@ import { labsData } from "../data/labsData";
 export default function LabPage() {
 
   const navigate = useNavigate();
+
+  const [labProgress, setLabProgress] =
+  useState(() => getAllLabProgress());
+
+  useEffect(() => {
+  function refreshProgress() {
+    setLabProgress(getAllLabProgress());
+  }
+
+  window.addEventListener(
+    "lab-progress-updated",
+    refreshProgress
+  );
+
+  window.addEventListener(
+    "focus",
+    refreshProgress
+  );
+
+  return () => {
+    window.removeEventListener(
+      "lab-progress-updated",
+      refreshProgress
+    );
+
+    window.removeEventListener(
+      "focus",
+      refreshProgress
+    );
+  };
+}, []);
 
   return (
 
@@ -83,12 +120,23 @@ export default function LabPage() {
 
               {labsData.map((lab, index) => {
 
-                const nodeClass =
-                  index === 0
-                    ? "done"
-                    : index === 1
-                    ? "active"
-                    : "locked";
+                const savedProgress =
+  labProgress[String(lab.id)];
+
+const isCompleted =
+  savedProgress?.completed === true;
+
+const labStatus = isCompleted
+  ? "completed"
+  : savedProgress?.completedPhases?.length > 0
+  ? "inProgress"
+  : "notStarted";
+
+                const nodeClass = isCompleted
+  ? "done"
+  : index === 0
+  ? "active"
+  : "locked";
 
                 return (
 
@@ -133,24 +181,23 @@ export default function LabPage() {
                     ========================================= */}
 
                     <LabCard
+  id={lab.id}
+  title={lab.title}
+  desc={lab.desc}
+  chips={lab.chips}
+  xp={lab.xp}
+  time={lab.time}
+  diff={lab.difficulty}
+  path={lab.path}
 
-                      id={lab.id}
-
-                      title={lab.title}
-
-                      desc={lab.desc}
-
-                      chips={lab.chips}
-
-                      xp={lab.xp}
-
-                      time={lab.time}
-
-                      diff={lab.difficulty}
-
-                      path={lab.path}
-
-                    />
+  status={labStatus}
+  completedPhases={
+    savedProgress?.completedPhases?.length || 0
+  }
+  totalPhases={
+    savedProgress?.totalPhases || 0
+  }
+/>
 
                   </div>
 

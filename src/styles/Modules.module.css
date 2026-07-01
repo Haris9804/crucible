@@ -329,7 +329,7 @@
 .topicTitle {
   font-family: 'Press Start 2P', monospace;
   font-size: clamp(9px,1.6vw,13px);
-  color: var(--g);
+ color: #A1FFC2;
   letter-spacing: 2px;
   margin-bottom: 6px;
   line-height: 1.7;
@@ -348,7 +348,7 @@
 /* THEORY */
 .contentSectionTheory {
   font-size: 13px;
-  color: var(--gd);
+  color: #A1FFC2;
   line-height: 1.9;
   margin-bottom: 20px;
   text-align: left;
@@ -366,8 +366,14 @@
   background: rgba(0,255,65,.04);
   padding: 14px 18px;
   margin-bottom: 20px;
-
+  color: #A1FFC2;
+  width: 100%;
   position: relative;
+  font-size: 12px;
+  
+  box-sizing: border-box;
+  
+  font-family: 'Share Tech Mono', monospace;
 }
 
 .contentSectionPoints::before {
@@ -394,13 +400,13 @@
 
 .contentSectionPoints li {
   font-size: 12px;
-  color: var(--gd);
+  color: #A1FFC2;
   line-height: 1.8;
   margin-bottom: 8px;
 }
 
 /* EXAMPLE BLOCK */
-/* EXAMPLE BLOCK */
+
 .contentSectionExample {
   background: var(--bg);
   border: 1px solid var(--gdim);
@@ -439,7 +445,7 @@
 .contentSectionTitle {
   font-family: 'Press Start 2P', monospace;
   font-size: clamp(9px,1.6vw,13px);
-  color: var(--g);
+  color: #A1FFC2;
   letter-spacing: 2px;
   margin-bottom: 6px;
   line-height: 1.7;
@@ -448,8 +454,9 @@
 .cmdSectionLabel {
   font-family: 'Press Start 2P', monospace;
   font-size: 6px;
-  color: var(--g);
+  color: var(--gdim);
   letter-spacing: 2px;
+  margin-top:10px;
   margin-bottom: 10px;
   padding-bottom: 6px;
   border-bottom: 1px solid var(--gdim);
@@ -492,7 +499,7 @@
   padding: 10px 12px;
   vertical-align: top;
   line-height: 1.7;
-  color: var(--gd);
+  color: #A1FFC2;
 }
 
 .cmdCell {
@@ -507,6 +514,7 @@
   flex-direction: column;
   gap: 8px;
   margin-bottom: 20px;
+  color: #A1FFC2;
 }
 
 .activityItem {
@@ -517,7 +525,7 @@
   border: 1px solid var(--gdim);
   background: var(--bg);
   font-size: 12px;
-  color: var(--gd);
+  color: #A1FFC2;
   line-height: 1.7;
   transition: border-color .1s, background .1s;
 }
@@ -537,6 +545,18 @@
   min-width: 20px;
 }
 
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.prvBtn,
+.nxtBtn {
+  flex: 0 0 auto;
+}
 
 .modFooter {
   border: 1px solid var(--gdim);

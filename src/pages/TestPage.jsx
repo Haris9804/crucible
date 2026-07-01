@@ -32,6 +32,7 @@ export default function TestPage() {
   const [answered, setAnswered] = useState(false);
   const [lockedUntil, setLockedUntil] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [timeSpent, setTimeSpent] = useState(0);
 
   // LOAD DATA
   useEffect(() => {
@@ -100,6 +101,7 @@ export default function TestPage() {
         total={questions.length}
         onRetry={() => window.location.reload()}
         onClose={() => navigate("/")}
+        avgTime={Math.round(timeSpent / questions.length)}
       />
     );
   }
@@ -133,22 +135,27 @@ export default function TestPage() {
     });
   }
 
-  // 🔥 FIXED FLOW
+  //  FIXED FLOW
   function nextQuestion() {
-    if (current === questions.length - 1) {
-      finishTest(); // 🔥 controlled end
-    } else {
-      setCurrent(prev => prev + 1);
-      setSelected(null);
-      setAnswered(false);
-      setTimeLeft(TIME_LIMIT);
-    }
+
+  setTimeSpent(prev => prev + (TIME_LIMIT - timeLeft));
+
+  if (current === questions.length - 1) {
+    finishTest();
+  } else {
+    setCurrent(prev => prev + 1);
+    setSelected(null);
+    setAnswered(false);
+    setTimeLeft(TIME_LIMIT);
   }
+
+}
 
   function finishTest() {
     const correct = score / 100;
     const total = questions.length;
     const pct = Math.round((correct / total) * 100);
+    const avgTime = Math.round(timeSpent / questions.length);
 
     localStorage.setItem(`test-result-${id}`, JSON.stringify({
       score,
@@ -156,6 +163,7 @@ export default function TestPage() {
       wrong: total - correct,
       total,
       pct,
+      avgTime,
       passed: pct >= 70
     }));
 

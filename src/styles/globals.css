@@ -112,17 +112,17 @@ body::after {
   cursor: pointer;
   font-family: 'Press Start 2P', monospace;
 
-  font-size: 15px;
-  padding: 10px 22px;
-  letter-spacing: 2px;
+  font-size: 8px;
+  padding: 10px 10px;
+  letter-spacing: 1px;
 
   background: #4ded72;
   color: #020b06;
-  border: 3px solid #A1FFC2;
+  border: 1px solid #071409;
 
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
 
   transition: all .15s;
 }

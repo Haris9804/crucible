@@ -17,6 +17,8 @@ export default function CtfAdminPage() {
   const [ctfs, setCtfs] = useState([]);
   const [results, setResults] = useState([]);
   const [rows, setRows] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [statsOpen, setStatsOpen] = useState(true);
 
   useReveal(rootRef, [ready]);
   
@@ -92,6 +94,8 @@ function renderActions() {
       );
 
     case "teams":
+      return null;
+
       return (
         <>
           <input
@@ -114,36 +118,10 @@ function renderActions() {
       );
 
     case "ctfs":
-      return (
-        <>
-          <button 
-          className={`${styles.btn} ${styles.btnGreen}`}>
-            + NEW CTF
-          </button>
-        </>
-      );
+      return null;
 
     case "results":
-      return (
-        <>
-          <input
-            className={styles.input}
-            placeholder="Team ID or Name"
-          />
-
-          <button className={styles.btn}>
-            FETCH
-          </button>
-
-          <button className={`${styles.btn} ${styles.btnGhost}`}>
-            REFRESH
-          </button>
-
-          <button className={`${styles.btn} ${styles.btnDanger}`}>
-            REMOVE ALL
-          </button>
-        </>
-      );
+      return null;
 
     case "leaderboard":
       return (
@@ -159,6 +137,14 @@ function renderActions() {
   }
 }
 
+<div
+        className={[
+         styles.sidebarOverlay,
+         sidebarOpen ? styles.active : ""
+        ].join(" ")}
+        onClick={() => setSidebarOpen(false)}
+      />
+
   return (
     <div className={styles.page} ref={rootRef}>
       <div className={styles.header}>
@@ -166,6 +152,13 @@ function renderActions() {
           <div className={styles.title} data-glitch>CTF ADMIN PORTAL</div>
         </div>
         <div className={styles.headerRight}>
+
+          <button
+  className={styles.menuBtn}
+  onClick={() => setSidebarOpen(true)}
+>
+  ☰
+</button>
           <div className={styles.liveChip}>
             <div className={styles.liveDot}></div>
             ADMIN ACTIVE
@@ -187,7 +180,20 @@ function renderActions() {
         </div>
         
       </div>
-      
+
+
+      <div className={styles.statsPanel}>
+        <div
+        className={styles.statsHeader}
+        onClick={() => setStatsOpen(!statsOpen)}
+    >
+        <span>SYSTEM OVERVIEW</span>
+
+        <span className={styles.statsArrow}>
+            {statsOpen ? "▲" : "▼"}
+        </span>
+    </div>
+    {statsOpen &&(
       <div className={styles.statsRow}>
           <div className={`${styles.statCard} ${styles.greenCard}`}>
     <div className={styles.statIcon}>
@@ -196,7 +202,7 @@ function renderActions() {
 
     <div className={styles.statInfo}>
       <div className={styles.statValue}>
-        {0}
+        {teams.length}
       </div>
 
       <div className={styles.statLabel}>
@@ -217,7 +223,7 @@ function renderActions() {
 
     <div className={styles.statInfo}>
       <div className={styles.statValue}>
-        {0}
+        {ctfs.filter(c => c.status === "Active").length}
       </div>
 
       <div className={styles.statLabel}>
@@ -238,7 +244,7 @@ function renderActions() {
 
     <div className={styles.statInfo}>
       <div className={styles.statValue}>
-        {0}
+        {results.length}
       </div>
 
       <div className={styles.statLabel}>
@@ -272,10 +278,18 @@ function renderActions() {
     </div>
   </div>
       </div>
+    )}
+      </div>
+      
 
       <div className={styles.dashboardBody}>
 
-<aside className={styles.sidebar}>
+<aside
+  className={[
+    styles.sidebar,
+    sidebarOpen ? styles.open : ""
+  ].join(" ")}
+>
 
   <div className={styles.sbHead}>
     // SECTIONS
@@ -289,7 +303,11 @@ function renderActions() {
       className={`${styles.sideBtn} ${
         activeSection === "keys" ? styles.activeSection : ""
       }`}
-      onClick={() => setActiveSection("keys")}
+      onClick={() => {
+    setActiveSection("keys");
+    setSidebarOpen(false);
+}}
+     
     >
       <div className={styles.navIconBox}>🔑</div>
 
@@ -303,7 +321,10 @@ function renderActions() {
       className={`${styles.sideBtn} ${
         activeSection === "teams" ? styles.activeSection : ""
       }`}
-      onClick={() => setActiveSection("teams")}
+      onClick={() => {
+    setActiveSection("teams");
+    setSidebarOpen(false);
+}}
     >
       <div className={styles.navIconBox}>👥</div>
 
@@ -317,7 +338,10 @@ function renderActions() {
       className={`${styles.sideBtn} ${
         activeSection === "ctfs" ? styles.activeSection : ""
       }`}
-      onClick={() => setActiveSection("ctfs")}
+      onClick={() => {
+    setActiveSection("ctfs");
+    setSidebarOpen(false);
+}}
     >
       <div className={styles.navIconBox}>⚑</div>
 
@@ -331,7 +355,10 @@ function renderActions() {
       className={`${styles.sideBtn} ${
         activeSection === "results" ? styles.activeSection : ""
       }`}
-      onClick={() => setActiveSection("results")}
+      onClick={() => {
+    setActiveSection("results");
+    setSidebarOpen(false);
+}}
     >
       <div className={styles.navIconBox}>📄</div>
 
@@ -345,7 +372,10 @@ function renderActions() {
       className={`${styles.sideBtn} ${
         activeSection === "leaderboard" ? styles.activeSection : ""
       }`}
-      onClick={() => setActiveSection("leaderboard")}
+      onClick={() => {
+    setActiveSection("leaderboard");
+    setSidebarOpen(false);
+}}
     >
       <div className={styles.navIconBox}>★</div>
 
@@ -668,6 +698,7 @@ function TeamsSection() {
   async function doSearch() {
     if (!search.trim()) return load();
     const t = await api.adminFetchTeam(search.trim());
+    console.log(t);
     setTeams(t ? [t] : []);
     if (!t) setInfo('No team found');
   }
@@ -686,6 +717,41 @@ function TeamsSection() {
 
  return (
   <>
+
+    <div className={styles.row}>
+
+  <input
+    className={styles.input}
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    placeholder="Team ID or Name"
+  />
+
+  <button
+    className={styles.btn}
+    onClick={doSearch}
+  >
+    FETCH
+  </button>
+
+  <button
+    className={`${styles.btn} ${styles.btnGhost}`}
+    onClick={() => {
+      setSearch("");
+      load();
+    }}
+  >
+    REFRESH
+  </button>
+
+  <button
+    className={`${styles.btn} ${styles.btnDanger}`}
+    onClick={removeAll}
+  >
+    REMOVE ALL
+  </button>
+
+</div>
 
     {info && (
       <div className={styles.msgError}>
@@ -789,7 +855,7 @@ function CtfSection() {
 
   return (
     <>
-      
+      <NewCtfForm reload={load}/>
       {ctfs.map((ctf) => (
         <CtfCard 
         key={ctf.ctfId} 
@@ -821,7 +887,9 @@ function NewCtfForm({ reload }) {
   }
 
   if (!open) {
-    return <button className={styles.btn} onClick={() => setOpen(true)}>+ NEW CTF</button>;
+    return <button className={`${styles.btn} ${styles.btnGreen}`}
+    onClick={() => setOpen(true)}>
+      + NEW CTF</button>;
   }
   return (
     <div className={styles.flagItem}>
@@ -932,12 +1000,10 @@ function CtfCard({ ctf, reload }) {
           onMove={moveFlag}
         />
       ))}
-      <button
-className={`${styles.btn}
-${styles.btnGreen}`}
->
-+ ADD FLAG
-</button>
+      <button 
+          className={`${styles.btn} ${styles.btnGreen}`}>
+            + ADD FLAG
+          </button>
     </div>
   );
 }
@@ -1185,7 +1251,40 @@ function ResultsSection() {
 
   return (
     <>
-      
+      <div className={styles.row}>
+
+  <input
+    className={styles.input}
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    placeholder="Team ID or Name"
+  />
+
+  <button
+    className={styles.btn}
+    onClick={doSearch}
+  >
+    FETCH
+  </button>
+
+  <button
+    className={`${styles.btn} ${styles.btnGhost}`}
+    onClick={() => {
+      setSearch("");
+      load();
+    }}
+  >
+    REFRESH
+  </button>
+
+  <button
+    className={`${styles.btn} ${styles.btnDanger}`}
+    onClick={removeAll}
+  >
+    REMOVE ALL
+  </button>
+
+</div>
 
       <div className={styles.scroll}>
         {results.map((r) => (

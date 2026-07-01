@@ -39,7 +39,7 @@
 .contentBody{
   display:flex;
   align-items:flex-start;
-
+  
   gap:10px;
 
   width:100%;
@@ -72,7 +72,7 @@
   width:min(100%,1100px);
   flex:1;
   min-height:180px;
-
+  
   display:flex;
   flex-direction:column;
 
@@ -440,6 +440,44 @@
   background: currentColor;
 }
 
+.statusChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 5px 9px;
+  border: 1px solid var(--gdim);
+  font-family: var(--pixel);
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+
+.statusChip.completed {
+  color: var(--g);
+  border-color: var(--g);
+  background: rgba(0, 255, 65, 0.08);
+}
+
+.statusChip.inProgress {
+  color: var(--a);
+  border-color: rgba(255, 170, 0, 0.5);
+  background: rgba(255, 170, 0, 0.08);
+}
+
+.statusChip.notStarted {
+  color: var(--gdim);
+  border-color: var(--gdim);
+  background: transparent;
+}
+
+.phaseProgress {
+  margin-top: 6px;
+  color: var(--gdim);
+  font-family: var(--pixel);
+  font-size: 5px;
+  letter-spacing: 1px;
+}
+
 /* =========================================
    BODY
 ========================================= */
@@ -449,6 +487,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  
   padding: 14px 16px;
 }
 
@@ -456,12 +495,14 @@
   font-size: 12px;
   line-height: 1.8;
   color: #3a6a42;
+  color: #A1FFC2;
 }
 
 .cardChips {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  
 }
 
 .techChip {
@@ -470,7 +511,9 @@
   font-family: var(--pixel);
   font-size: 5px;
   letter-spacing: 1px;
-  color: var(--gdim);
+  padding: 9px 15px;
+  color: #00aa2a;
+  background: rgba(0,255,65,0.05);
 }
 
 /* =========================================

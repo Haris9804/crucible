@@ -8,6 +8,7 @@ export default function TestResultModal({
   correct = 0,
   wrong = 0,
   total = 0,
+  avgTime=0,
   onRetry,
   onClose,
   testId
@@ -88,7 +89,7 @@ export default function TestResultModal({
           </div>
 
           <div className={styles.resultStat}>
-            <div className={`${styles.resultStatValue} ${styles.blue}`}>--</div>
+            <div className={`${styles.resultStatValue} ${styles.blue}`}>{avgTime}s</div>
             <div className={styles.resultStatLabel}>AVG TIME</div>
           </div>
 
